@@ -37,6 +37,4 @@ public class Pizza {
     public ArrayList<Sabor> getSabores() {
         return sabores;
     }
-
-
 }

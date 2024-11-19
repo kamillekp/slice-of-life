@@ -1,6 +1,6 @@
 public class Cartao {
     private String nome;
-    //private Date validade
+    private String validade;
     private int numero;
     private int cvv;
 

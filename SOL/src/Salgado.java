@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class Salgado extends Sabor {
-    private String[] queijo = {"cheddar", "prato", "suíço", "minas"};
-    private String[] vegetal= {"alface", "tomate", "cebola", "pepino"};
-    private String[] proteina = {"frango", "carne", "peixe", "presunto"};
-    private String[] folhaVerde = {"alface", "rúcula", "agrião", "espinafre"};
+    private String[] queijo = {"Gorgonzola", "Ricota", "Requeijão", "Cheddar", "Brie"};
+    private String[] vegetal= {"Brócolis", "Tomate", "Pimentão", "Cebola", "Palmito", "Cogumelo"};
+    private String[] proteina = {"Filé", "Salmão", "Frango", "Lombo", "Bacon", "Camarão"};
+    private String[] folhaVerde = {"Manjericão", "Salsa", "Rúcula", "Agrião", "Coentro", "Espinafre"};
 }
