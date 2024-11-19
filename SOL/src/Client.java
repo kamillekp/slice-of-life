@@ -1,7 +1,7 @@
 public class Client extends Order{
     private String name;
     private String surname;
-    private boolean register;
+    private boolean register; // verificar
     private Address address;
     private Payment payment;
 
@@ -13,7 +13,7 @@ public class Client extends Order{
         this.payment = payment;
     }  
        
-    public void ChangeRegister(){
+    public void ChangeRegister(){       // verificar
         this.register = !this.register;
     }
 
@@ -25,7 +25,7 @@ public class Client extends Order{
         return surname;
     }
 
-    public boolean getRegister() {
+    public boolean getRegister() {      // verificar
         return register;
     }  
     

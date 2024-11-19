@@ -1,6 +1,6 @@
 public class Payment {
     private String type;
-    private boolean filled;
+    private boolean filled;     // verificar
     private Card card;
 
     public Payment(String type, Card card) {
@@ -14,7 +14,7 @@ public class Payment {
         this.filled = true;
     }
 
-    public void changeFilled() {
+    public void changeFilled() {        // verificar
         this.filled = !this.filled;
     }
 
@@ -22,7 +22,7 @@ public class Payment {
         return type;
     }
 
-    public boolean getFilled() {
+    public boolean getFilled() {        // verificar
         return filled;
     }
 
