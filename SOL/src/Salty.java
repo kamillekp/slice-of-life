@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Salgado extends Sabor {
+public class Salty extends Flavor {
     private String[] queijo = {"Gorgonzola", "Ricota", "Requeijão", "Cheddar", "Brie"};
     private String[] vegetal= {"Brócolis", "Tomate", "Pimentão", "Cebola", "Palmito", "Cogumelo"};
     private String[] proteina = {"Filé", "Salmão", "Frango", "Lombo", "Bacon", "Camarão"};

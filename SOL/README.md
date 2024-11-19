@@ -1,18 +1,4 @@
-## Getting Started
+# Slice of Life (implementação)
+**Organização:** <br>
+As classes Pedido, Cliente, Pizza, Endereço, Pagamento, Sabor, Cartao, Doce e Salgado, são classes que cuidam das funções diretamente a ver com as classes que atuam entre si no processo do pedido de pizza. Já as classes Estado, EstadoParteUm, EstadoParteDois, EstadoParteTres, EstadoParteQuatro e EstadoParteCinco, são responsáveis por controlar o que acontecerá no back-end quando o usuário estiver em uma interface específica.
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
-
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).

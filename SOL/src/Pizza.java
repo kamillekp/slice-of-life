@@ -4,7 +4,7 @@ public class Pizza {
     private boolean borda;
     private int quantidadeSabor;
     private int tamanho;
-    private ArrayList<Sabor> sabores;
+    private ArrayList<Flavor> sabores;
 
     public void setBorda(boolean borda) {
         this.borda = borda;
@@ -30,11 +30,11 @@ public class Pizza {
         return tamanho;
     }
 
-    public void setSabores(ArrayList<Sabor> sabores) {
+    public void setSabores(ArrayList<Flavor> sabores) {
         this.sabores = sabores;
     }
 
-    public ArrayList<Sabor> getSabores() {
+    public ArrayList<Flavor> getSabores() {
         return sabores;
     }
 }
