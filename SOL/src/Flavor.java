@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+
 public abstract class Flavor {
-    // - ingredientes ArrayList<Tipo> ingredientes
+    private String type;
+    private ArrayList<String> ingredientes;
 }

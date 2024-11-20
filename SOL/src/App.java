@@ -7,5 +7,7 @@ public class App {
 
         System.out.println(c.getAddress().getStreet());
         System.out.println(c.getPayment().getCard().getName());
+
+        Salty s = new Salty();
     }
 }
