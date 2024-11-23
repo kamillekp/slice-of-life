@@ -1,40 +1,40 @@
 import java.util.ArrayList;
 
 public class Pizza {
-    private boolean borda;
-    private int quantidadeSabor;
-    private int tamanho;
-    private ArrayList<Flavor> sabores;
+    private boolean border;
+    private int numFlavor;
+    private int size;
+    private ArrayList<Flavor> flavors;
 
-    public void setBorda(boolean borda) {
-        this.borda = borda;
+    public void setBorder(boolean borda) {
+        this.border = border;
     }
 
-    public boolean getBorda() {
-        return borda;
+    public boolean getBorder() {
+        return border;
     }
 
-    public void setQuantidadeSabor(int quantidadeSabor) {
-        this.quantidadeSabor = quantidadeSabor;
+    public void setNumFlavor(int numFlavor) {
+        this.numFlavor = numFlavor;
     }
 
-    public int getQuantidadeSabor() {
-        return quantidadeSabor;
+    public int getNumFlavor() {
+        return numFlavor;
     }
 
-    public void setTamanho(int tamanho) {
-        this.tamanho = tamanho;
+    public void setSize(int size) {
+        this.size = size;
     }
 
-    public int getTamanho() {
-        return tamanho;
+    public int getSize() {
+        return size;
     }
 
-    public void setSabores(ArrayList<Flavor> sabores) {
-        this.sabores = sabores;
+    public void setFlavors(ArrayList<Flavor> flavors) {
+        this.flavors = flavors;
     }
 
-    public ArrayList<Flavor> getSabores() {
-        return sabores;
+    public ArrayList<Flavor> getFlavors() {
+        return flavors;
     }
 }

@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public abstract class Flavor {
+public class Flavor {
     private String type;
-    private ArrayList<String> ingredientes;
+    private ArrayList<String> ingredients;
 }
