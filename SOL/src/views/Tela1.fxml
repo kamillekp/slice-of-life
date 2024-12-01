@@ -26,7 +26,7 @@
             <Font name="Arial Bold" size="100.0" />
          </font>
       </Text>
-      <Button layoutX="367.0" layoutY="589.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="290.0" style="-fx-background-color: #388E3C; -fx-border-color: #216324; -fx-background-radius: 10; -fx-border-radius: 10;" text="BORA PEDIR!" textFill="WHITE">
+      <Button layoutX="367.0" layoutY="589.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="290.0" style="-fx-background-color: #388E3C; -fx-border-color: #216324; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-width: 3;" text="BORA PEDIR!" textFill="WHITE">
          <font>
             <Font size="40.0" />
          </font>
@@ -39,7 +39,7 @@
             <Image url="@../assets/image%201.png" />
          </image>
       </ImageView>
-      <TextField layoutX="117.0" layoutY="23.0" prefHeight="30.0" prefWidth="350.0" />
+      <TextField layoutX="117.0" layoutY="23.0" prefHeight="30.0" prefWidth="350.0" style="-fx-border-color: #969696;" />
       <Text fill="WHITE" layoutX="34.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:">
          <font>
             <Font name="Arial" size="25.0" />
@@ -50,6 +50,6 @@
             <Font size="25.0" />
          </font>
       </Text>
-      <TextField layoutX="641.0" layoutY="23.0" prefHeight="30.0" prefWidth="350.0" />
+      <TextField layoutX="641.0" layoutY="23.0" prefHeight="30.0" prefWidth="350.0" style="-fx-border-color: #969696;" />
    </children>
 </AnchorPane>
