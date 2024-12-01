@@ -4,6 +4,7 @@ public class Payment {
     private String type;
     private boolean filled;     // verificar
     private Card card;
+    private float value;
 
     public Payment(String type, Card card) {
         this.type = type;
@@ -30,5 +31,9 @@ public class Payment {
 
     public Card getCard() {
         return card;
+    }
+    
+    public float getValue() {
+    	return this.value;
     }
 }

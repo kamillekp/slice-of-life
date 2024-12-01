@@ -219,6 +219,8 @@ public class Tela5Controller{
                 tableSavoryFlavors.setPrefHeight(rowHeight * (numRows + 1.5));
                 
                 tableSavoryFlavors.setSelectionModel(null);
+
+                
                 pizzaSection.getChildren().addAll(pizzaLabel, tableSavoryFlavors);
                 tablesVBox.getChildren().add(pizzaSection);
 
@@ -248,23 +250,38 @@ public class Tela5Controller{
             contNumPizzas = contNumPizzas + 1;
     	}
     	
-
+ 
     	 
     	
     	appendToTextFlow2("Dados Pessoais\n\n", true, 15, Pos.CENTER);
     	
     	
-    	appendToTextFlow2(SharedState.getInstance().getName() + " " + SharedState.getInstance().getSurname() + "\n\n", false, 12, Pos.CENTER);
+    	appendToTextFlow2(SharedState.getInstance().getName() + " " + SharedState.getInstance().getSurname() + "\n\n", false, 14, Pos.CENTER);
     	
     	
-    	Payment pagamento = SharedState.getInstance().getPayment();
+    	Payment payment = SharedState.getInstance().getPayment();
     	Address adress = SharedState.getInstance().getAdress();
     	
-    	appendToTextFlow2(SharedState.getInstance().getName() + " " + SharedState.getInstance().getSurname() + "\n\n", false, 12, Pos.CENTER);
+    	if(payment != null && adress != null) {
     	
-    	appendToTextFlow2("  Endereço\n\n", true, 12, Pos.TOP_LEFT);
+    		appendToTextFlow2("     Endereço\n\n", true, 14, Pos.CENTER_LEFT);
+    	
+    		appendToTextFlow2("          CEP: " + adress.getZipCode() + "\n", false, 12, Pos.CENTER_LEFT);
+    		appendToTextFlow2("          Rua/Avenida " + adress.getStreet() + ", " + adress.getcity() + "\n", false, 12, Pos.CENTER_LEFT);
+    		appendToTextFlow2("          Número: " + adress.getNumber() + "\n", false, 12, Pos.CENTER_LEFT);
+    		appendToTextFlow2("          Complemento: " + adress.getComplement() + "\n", false, 12, Pos.CENTER_LEFT);
     	
     	
+    		appendToTextFlow2("     Pagamento\n\n", true, 14, Pos.CENTER_LEFT);
+    	
+    		appendToTextFlow2("          Total do pedido: " + payment.getValue() + "R$\n", false, 12, Pos.CENTER_LEFT);
+    		appendToTextFlow2("          Tipo: " + payment.getType() + "\n", false, 12, Pos.CENTER_LEFT);
+    	
+    		if(payment.getType() == "PIX") {
+    			appendToTextFlow2("          Código:\nuumDgBX2bVG0MjImljO2GYmnbxIRcX0TX2cr8A93lKp392JG8M4MJyKpPpQsDfEh69NgH3Gfd21HNk", false, 12, Pos.CENTER_LEFT);
+    		}
+    	
+    	}
     	
     	
     	
@@ -300,8 +317,9 @@ public class Tela5Controller{
     	  
         TableView<Flavor> table = new TableView<>();
         colNum.prefWidthProperty().bind(table.widthProperty().multiply(0.15));
-        
+         
         colNum.setStyle("-fx-font-weight: bold");
+        colNum.setResizable(false);
         
         table.getColumns().add(colNum);
         
@@ -313,23 +331,29 @@ public class Tela5Controller{
         cheeseCol.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getIngredients().get(0)));
         
         cheeseCol.prefWidthProperty().bind(table.widthProperty().multiply(0.21));
- 
+        cheeseCol.setResizable(false);
         
         table.getColumns().add(cheeseCol);
 
         TableColumn<Flavor, String> proteinCol = new TableColumn<>("Proteína");
         proteinCol.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getIngredients().get(1))); 
         proteinCol.prefWidthProperty().bind(table.widthProperty().multiply(0.21));
+        proteinCol.setResizable(false);
+        
         table.getColumns().add(proteinCol);
         	
         TableColumn<Flavor, String> vegetablesCol = new TableColumn<>("Vegetais");
         vegetablesCol.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getIngredients().get(2)));
         vegetablesCol.prefWidthProperty().bind(table.widthProperty().multiply(0.21));
+        vegetablesCol.setResizable(false);
+        
         table.getColumns().add(vegetablesCol);
         		
         TableColumn<Flavor, String> leafyCol = new TableColumn<>("Folhas");
         leafyCol.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getIngredients().get(3)));
         leafyCol.prefWidthProperty().bind(table.widthProperty().multiply(0.205));
+        leafyCol.setResizable(false);
+        
         table.getColumns().add(leafyCol);
        
 
@@ -361,13 +385,14 @@ public class Tela5Controller{
     	    return tablecell;
     	});
     	
-    	
+    	 
     	 
     	
         TableView<Flavor> table = new TableView<>();
         
         colNum.prefWidthProperty().bind(table.widthProperty().multiply(0.15));
         colNum.setStyle("-fx-font-weight: bold");
+        colNum.setResizable(false);
         
         table.getColumns().add(colNum);
         
@@ -378,21 +403,29 @@ public class Tela5Controller{
         toppingCol.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getIngredients().get(0)));
         
         toppingCol.prefWidthProperty().bind(table.widthProperty().multiply(0.21));
+        toppingCol.setResizable(false);
+        
         table.getColumns().add(toppingCol);
 
         TableColumn<Flavor, String> fruitCol = new TableColumn<>("Fruta");
         fruitCol.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getIngredients().get(1)));
         fruitCol.prefWidthProperty().bind(table.widthProperty().multiply(0.21));
+        fruitCol.setResizable(false);
+        
         table.getColumns().add(fruitCol);
         		
         TableColumn<Flavor, String> condimentCol = new TableColumn<>("Condimento");
         condimentCol.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getIngredients().get(2)));
         condimentCol.prefWidthProperty().bind(table.widthProperty().multiply(0.21));
+        condimentCol.setResizable(false);
+        
         table.getColumns().add(condimentCol);
         
         
         TableColumn<Flavor, String> nullCol = new TableColumn<>("");
         nullCol.prefWidthProperty().bind(table.widthProperty().multiply(0.205));
+        nullCol.setResizable(false);
+        
         table.getColumns().add(nullCol);
         return table;
     } 
@@ -424,8 +457,8 @@ public class Tela5Controller{
     	textNode.setFont(font);
     	
     	VBox vbox = new VBox();
-    	
-    	vbox.prefWidthProperty().bind(textFlow2.widthProperty());
+    	 
+    	vbox.prefWidthProperty().bind(textFlow2.widthProperty().multiply(0.9));
     	vbox.setAlignment(textAlignment);
     	
     	vbox.getChildren().add(textNode);
