@@ -79,7 +79,22 @@ public class Main extends Application {
 			pizza5.setSize(2);
 			pizza5.setFlavors(sabores);
 
-		     
+			Client client = new Client("TesteNome", "Sobrenome", null, null);
+			
+			ArrayList<Pizza> pizzas = new ArrayList<Pizza>();
+			
+			pizzas.add(pizza1);
+			pizzas.add(pizza2);
+			pizzas.add(pizza3);
+			pizzas.add(pizza4);
+			pizzas.add(pizza5);
+			
+			client.setPizzas(pizzas);
+			
+			
+			
+			ReviewState state = new ReviewState(client, "views/Tela5.fxml", "styles/Tela5.css");
+			/*
 			SharedState.getInstance().addPizza(pizza1);
 			SharedState.getInstance().addPizza(pizza2);
 			SharedState.getInstance().addPizza(pizza3);
@@ -87,6 +102,7 @@ public class Main extends Application {
 			SharedState.getInstance().addPizza(pizza5);
 
 			 
+			
 			
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("views/Tela5.fxml"));
 			Parent root = loader.load();
@@ -108,7 +124,7 @@ public class Main extends Application {
 			primaryStage.setTitle("Um teste");
 			primaryStage.show();
 			 
-			
+			*/
 			
 			
 		     

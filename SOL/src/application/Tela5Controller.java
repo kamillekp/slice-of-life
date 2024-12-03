@@ -12,6 +12,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableCell;
@@ -30,6 +31,8 @@ import javafx.scene.text.FontWeight;
 
 public class Tela5Controller{
 
+	private ReviewState state;
+	
     @FXML private VBox tablesVBox;
 	
     @FXML
@@ -55,16 +58,14 @@ public class Tela5Controller{
     
     @FXML private Button finalButton;
     
+    
     @FXML
     public void initialize(){
     	    	
-    	tableViewListagemPizzas.setSelectionModel(null);
-   
+    	tableViewListagemPizzas.setSelectionModel(null);   
     	tablesVBox.setSpacing(20);
     	
-    	ArrayList<Pizza> pizzas = SharedState.getInstance().getPizzas();
-    	ObservableList<Pizza> pizzas_list = FXCollections.observableArrayList(pizzas);
-    	    	
+ 
     	colPizzas.setCellValueFactory(new PropertyValueFactory<Pizza, Void>(""));
     	
     	
@@ -169,14 +170,24 @@ public class Tela5Controller{
     	    return tablecell;
     	});
     	
+
+   
+    }
+    
+
+    public void initializeComponents() {
+
+    	ArrayList<Pizza> pizzas = this.state.getClient().getPizzas();
+    	 
+    	ObservableList<Pizza> pizzas_list = FXCollections.observableArrayList(pizzas);
+
     	
     	tableViewListagemPizzas.setItems(pizzas_list);
     	
     	double rowHeight = 25.0;
     	int numRows = tableViewListagemPizzas.getItems().size();
     	
-    	System.out.println(numRows);
-    	
+
     	tableViewListagemPizzas.setPrefHeight(rowHeight * numRows);
     	
     	  
@@ -251,16 +262,16 @@ public class Tela5Controller{
     	}
     	
  
-    	 
+    	  
     	
     	appendToTextFlow2("Dados Pessoais\n\n", true, 15, Pos.CENTER);
     	
+    	appendToTextFlow2(this.state.getClient().getName() + " " + this.state.getClient().getSurname() + "\n\n", false, 14, Pos.CENTER);
     	
-    	appendToTextFlow2(SharedState.getInstance().getName() + " " + SharedState.getInstance().getSurname() + "\n\n", false, 14, Pos.CENTER);
     	
+    	Payment payment = this.state.getClient().getPayment();
+    	Address adress = this.state.getClient().getAddress();
     	
-    	Payment payment = SharedState.getInstance().getPayment();
-    	Address adress = SharedState.getInstance().getAdress();
     	
     	if(payment != null && adress != null) {
     	
@@ -429,20 +440,26 @@ public class Tela5Controller{
         table.getColumns().add(nullCol);
         return table;
     } 
+    	
+    	
     
+    public void setState(ReviewState state) {
+    	this.state = state;
+    }
     
-    
+    public ReviewState getState(){
+    	return this.state;
+    }
     
 
     @FXML
     private void goToFinalPage() {
 
       // Usar o SceneNavigator para mudar para a página final
-      SceneNavigator.navigateTo("views/Tela6.fxml", "styles/Tela6.css");
+      state.nextState();
       
-        
     }
-    
+     
 
        
     public void appendToTextFlow2(String texto, boolean isBold, int fontSize, Pos textAlignment) {

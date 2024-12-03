@@ -15,7 +15,7 @@ public class Client extends Order{
         this.payment = payment;
     }  
     
-
+ 
     
     public Client() {
 		this.name = null;
