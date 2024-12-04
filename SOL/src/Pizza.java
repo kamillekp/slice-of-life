@@ -1,4 +1,7 @@
+
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class Pizza {
     private boolean border;
@@ -6,7 +9,7 @@ public class Pizza {
     private int size;
     private ArrayList<Flavor> flavors;
 
-    public void setBorder(boolean borda) {
+    public void setBorder(boolean border) {
         this.border = border;
     }
 
@@ -37,4 +40,13 @@ public class Pizza {
     public ArrayList<Flavor> getFlavors() {
         return flavors;
     }
+    
+    public List<Flavor> getSaboresDoces() {
+    	return this.getFlavors().stream().filter(f -> f.getType().equals("doce")).toList();
+    }
+    
+    public List<Flavor> getSaboresSalgados() {
+    	return this.getFlavors().stream().filter(f -> f.getType().equals("salgado")).toList();
+    }
+    
 }

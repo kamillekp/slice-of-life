@@ -1,20 +1,26 @@
+
+
 import java.util.ArrayList;
 
 public class Order {
-    private State currentState;
     private ArrayList<Pizza> pizzas = new ArrayList<Pizza>();
     private boolean completed;
    
     public Order() {
-        this.currentState = new InitialState(this);
         this.completed = false;
     }
 
-    public void processOrder(){
-        this.currentState.processOrder();
+    
+    public void setPizzas(ArrayList<Pizza> pizzas) {
+    	this.pizzas = pizzas;
+    }
+    public ArrayList<Pizza> getPizzas() {
+    	return this.pizzas;
     }
 
-    public void setState(State state){
-        this.currentState = state;
-    }
+
+	public void processOrder() {
+		// TODO Auto-generated method stub
+		return;
+	}
 }

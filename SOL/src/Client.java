@@ -1,3 +1,5 @@
+
+
 public class Client extends Order{
     private String name;
     private String surname;
@@ -12,8 +14,20 @@ public class Client extends Order{
         this.address = address;     
         this.payment = payment;
     }  
-       
-    public void ChangeRegister(){       // verificar
+    
+
+    
+    public Client() {
+		this.name = null;
+		this.surname = null;
+		this.register = false;
+		this.address = null;
+		this.payment = null;
+	}
+
+
+
+	public void ChangeRegister(){       // verificar
         this.register = !this.register;
     }
 
