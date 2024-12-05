@@ -1,5 +1,5 @@
+package application;
 
-	
 import java.util.ArrayList;
 
 import javafx.application.Application;
@@ -88,7 +88,7 @@ public class Main extends Application {
 
 			 
 			
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("views/Tela5.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Tela5.fxml"));
 			Parent root = loader.load();
 			
  
@@ -101,7 +101,7 @@ public class Main extends Application {
 			Scene scene = new Scene(root);
 
 			
-			scene.getStylesheets().add(getClass().getResource("styles/Tela5.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("/styles/Tela5.css").toExternalForm());
 			
  
 			primaryStage.setScene(scene);

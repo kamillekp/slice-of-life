@@ -1,5 +1,5 @@
 
-
+package controllers;
 
 
 import java.util.ArrayList;
@@ -8,25 +8,35 @@ import java.util.List;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.Event;
+
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.ScrollEvent;
+
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
+
 import javafx.scene.text.TextFlow;
-import javafx.stage.Stage;
+
 import javafx.scene.text.FontWeight;
- 
+
+
+import application.Flavor;
+import application.Pizza;
+import application.Salty;
+import application.Sugary;
+import application.SharedState;
+import application.SceneNavigator;
+import application.Payment;
+import application.Address;
+
 
 public class Tela5Controller{
 
@@ -41,20 +51,6 @@ public class Tela5Controller{
     @FXML private TableColumn<Pizza, Integer> colNumSabores;
     @FXML private TableColumn<Pizza, Boolean> colBorda;
 
-    
-    @FXML private TableView<Pizza> tableViewPizzasSalgadas;
-    @FXML private TableColumn<Pizza,String> colQueijo;
-    @FXML private TableColumn<Pizza, String> colProteina;
-    @FXML private TableColumn<Pizza, String> colVegetais;
-    @FXML private TableColumn<Pizza, String> colFolhas;
-    
-    @FXML private TableView<Pizza> tableViewPizzasDoces;
-    @FXML private TableColumn<Pizza,String> colChocolate;
-    @FXML private TableColumn<Pizza, String> colFrutas;
-    @FXML private TableColumn<Pizza, String> colCondimentos;
-    
-    @FXML private Button finalButton;
-    
     @FXML
     public void initialize(){
     	    	
@@ -174,8 +170,6 @@ public class Tela5Controller{
     	
     	double rowHeight = 25.0;
     	int numRows = tableViewListagemPizzas.getItems().size();
-    	
-    	System.out.println(numRows);
     	
     	tableViewListagemPizzas.setPrefHeight(rowHeight * numRows);
     	
@@ -437,8 +431,8 @@ public class Tela5Controller{
     @FXML
     private void goToFinalPage() {
 
-      // Usar o SceneNavigator para mudar para a página final
-      SceneNavigator.navigateTo("views/Tela6.fxml", "styles/Tela6.css");
+      // Usar o application.SceneNavigator para mudar para a página final
+      SceneNavigator.navigateTo("/views/Tela6.fxml", "/styles/Tela6.css");
       
         
     }

@@ -1,4 +1,4 @@
-
+package application;
 
 public class Card {
     private String name;

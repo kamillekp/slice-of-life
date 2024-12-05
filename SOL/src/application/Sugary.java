@@ -1,4 +1,4 @@
-
+package application;
 
 public class Sugary extends Flavor {
     private String[] topping = {"Ao leite", "Meio Amargo", "Branco", "Amargo", "Pistache", "Avelã", "Doce de Leite", "Sorvete", "Brigadeiro", "Pasta de amendoim", "Beijinho"};

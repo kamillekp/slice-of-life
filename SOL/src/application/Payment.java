@@ -1,4 +1,4 @@
-
+package application;
 
 public class Payment {
     private String type;

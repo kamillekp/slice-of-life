@@ -1,4 +1,4 @@
-
+package application;
 
 public class Salty extends Flavor {
     private String[] cheese = {"Gorgonzola", "Ricota", "Requeijão", "Cheddar", "Brie"};
