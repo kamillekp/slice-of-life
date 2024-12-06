@@ -43,27 +43,22 @@
          </font>
       </Text>
 
-      <Button layoutX="52.0" layoutY="576.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="920.0" style="-fx-background-color: #FF7043; -fx-background-radius: 10; -fx-font-family: Arial;" text="MAIS UMA PIZZA?" textFill="WHITE">
+      <Button layoutX="52.0" layoutY="576.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="920.0" style="-fx-background-color: #FF7043; -fx-background-radius: 10; -fx-font-family: Arial;" text="MAIS UMA PIZZA?" textFill="WHITE">
          <font>
-            <Font size="32.0" />
+            <Font name="Arial" size="34.0" />
          </font>
       </Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eaeaea" height="92.0" layoutY="676.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke-width: 0;" width="1024.0" />
-      <Button fx:id="finalButton" layoutX="794.0" layoutY="695.0" mnemonicParsing="false" onAction="#goToFinalPage" prefHeight="51.0" prefWidth="182.0" style="-fx-font-family: aRIAL; -fx-background-radius: 10; -fx-border-color: #216324; -fx-border-radius: 10; -fx-border-width: 3;" text="FINALIZAR" textFill="WHITE">
+      <Button fx:id="finalButton" layoutX="794.0" layoutY="695.0" mnemonicParsing="false" onAction="#goToFinalPage" prefHeight="51.0" prefWidth="182.0" style="-fx-font-family: aRIAL; -fx-background-radius: 10; -fx-border-color: #216324; -fx-border-radius: 10; -fx-border-width: 2; -fx-background-color: #388E3C;" text="FINALIZAR" textFill="WHITE">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button layoutX="40.0" layoutY="695.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="182.0" style="-fx-font-family: aRIAL; -fx-background-radius: 10; -fx-border-color: #216324; -fx-border-radius: 10; -fx-border-width: 3;" text="VOLTAR" textFill="WHITE">
+      <Button layoutX="40.0" layoutY="695.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="182.0" style="-fx-font-family: aRIAL; -fx-background-radius: 10; -fx-border-color: #216324; -fx-border-radius: 10; -fx-border-width: 2; -fx-background-color: #388E3C;" text="VOLTAR" textFill="WHITE">
          <font>
-            <Font size="26.0" />
+            <Font name="Arial" size="26.0" />
          </font>
       </Button>
-      <ImageView fitHeight="29.0" fitWidth="36.0" layoutX="108.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" rotate="34.3">
-         <image>
-            <Image url="@../assets/image1.png" />
-         </image>
-      </ImageView>
       <TextFlow fx:id="textFlow2" layoutX="584.0" layoutY="162.0" prefHeight="343.0" prefWidth="290.0" style="-fx-background-color: E0E0E0; -fx-background-radius: 15; -fx-padding: 15;" />
       <ScrollPane layoutX="52.0" layoutY="152.0" prefHeight="385.0" prefWidth="507.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: transparent;">
          <content>
@@ -71,7 +66,7 @@
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: #E0E0E0;" text="Listagem do Pedido">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Arial Bold" size="16.0" />
                      </font>
                   </Text>
                   <TableView id="orderTable" fx:id="tableViewListagemPizzas" prefHeight="150.0" prefWidth="475.0" style="-fx-background-color: #E0E0E0; -fx-border-color: transparent;">
@@ -97,5 +92,10 @@
             </VBox>
          </content>
       </ScrollPane>
+      <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="106.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/image1.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
