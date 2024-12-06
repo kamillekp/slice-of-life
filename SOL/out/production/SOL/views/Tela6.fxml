@@ -10,33 +10,32 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #64B5F6;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FinalController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eaeaea" height="92.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke-width: 0;" width="1024.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eaeaea" height="90.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke-width: 0;" width="1024.0" />
       <Text fill="#ff7043" layoutX="63.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Arial;" text="SLICE OF LIFE" textAlignment="CENTER" wrappingWidth="60.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-
-      <Button layoutX="52.0" layoutY="576.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="920.0" style="-fx-background-color: #FF7043; -fx-background-radius: 10; -fx-font-family: Arial;" text="ACOMPANHE SEU PEDIDO" textFill="WHITE">
-         <font>
-            <Font size="32.0" />
-         </font>
-      </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eaeaea" height="92.0" layoutY="676.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke-width: 0;" width="1024.0" />
-      <ImageView fitHeight="29.0" fitWidth="36.0" layoutX="108.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" rotate="34.3">
-         <image>
-            <Image url="@../assets/image1.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="32.0" layoutY="695.0" mnemonicParsing="false" onAction="#BackToReviewPage" prefHeight="51.0" prefWidth="182.0" style="-fx-font-family: Arial; -fx-background-radius: 10; -fx-border-color: #216324; -fx-border-radius: 10; -fx-border-width: 3;" text="INÍCIO" textFill="WHITE">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eaeaea" height="90.0" layoutY="676.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke-width: 0;" width="1024.0" />
+      <Button layoutX="32.0" layoutY="695.0" mnemonicParsing="false" onAction="#BackToReviewPage" prefHeight="51.0" prefWidth="182.0" style="-fx-font-family: Arial; -fx-background-radius: 10; -fx-border-color: #216324; -fx-border-radius: 10; -fx-border-width: 2; -fx-background-color: #388E3C;" text="INÍCIO" textFill="WHITE">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eaeaea" height="410.0" layoutX="103.0" layoutY="130.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: transparent; -fx-arc-width: 30; -fx-arc-height: 30;" width="795.0" />
-      <ImageView fitHeight="312.0" fitWidth="447.0" layoutX="331.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eaeaea" height="430.0" layoutX="52.0" layoutY="132.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: transparent; -fx-arc-width: 30; -fx-arc-height: 30;" width="920.0" />
+      <ImageView fitHeight="338.0" fitWidth="399.0" layoutX="328.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/image2.png" />
+         </image>
+      </ImageView>
+      <Text fill="#ff7043" layoutX="190.0" layoutY="623.0" stroke="WHITE" strokeType="OUTSIDE" text="ACOMPANHE SEU PEDIDO">
+         <font>
+            <Font name="Arial" size="50.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="35.0" fitWidth="30.0" layoutX="105.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/image1.png" />
          </image>
       </ImageView>
    </children>
