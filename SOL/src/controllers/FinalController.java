@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 
 import application.SceneNavigator;
 
-public class Tela6Controller {
+public class FinalController {
 
 	
     @FXML

@@ -2,20 +2,20 @@ package application;
 
 import java.util.ArrayList;
 
-public class SharedState {;
+public class SharedControl {;
 	
-	private static SharedState instance = null;
+	private static SharedControl instance = null;
 	private Client client;
 	
 	
 	
-	public SharedState(){
+	public SharedControl(){
 		this.client = new Client();		
 	}
 	
-    public static SharedState getInstance() {
+    public static SharedControl getInstance() {
         if (instance == null) {
-            instance = new SharedState();
+            instance = new SharedControl();
         }
         return instance;
     }

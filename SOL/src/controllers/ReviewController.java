@@ -30,15 +30,13 @@ import javafx.scene.text.FontWeight;
 
 import application.Flavor;
 import application.Pizza;
-import application.Salty;
-import application.Sugary;
-import application.SharedState;
+import application.SharedControl;
 import application.SceneNavigator;
 import application.Payment;
 import application.Address;
 
 
-public class Tela5Controller{
+public class ReviewController {
 
     @FXML private VBox tablesVBox;
 	
@@ -58,7 +56,7 @@ public class Tela5Controller{
    
     	tablesVBox.setSpacing(20);
     	
-    	ArrayList<Pizza> pizzas = SharedState.getInstance().getPizzas();
+    	ArrayList<Pizza> pizzas = SharedControl.getInstance().getPizzas();
     	ObservableList<Pizza> pizzas_list = FXCollections.observableArrayList(pizzas);
     	    	
     	colPizzas.setCellValueFactory(new PropertyValueFactory<Pizza, Void>(""));
@@ -250,11 +248,11 @@ public class Tela5Controller{
     	appendToTextFlow2("Dados Pessoais\n\n", true, 15, Pos.CENTER);
     	
     	
-    	appendToTextFlow2(SharedState.getInstance().getName() + " " + SharedState.getInstance().getSurname() + "\n\n", false, 14, Pos.CENTER);
+    	appendToTextFlow2(SharedControl.getInstance().getName() + " " + SharedControl.getInstance().getSurname() + "\n\n", false, 14, Pos.CENTER);
     	
     	
-    	Payment payment = SharedState.getInstance().getPayment();
-    	Address adress = SharedState.getInstance().getAdress();
+    	Payment payment = SharedControl.getInstance().getPayment();
+    	Address adress = SharedControl.getInstance().getAdress();
     	
     	if(payment != null && adress != null) {
     	

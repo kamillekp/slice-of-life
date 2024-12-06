@@ -80,11 +80,11 @@ public class Main extends Application {
 			pizza5.setFlavors(sabores);
 
 		     
-			SharedState.getInstance().addPizza(pizza1);
-			SharedState.getInstance().addPizza(pizza2);
-			SharedState.getInstance().addPizza(pizza3);
-			SharedState.getInstance().addPizza(pizza4);
-			SharedState.getInstance().addPizza(pizza5);
+			SharedControl.getInstance().addPizza(pizza1);
+			SharedControl.getInstance().addPizza(pizza2);
+			SharedControl.getInstance().addPizza(pizza3);
+			SharedControl.getInstance().addPizza(pizza4);
+			SharedControl.getInstance().addPizza(pizza5);
 
 			 
 			
