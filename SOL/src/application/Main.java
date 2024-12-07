@@ -14,39 +14,11 @@ public class Main extends Application {
 		try {
 			
 			SceneNavigator.setStage(primaryStage);
-			
-			
-			ArrayList<String> conjunto1 = new  ArrayList<String>();
-			ArrayList<String> conjunto2 = new  ArrayList<String>();
-			ArrayList<String> conjunto3 = new  ArrayList<String>();
-			
-			
-			conjunto1.add("chocolate");
-			conjunto1.add("MMs");
-			conjunto1.add("leite condensado");
-			conjunto1.add("");
-			
-			conjunto2.add("gorgonzola");
-			conjunto2.add("frango");
-			conjunto2.add("pimentao");
-			conjunto2.add("");
-			
-			conjunto3.add("cheddar");
-			conjunto3.add("bacon");
-			conjunto3.add("");
-			conjunto3.add("");
-			
-			
-			Flavor flavor1 = new Flavor("doce", conjunto1);
-			Flavor flavor2 = new Flavor("salgado", conjunto2);
-			Flavor flavor3 = new Flavor("salgado", conjunto3);
-			
-			 
-			ArrayList<Flavor> sabores = new ArrayList<Flavor>();
-			sabores.add(flavor2);
-			sabores.add(flavor1);
-			
-			
+
+
+			ArrayList<Flavor> sabores = getFlavors();
+
+
 			Pizza pizza1 = new Pizza();
 			pizza1.setBorder(false);
 			pizza1.setNumFlavor(2);
@@ -106,18 +78,51 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Um teste");
 			primaryStage.show();
-			 
-			
-			
-			
-		     
-		    
-		    
+
+
+
+
+
+
+
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
-	 
+
+	private static ArrayList<Flavor> getFlavors() {
+		ArrayList<String> conjunto1 = new  ArrayList<String>();
+		ArrayList<String> conjunto2 = new  ArrayList<String>();
+		ArrayList<String> conjunto3 = new  ArrayList<String>();
+
+
+		conjunto1.add("chocolate");
+		conjunto1.add("MMs");
+		conjunto1.add("leite condensado");
+		conjunto1.add("");
+
+		conjunto2.add("gorgonzola");
+		conjunto2.add("frango");
+		conjunto2.add("pimentao");
+		conjunto2.add("");
+
+		conjunto3.add("cheddar");
+		conjunto3.add("bacon");
+		conjunto3.add("");
+		conjunto3.add("");
+
+
+		Flavor flavor1 = new Flavor("doce", conjunto1);
+		Flavor flavor2 = new Flavor("salgado", conjunto2);
+		Flavor flavor3 = new Flavor("salgado", conjunto3);
+
+
+		ArrayList<Flavor> sabores = new ArrayList<Flavor>();
+		sabores.add(flavor2);
+		sabores.add(flavor1);
+		return sabores;
+	}
+
 	public static void main(String[] args) {
 		launch(args);
 	}

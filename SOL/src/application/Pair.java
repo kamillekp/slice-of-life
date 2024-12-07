@@ -1,8 +1,8 @@
 package application;
 
 public class Pair {
-    private String option;
-    private double price;
+    private final String option;
+    private final double price;
 
     Pair(String option, double price) {
         this.option = option;
