@@ -1,5 +1,6 @@
 package application;
 
+
 public class Client {
     private String name;
     private String surname;
@@ -54,4 +55,5 @@ public class Client {
     public void setPayment(Payment payment) {
         this.payment = payment;
     }
+
 }

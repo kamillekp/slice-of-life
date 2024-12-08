@@ -47,4 +47,14 @@ public class Pizza {
     public void addFlavor(Flavor flavor) {
         this.flavors.add(flavor);
     }
+
+    public void setBorder(boolean b) {this.border = b;}
+
+    public List<Flavor> getSaboresDoces() {
+        return this.getFlavors().stream().filter(f -> f.getType().equals("doce")).toList();
+    }
+
+    public List<Flavor> getSaboresSalgados() {
+        return this.getFlavors().stream().filter(f -> f.getType().equals("salgado")).toList();
+    }
 }
