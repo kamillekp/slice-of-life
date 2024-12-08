@@ -17,44 +17,56 @@
    <children>
       <AnchorPane layoutX="37.0" layoutY="132.0" prefHeight="503.0" prefWidth="920.0" style="-fx-background-color: #EAEAEA; -fx-background-radius: 10;">
          <children>
-            <Text fill="#303030" layoutX="359.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INGREDIENTES SALGADOS">
+            <Text fill="#303030" layoutX="375.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INGREDIENTES DOCES">
                <font>
                   <Font name="Arial Bold" size="15.0" />
                </font>
             </Text>
-            <AnchorPane layoutX="78.0" layoutY="54.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="349.0" style="-fx-border-color: ff7043; -fx-border-radius: 10; -fx-border-width: 4;">
+            <AnchorPane layoutX="78.0" layoutY="54.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="350.0" style="-fx-border-color: ff7043; -fx-border-radius: 10; -fx-border-width: 4;">
                <children>
-                  <VBox layoutX="8.0" layoutY="29.0" prefHeight="172.0" prefWidth="337.0">
+                  <VBox layoutX="8.0" layoutY="29.0" prefHeight="387.0" prefWidth="338.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="QUEIJO" textAlignment="CENTER" wrappingWidth="335.85699462890625">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="COBERTURAS" textAlignment="CENTER" wrappingWidth="335.85699462890625">
                            <font>
                               <Font name="Arial Bold" size="15.0" />
                            </font>
                         </Text>
-                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="152.0" prefWidth="337.0">
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="369.0" prefWidth="338.0">
                            <children>
-                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="133.0" prefWidth="166.0">
+                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="166.0">
                                  <children>
-                                    <RadioButton id="cheeseOption0" lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Gorgonzola">
+                                    <RadioButton id="toppingOption0" lineSpacing="5.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="93.0" text="Ao leite">
                                        <toggleGroup>
-                                          <ToggleGroup fx:id="pizzaCheeseFlavor" />
+                                          <ToggleGroup fx:id="pizzaToppingFlavor" />
                                        </toggleGroup>
                                     </RadioButton>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
-                                    <RadioButton id="cheeseOption1" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Ricota" toggleGroup="$pizzaCheeseFlavor" />
+                                    <RadioButton id="toppingOption1" mnemonicParsing="false" prefHeight="18.0" prefWidth="94.0" text="Branco" toggleGroup="$pizzaToppingFlavor" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
-                                    <RadioButton id="cheeseOption2" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Requeijão" toggleGroup="$pizzaCheeseFlavor" />
+                                    <RadioButton id="toppingOption2" mnemonicParsing="false" prefHeight="18.0" prefWidth="96.0" text="Pistache" toggleGroup="$pizzaToppingFlavor" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
+                                    <RadioButton id="toppingOption3" mnemonicParsing="false" prefHeight="18.0" prefWidth="96.0" text="Doce de leite" toggleGroup="$pizzaToppingFlavor" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
+                                    <RadioButton id="toppingOption4" mnemonicParsing="false" prefHeight="18.0" prefWidth="94.0" text="Brigadeiro" toggleGroup="$pizzaToppingFlavor" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
+                                    <RadioButton id="toppingOption5" mnemonicParsing="false" prefHeight="18.0" prefWidth="93.0" text="Beijinho" toggleGroup="$pizzaToppingFlavor" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
                                  </children>
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
                               </VBox>
-                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="133.0" prefWidth="166.0">
+                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="166.0">
                                  <children>
-                                    <RadioButton id="cheeseOption3" lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Cheddar" toggleGroup="$pizzaCheeseFlavor" />
+                                    <RadioButton id="toppingOption6" lineSpacing="5.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="133.0" text="Meio Amargo" toggleGroup="$pizzaToppingFlavor" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
-                                    <RadioButton id="cheeseOption4" lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Brie" toggleGroup="$pizzaCheeseFlavor" />
+                                    <RadioButton id="toppingOption7" lineSpacing="5.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="131.0" text="Amargo" toggleGroup="$pizzaToppingFlavor" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
+                                    <RadioButton id="toppingOption8" lineSpacing="5.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="132.0" text="Avelã" toggleGroup="$pizzaToppingFlavor" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
+                                    <RadioButton id="toppingOption9" lineSpacing="5.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="130.0" text="Sorvete" toggleGroup="$pizzaToppingFlavor" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
+                                    <RadioButton id="toppingOption10" lineSpacing="5.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="132.0" text="Pasta de Amendoim" toggleGroup="$pizzaToppingFlavor" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
                                  </children>
                               </VBox>
@@ -68,7 +80,7 @@
                <children>
                   <VBox layoutX="8.0" layoutY="29.0" prefHeight="172.0" prefWidth="337.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="VEGETAL" textAlignment="CENTER" wrappingWidth="335.85699462890625">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="FRUTA" textAlignment="CENTER" wrappingWidth="335.85699462890625">
                            <font>
                               <Font name="Arial Bold" size="15.0" />
                            </font>
@@ -77,15 +89,15 @@
                            <children>
                               <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="133.0" prefWidth="166.0">
                                  <children>
-                                    <RadioButton id="vegetableOption0" lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Brócolis">
+                                    <RadioButton id="fruitOption0" lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Morango">
                                        <toggleGroup>
-                                          <ToggleGroup fx:id="pizzaVegetableFlavor" />
+                                          <ToggleGroup fx:id="pizzaFruitFlavor" />
                                        </toggleGroup>
                                     </RadioButton>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
-                                    <RadioButton id="vegetableOption1" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Pimentão" toggleGroup="$pizzaVegetableFlavor" />
+                                    <RadioButton id="fruitOption1" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Abacaxi" toggleGroup="$pizzaFruitFlavor" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
-                                    <RadioButton id="vegetableOption2" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Palmito" toggleGroup="$pizzaVegetableFlavor" />
+                                    <RadioButton id="fruitOption2" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Kiwi" toggleGroup="$pizzaFruitFlavor" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
                                  </children>
                                  <opaqueInsets>
@@ -94,55 +106,11 @@
                               </VBox>
                               <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="133.0" prefWidth="166.0">
                                  <children>
-                                    <RadioButton id="vegetableOption3" lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Tomate" toggleGroup="$pizzaVegetableFlavor" />
+                                    <RadioButton id="fruitOption3" lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Framboesa" toggleGroup="$pizzaFruitFlavor" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
-                                    <RadioButton id="vegetableOption4" lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Cebola" toggleGroup="$pizzaVegetableFlavor" />
+                                    <RadioButton id="fruitOption4" lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Uva" toggleGroup="$pizzaFruitFlavor" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
-                                    <RadioButton id="vegetableOption5" lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Cogumelo" toggleGroup="$pizzaVegetableFlavor" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="78.0" layoutY="276.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="349.0" style="-fx-border-color: ff7043; -fx-border-radius: 10; -fx-border-width: 4;">
-               <children>
-                  <VBox layoutX="8.0" layoutY="29.0" prefHeight="172.0" prefWidth="337.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="PROTEÍNA" textAlignment="CENTER" wrappingWidth="335.85699462890625">
-                           <font>
-                              <Font name="Arial Bold" size="15.0" />
-                           </font>
-                        </Text>
-                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="152.0" prefWidth="337.0">
-                           <children>
-                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="133.0" prefWidth="166.0">
-                                 <children>
-                                    <RadioButton lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Filé">
-                                       <toggleGroup>
-                                          <ToggleGroup fx:id="pizzaProteinFlavor" />
-                                       </toggleGroup>
-                                    </RadioButton>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
-                                    <RadioButton mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Salmão" toggleGroup="$pizzaProteinFlavor" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
-                                    <RadioButton mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Camarão" toggleGroup="$pizzaProteinFlavor" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
-                                 </children>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                              </VBox>
-                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="133.0" prefWidth="166.0">
-                                 <children>
-                                    <RadioButton lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Frango" toggleGroup="$pizzaProteinFlavor" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
-                                    <RadioButton lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Lombo" toggleGroup="$pizzaProteinFlavor" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
-                                    <RadioButton lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Bacon" toggleGroup="$pizzaProteinFlavor" />
+                                    <RadioButton id="fruitOption5" lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Tâmara" toggleGroup="$pizzaFruitFlavor" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
                                  </children>
                               </VBox>
@@ -156,7 +124,7 @@
                <children>
                   <VBox layoutX="8.0" layoutY="29.0" prefHeight="172.0" prefWidth="337.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="FOLHAS VERDES" textAlignment="CENTER" wrappingWidth="335.85699462890625">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CONDIMENTOS" textAlignment="CENTER" wrappingWidth="335.85699462890625">
                            <font>
                               <Font name="Arial Bold" size="15.0" />
                            </font>
@@ -165,15 +133,15 @@
                            <children>
                               <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="133.0" prefWidth="166.0">
                                  <children>
-                                    <RadioButton id="greenLeavesOption0" lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Manjericão">
+                                    <RadioButton id="condimentOption0" lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="M&amp;M's">
                                        <toggleGroup>
-                                          <ToggleGroup fx:id="pizzaGreenLeavesFlavor" />
+                                          <ToggleGroup fx:id="pizzaCondimentGroup" />
                                        </toggleGroup>
                                     </RadioButton>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
-                                    <RadioButton id="greenLeavesOption1" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Rúcula" toggleGroup="$pizzaGreenLeavesFlavor" />
+                                    <RadioButton id="condimentOption1" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Coco ralado" toggleGroup="$pizzaCondimentGroup" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
-                                    <RadioButton id="greenLeavesOption2" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Coentro" toggleGroup="$pizzaGreenLeavesFlavor" />
+                                    <RadioButton id="condimentOption2" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Paçoca" toggleGroup="$pizzaCondimentGroup" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
                                  </children>
                                  <opaqueInsets>
@@ -182,11 +150,11 @@
                               </VBox>
                               <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="133.0" prefWidth="166.0">
                                  <children>
-                                    <RadioButton id="greenLeavesOption3" lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Salsa" toggleGroup="$pizzaGreenLeavesFlavor" />
+                                    <RadioButton id="condimentOption3" lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Amêndoas" toggleGroup="$pizzaCondimentGroup" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
-                                    <RadioButton id="greenLeavesOption4" lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Agrião" toggleGroup="$pizzaGreenLeavesFlavor" />
+                                    <RadioButton id="condimentOption4" lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Nozes" toggleGroup="$pizzaCondimentGroup" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
-                                    <RadioButton id="greenLeavesOption5" lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Espinafre" toggleGroup="$pizzaGreenLeavesFlavor" />
+                                    <RadioButton id="condimentOption5" lineSpacing="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="88.0" text="Castanhas" toggleGroup="$pizzaCondimentGroup" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00" wrappingWidth="38.94140625" />
                                  </children>
                               </VBox>
@@ -196,7 +164,7 @@
                   </VBox>
                </children>
             </AnchorPane>
-            <Button layoutX="798.0" layoutY="5.0" mnemonicParsing="false" onAction="#goToSweetFlavorsPage" prefHeight="34.0" prefWidth="107.0" style="-fx-background-color: #388E3C; -fx-border-color: #216324; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-width: 2;" text="DOCES" textFill="WHITE">
+            <Button layoutX="798.0" layoutY="5.0" mnemonicParsing="false" onAction="#goToSaltyFlavorsPage" prefHeight="34.0" prefWidth="107.0" style="-fx-background-color: #388E3C; -fx-border-color: #216324; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-width: 2;" text="SALGADOS" textFill="WHITE">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
