@@ -7,6 +7,8 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			new SharedControl();
+
 			SceneNavigator.setStage(primaryStage);
 			SceneNavigator.navigateTo("/views/Tela1.fxml", "/styles/Tela1.css");
 		} catch(Exception e) {

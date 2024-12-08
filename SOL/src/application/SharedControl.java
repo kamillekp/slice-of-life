@@ -4,6 +4,7 @@ public class SharedControl {
     private static SharedControl instance;
     private Order order;
     private Pizza pizza;
+    private boolean finishedPizzaInfo;
 
     public SharedControl() {
         order = new Order();
@@ -16,8 +17,8 @@ public class SharedControl {
         return instance;
     }
 
-    public void InitPizza(boolean border, int numFlavor, String size) {
-        this.pizza = new Pizza(border,numFlavor, size);
+    public void InitPizza() {
+        this.pizza = new Pizza();
     }
 
     public Order getOrder() {
@@ -26,5 +27,13 @@ public class SharedControl {
 
     public Pizza getPizza() {
         return pizza;
+    }
+
+    public boolean isFinishedPizzaInfo() {
+        return finishedPizzaInfo;
+    }
+
+    public void changeFinishedPizzaInfo() {
+        finishedPizzaInfo = !finishedPizzaInfo;
     }
 }

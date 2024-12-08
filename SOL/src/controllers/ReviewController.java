@@ -321,8 +321,13 @@ public class ReviewController {
       SceneNavigator.navigateTo("/views/Tela6.fxml", "/styles/Tela6.css");
     }
 
-       
-    public void appendToTextFlow2(String texto, boolean isBold, int fontSize, Pos textAlignment) {
+	@FXML
+	private void goToChoosePizzaPage() {
+		SceneNavigator.navigateTo("/views/Tela2.fxml", "/styles/Tela2.css");
+	}
+
+
+	public void appendToTextFlow2(String texto, boolean isBold, int fontSize, Pos textAlignment) {
     	Text textNode = new Text(texto);
     	Font font;
     	

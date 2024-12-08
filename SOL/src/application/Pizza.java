@@ -7,13 +7,12 @@ public class Pizza {
     private boolean border;
     private int numFlavor;
     private String size;
+    private boolean finished;
     private ArrayList<Flavor> flavors;
 
-    public Pizza(boolean border, int numFlavor, String size) {
-        this.border = border;
-        this.numFlavor = numFlavor;
-        this.size = size;
+    public Pizza() {
         this.flavors = new ArrayList<>();
+        this.finished = false;
     }
 
     public boolean isBorder() {
@@ -26,6 +25,10 @@ public class Pizza {
 
     public String getSize() {
         return size;
+    }
+
+    public boolean isFinished() {
+        return finished;
     }
 
     public ArrayList<Flavor> getFlavors() {
@@ -42,6 +45,10 @@ public class Pizza {
 
     public void setSize(String size) {
         this.size = size;
+    }
+
+    public void changeFinished() {
+        this.finished = !finished;
     }
 
     public void addFlavor(Flavor flavor) {
