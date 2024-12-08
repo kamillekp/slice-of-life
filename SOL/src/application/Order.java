@@ -6,11 +6,13 @@ public class Order {
     private ArrayList<Pizza> pizzas;
     private Client client;
     private boolean completed;
+    private double totalPrice;
 
     public Order() {
         this.completed = false;
         this.client = new Client();
         this.pizzas = new ArrayList<>();
+        this.totalPrice = 0;
     }
 
     public ArrayList<Pizza> getPizzas() {
@@ -25,6 +27,10 @@ public class Order {
         return completed;
     }
 
+    public double getPrice() {
+        return totalPrice;
+    }
+
     public void addPizza(Pizza pizza) {
         this.pizzas.add(pizza);
     }
@@ -35,5 +41,9 @@ public class Order {
 
     public void changeCompleted() {
         this.completed = !completed;
+    }
+
+    public void updateTotalPrice(double price) {
+        this.totalPrice = this.totalPrice + price;
     }
 }

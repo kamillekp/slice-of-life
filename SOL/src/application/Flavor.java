@@ -18,5 +18,7 @@ public class Flavor {
     public ArrayList<String> getIngredients(){
     	return this.ingredients;
     }
+
+
 }
 
