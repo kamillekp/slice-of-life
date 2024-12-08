@@ -17,8 +17,6 @@ public class InitialController {
 
     @FXML
     private void GoToChoosePizzaPage(ActionEvent event) {
-        new SharedControl();
-
         String name = nameInput.getText();
         String surname = surnameInput.getText();
 

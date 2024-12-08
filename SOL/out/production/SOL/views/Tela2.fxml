@@ -14,11 +14,6 @@
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eaeaea" height="90.0" strokeType="INSIDE" width="1024.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eaeaea" height="90.0" layoutY="678.0" strokeType="INSIDE" width="1024.0" />
-      <Button layoutX="49.0" layoutY="697.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #388E3C; -fx-border-color: #216324; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-width: 2;" text="VOLTAR" textFill="WHITE">
-         <font>
-            <Font name="Arial" size="25.0" />
-         </font>
-      </Button>
       <Button layoutX="794.0" layoutY="697.0" mnemonicParsing="false" onAction="#GoToChooseFlavorPage" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #388E3C; -fx-border-color: #216324; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-width: 2;" text="SEGUIR" textFill="WHITE">
          <font>
             <Font name="Arial" size="25.0" />
@@ -220,5 +215,10 @@
             </Text>
          </children>
       </AnchorPane>
+      <Button layoutX="50.0" layoutY="697.0" mnemonicParsing="false" onAction="#goToInitialPage" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #388E3C; -fx-border-color: #216324; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-width: 2;" text="VOLTAR" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="25.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
