@@ -2,17 +2,22 @@ package application;
 
 public class PizzaInfo {
     private final Pair[] sizes = {
-            new Pair("Pequena (25cm)", 1),
-            new Pair("Média (30cm)", 2),
-            new Pair("Grande (35cm)", 3),
-            new Pair("Família (40cm)", 4),
+            new Pair("(25cm)", 25),
+            new Pair("(30cm)", 30),
+            new Pair("(35cm)", 35),
+            new Pair("(40cm)", 40),
     };
 
     private final Pair[] numFlavors = {
-            new Pair("Um sabor", 1),
-            new Pair("Dois sabores", 2),
-            new Pair("Três sabores", 3),
-            new Pair("Quatro sabores", 4),
+            new Pair("Um sabor", 0),
+            new Pair("Dois sabores", 1),
+            new Pair("Três sabores", 2),
+            new Pair("Quatro sabores", 3),
+    };
+
+    private final Pair[] pizzaBorder = {
+            new Pair("Com Borda", 1),
+            new Pair("Sem Borda", 0),
     };
 
     public Pair[] getSizes() {
@@ -22,4 +27,6 @@ public class PizzaInfo {
     public Pair[] getNumFlavors() {
         return numFlavors;
     }
+
+
 }

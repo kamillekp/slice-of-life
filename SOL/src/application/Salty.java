@@ -2,35 +2,35 @@ package application;
 
 public class Salty {
     private final Pair[] cheese = {
-            new Pair("Gorgonzola", 1.5),
-            new Pair("Ricota", 1.5),
-            new Pair("Requeijão", 1.5),
-            new Pair("Cheddar", 1.5),
-            new Pair("Brie", 1.5)
+            new Pair("Gorgonzola", 1),
+            new Pair("Ricota", 2),
+            new Pair("Requeijão", 3),
+            new Pair("Cheddar", 4),
+            new Pair("Brie", 5)
     };
     private final Pair[] vegetable = {
-            new Pair("Brócolis", 1.0),
-            new Pair("Tomate", 1.0),
-            new Pair("Pimentão", 1.0),
-            new Pair("Cebola", 1.0),
-            new Pair("Palmito", 1.0),
-            new Pair("Cogumelo", 1.0)
+            new Pair("Brócolis", 1),
+            new Pair("Tomate", 2),
+            new Pair("Pimentão", 3),
+            new Pair("Cebola", 4),
+            new Pair("Palmito", 5),
+            new Pair("Cogumelo", 6)
     };
     private final Pair[] protein = {
-            new Pair("Filé", 2.5),
-            new Pair("Salmão", 2.5),
-            new Pair("Frango", 2.5),
-            new Pair("Lombo", 2.5),
-            new Pair("Bacon", 2.5),
-            new Pair("Camarão", 2.5)
+            new Pair("Filé", 1),
+            new Pair("Salmão", 2),
+            new Pair("Frango", 3),
+            new Pair("Lombo", 4),
+            new Pair("Bacon", 5),
+            new Pair("Camarão", 6)
     };
     private final Pair[] greenLeafy = {
-            new Pair("Manjericão", 0.5),
-            new Pair("Salsa", 0.5),
-            new Pair("Rúcula", 0.5),
-            new Pair("Agrião", 0.5),
-            new Pair("Coentro", 0.5),
-            new Pair("Espinafre", 0.5)
+            new Pair("Manjericão", 1),
+            new Pair("Salsa", 2),
+            new Pair("Rúcula", 3),
+            new Pair("Agrião", 4),
+            new Pair("Coentro", 5),
+            new Pair("Espinafre", 6)
     };
 
     public Pair[] getCheese() {

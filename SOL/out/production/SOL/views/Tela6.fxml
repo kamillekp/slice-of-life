@@ -17,7 +17,7 @@
          </font>
       </Text>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eaeaea" height="90.0" layoutY="676.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke-width: 0;" width="1024.0" />
-      <Button layoutX="32.0" layoutY="695.0" mnemonicParsing="false" onAction="#BackToReviewPage" prefHeight="51.0" prefWidth="182.0" style="-fx-font-family: Arial; -fx-background-radius: 10; -fx-border-color: #216324; -fx-border-radius: 10; -fx-border-width: 2; -fx-background-color: #388E3C;" text="INÍCIO" textFill="WHITE">
+      <Button layoutX="32.0" layoutY="695.0" mnemonicParsing="false" onAction="#BackToReviewPage" prefHeight="51.0" prefWidth="182.0" style="-fx-font-family: Arial; -fx-background-radius: 10; -fx-border-color: #216324; -fx-border-radius: 10; -fx-border-width: 2;" text="INÍCIO" textFill="WHITE">
          <font>
             <Font size="26.0" />
          </font>
