@@ -1,0 +1,63 @@
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml" vgap="20" hgap="20">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Título da seção -->
+    <Label text="ESCOLHA OS INGREDIENTES DO 1º SABOR" GridPane.columnSpan="2" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <!-- Container para as categorias -->
+    <HBox spacing="20" GridPane.rowIndex="1">
+        <!-- QUEIJO -->
+        <VBox spacing="10" style="-fx-border-color: #FF4500; -fx-padding: 10;">
+            <Label text="QUEIJO" style="-fx-font-weight: bold;"/>
+            <RadioButton text="Gorgonzola R$00,00"/>
+            <RadioButton text="Cheddar R$00,00"/>
+            <RadioButton text="Ricota R$00,00"/>
+            <RadioButton text="Brie R$00,00"/>
+            <RadioButton text="Requeijão R$00,00"/>
+        </VBox>
+
+        <!-- VEGETAL -->
+        <VBox spacing="10" style="-fx-border-color: #FF4500; -fx-padding: 10;">
+            <Label text="VEGETAL" style="-fx-font-weight: bold;"/>
+            <RadioButton text="Brócolis R$00,00"/>
+            <RadioButton text="Tomate R$00,00"/>
+            <RadioButton text="Pimentão R$00,00"/>
+            <RadioButton text="Cebola R$00,00"/>
+            <RadioButton text="Palmito R$00,00"/>
+            <RadioButton text="Cogumelo R$00,00"/>
+        </VBox>
+
+        <!-- PROTEÍNA -->
+        <VBox spacing="10" style="-fx-border-color: #FF4500; -fx-padding: 10;">
+            <Label text="PROTEÍNA" style="-fx-font-weight: bold;"/>
+            <RadioButton text="Filé R$00,00"/>
+            <RadioButton text="Frango R$00,00"/>
+            <RadioButton text="Salmão R$00,00"/>
+            <RadioButton text="Lombo R$00,00"/>
+            <RadioButton text="Camarão R$00,00"/>
+            <RadioButton text="Bacon R$00,00"/>
+        </VBox>
+
+        <!-- FOLHAS VERDES -->
+        <VBox spacing="10" style="-fx-border-color: #FF4500; -fx-padding: 10;">
+            <Label text="FOLHAS VERDES" style="-fx-font-weight: bold;"/>
+            <RadioButton text="Manjericão R$00,00"/>
+            <RadioButton text="Salsa R$00,00"/>
+            <RadioButton text="Rúcula R$00,00"/>
+            <RadioButton text="Agrião R$00,00"/>
+            <RadioButton text="Coentro R$00,00"/>
+            <RadioButton text="Espinafre R$00,00"/>
+        </VBox>
+    </HBox>
+</GridPane>

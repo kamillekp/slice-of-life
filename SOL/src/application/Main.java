@@ -8,7 +8,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			SceneNavigator.setStage(primaryStage);
-			SceneNavigator.navigateTo("/views/Tela1.fxml", "/styles/Tela1.css");
+			SceneNavigator.navigateTo("/views/Tela3.fxml", "/styles/Tela3.css");
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
