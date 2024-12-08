@@ -1,35 +1,19 @@
 package application;
 
-public class Client extends Order{
+public class Client {
     private String name;
     private String surname;
-    private boolean register; // verificar
+    private boolean register;
     private Address address;
     private Payment payment;
 
-    public Client(String name, String surname, Address address, Payment payment) {
-        this.name = name;
-        this.surname = surname;
-        this.register = true;
-        this.address = address;     
-        this.payment = payment;
-    }  
-    
-
-    
     public Client() {
-		this.name = null;
-		this.surname = null;
+		this.name = "";
+		this.surname = "";
 		this.register = false;
 		this.address = null;
 		this.payment = null;
 	}
-
-
-
-	public void ChangeRegister(){       // verificar
-        this.register = !this.register;
-    }
 
     public String getName() {
             return name;
@@ -39,7 +23,7 @@ public class Client extends Order{
         return surname;
     }
 
-    public boolean getRegister() {      // verificar
+    public boolean isRegister() {      // verificar
         return register;
     }  
     
@@ -49,5 +33,25 @@ public class Client extends Order{
 
     public Payment getPayment() {
         return payment;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void ChangeRegister(){
+        this.register = !this.register;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 }

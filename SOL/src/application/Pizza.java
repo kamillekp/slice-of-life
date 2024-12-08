@@ -6,47 +6,45 @@ import java.util.List;
 public class Pizza {
     private boolean border;
     private int numFlavor;
-    private int size;
+    private String size;
     private ArrayList<Flavor> flavors;
 
-    public void setBorder(boolean border) {
+    public Pizza(boolean border, int numFlavor, String size) {
         this.border = border;
-    }
-
-    public boolean getBorder() {
-        return border;
-    }
-
-    public void setNumFlavor(int numFlavor) {
         this.numFlavor = numFlavor;
+        this.size = size;
+        this.flavors = new ArrayList<>();
+    }
+
+    public boolean isBorder() {
+        return border;
     }
 
     public int getNumFlavor() {
         return numFlavor;
     }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public int getSize() {
+    public String getSize() {
         return size;
-    }
-
-    public void setFlavors(ArrayList<Flavor> flavors) {
-        this.flavors = flavors;
     }
 
     public ArrayList<Flavor> getFlavors() {
         return flavors;
     }
-    
-    public List<Flavor> getSaboresDoces() {
-    	return this.getFlavors().stream().filter(f -> f.getType().equals("doce")).toList();
+
+    public void changeBorder() {
+        this.border = !border;
     }
-    
-    public List<Flavor> getSaboresSalgados() {
-    	return this.getFlavors().stream().filter(f -> f.getType().equals("salgado")).toList();
+
+    public void setNumFlavor(int numFlavor) {
+        this.numFlavor = numFlavor;
     }
-    
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public void addFlavor(Flavor flavor) {
+        this.flavors.add(flavor);
+    }
 }

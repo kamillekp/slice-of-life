@@ -45,7 +45,7 @@
 
       <Button layoutX="52.0" layoutY="576.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="920.0" style="-fx-background-color: #FF7043; -fx-background-radius: 10; -fx-font-family: Arial;" text="MAIS UMA PIZZA?" textFill="WHITE">
          <font>
-            <Font name="Arial" size="34.0" />
+            <Font name="Arial" size="20.0" />
          </font>
       </Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eaeaea" height="92.0" layoutY="676.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke-width: 0;" width="1024.0" />
@@ -59,7 +59,7 @@
             <Font name="Arial" size="26.0" />
          </font>
       </Button>
-      <TextFlow fx:id="textFlow2" layoutX="584.0" layoutY="162.0" prefHeight="343.0" prefWidth="290.0" style="-fx-background-color: E0E0E0; -fx-background-radius: 15; -fx-padding: 15;" />
+      <TextFlow fx:id="textFlow2" layoutX="584.0" layoutY="162.0" prefHeight="343.0" prefWidth="290.0" style="-fx-background-color: E0E0E0; -fx-background-radius: 10; -fx-padding: 10;" />
       <ScrollPane layoutX="52.0" layoutY="152.0" prefHeight="385.0" prefWidth="507.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: transparent;">
          <content>
             <VBox fx:id="tablesVBox" alignment="center" prefWidth="488.0" style="-fx-background-color: #E0E0E0; -fx-border-radius: 15; -fx-background-radius: 15;">
