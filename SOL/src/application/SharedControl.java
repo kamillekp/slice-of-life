@@ -5,6 +5,7 @@ public class SharedControl {
     private Order order;
     private Pizza pizza;
     private boolean finishedPizzaInfo;
+    private int flavorsCounter;
 
     public SharedControl() {
         order = new Order();

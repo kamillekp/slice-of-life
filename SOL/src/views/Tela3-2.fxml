@@ -165,12 +165,12 @@
          </font>
       </Text>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eaeaea" height="92.0" layoutY="676.0" strokeType="INSIDE" width="1024.0" />
-      <Button layoutX="40.0" layoutY="695.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #388E3C; -fx-border-color: #216324; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-width: 2;" text="VOLTAR" textFill="WHITE">
+      <Button layoutX="40.0" layoutY="695.0" mnemonicParsing="false" onAction="#goToChoosePizzaPage" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #388E3C; -fx-border-color: #216324; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-width: 2;" text="VOLTAR" textFill="WHITE">
          <font>
             <Font name="Arial" size="25.0" />
          </font>
       </Button>
-      <Button layoutX="794.0" layoutY="695.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #388E3C; -fx-border-color: #216324; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-width: 2;" text="SEGUIR" textFill="WHITE">
+      <Button layoutX="794.0" layoutY="695.0" mnemonicParsing="false" onAction="#goToNextPage" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #388E3C; -fx-border-color: #216324; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-width: 2;" text="SEGUIR" textFill="WHITE">
          <font>
             <Font name="Arial" size="25.0" />
          </font>

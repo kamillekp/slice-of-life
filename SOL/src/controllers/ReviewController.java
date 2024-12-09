@@ -313,8 +313,12 @@ public class ReviewController {
 
 
         return table;
-    } 
+    }
 
+	@FXML
+	private void goToReviewPage() {
+		SceneNavigator.navigateTo("/views/Tela4.fxml", "/styles/Tela4.css");
+	}
 
     @FXML
     private void goToFinalPage() {
