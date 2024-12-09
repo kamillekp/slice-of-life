@@ -48,5 +48,29 @@ public class Salty {
     public Pair[] getGreenLeafy() {
         return greenLeafy;
     }
+
+
+    public double getPrice(String ingredientType, String ingredientName){
+        Pair[] ingredients;
+
+        if(ingredientType.equals("cheese"))
+            ingredients = cheese;
+        else if(ingredientType.equals("vegetable"))
+            ingredients = vegetable;
+        else if(ingredientType.equals("protein"))
+            ingredients = protein;
+        else if (ingredientType.equals("green leaf")) {
+            ingredients = greenLeafy;
+        }
+        else
+            return -1;
+
+        for(Pair ingredient : ingredients){
+            if(ingredient.getOption().equals(ingredientName))
+                return ingredient.getPrice();
+        }
+
+        return -1;
+    }
     
 }

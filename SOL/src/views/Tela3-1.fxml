@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
@@ -219,6 +220,11 @@
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Text>
+      <ImageView fitHeight="25.0" fitWidth="30.0" layoutX="88.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/image1.png" />
+         </image>
+      </ImageView>
       <Text fill="#303030" layoutX="167.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pedido">
          <font>
             <Font name="Arial" size="30.0" />
@@ -245,20 +251,16 @@
          </font>
       </Text>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eaeaea" height="92.0" layoutY="676.0" strokeType="INSIDE" width="1024.0" />
-      <Button layoutX="40.0" layoutY="695.0" mnemonicParsing="false" onAction="#goToChoosePizzaPage" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #388E3C; -fx-border-color: #216324; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-width: 2;" text="VOLTAR" textFill="WHITE">
+      <Button layoutX="40.0" layoutY="695.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #388E3C; -fx-border-color: #216324; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-width: 2;" text="VOLTAR" textFill="WHITE">
          <font>
             <Font name="Arial" size="25.0" />
          </font>
       </Button>
-      <Button layoutX="794.0" layoutY="695.0" mnemonicParsing="false" onAction="#goToNextPage" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #388E3C; -fx-border-color: #216324; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-width: 2;" text="SEGUIR" textFill="WHITE">
+      <Button layoutX="794.0" layoutY="695.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #388E3C; -fx-border-color: #216324; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-width: 2;" text="SEGUIR" textFill="WHITE">
          <font>
             <Font name="Arial" size="25.0" />
          </font>
       </Button>
-      <ImageView fitHeight="25.0" fitWidth="30.0" layoutX="89.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/image1.png" />
-         </image>
-      </ImageView>
+      <Label fx:id="priceText" layoutX="407.0" layoutY="695.0" prefHeight="50.0" prefWidth="180.0" />
    </children>
 </AnchorPane>
