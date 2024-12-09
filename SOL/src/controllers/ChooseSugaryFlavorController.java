@@ -23,15 +23,11 @@ public class ChooseSugaryFlavorController {
     @FXML
     Label priceText;
 
-
     @FXML
     GridPane toppingsGrid;
 
-
-
     @FXML
     GridPane fruitsGrid;
-
 
     @FXML
     GridPane condimentsGrid;
@@ -84,8 +80,6 @@ public class ChooseSugaryFlavorController {
         group1.selectedToggleProperty().addListener(updateTotalListener);
         group2.selectedToggleProperty().addListener(updateTotalListener);
 */
-
-
     public void initialize() {
         Sugary sugary = new Sugary();
 
@@ -100,7 +94,7 @@ public class ChooseSugaryFlavorController {
         setIngredientsPrice(pizzaToppingFlavor, "topping", toppingsGrid);
         setIngredientsPrice(pizzaFruitFlavor, "fruit", fruitsGrid);
         setIngredientsPrice(pizzaCondimentGroup, "condiment", condimentsGrid);
-        
+
 
         ChangeListener<Object> updateTotalListener = (observable, oldValue, newValue) -> {
             double toppingPrice = pizzaToppingFlavor.getSelectedToggle() != null ? (double) pizzaToppingFlavor.getSelectedToggle().getUserData() : 0;
@@ -122,7 +116,6 @@ public class ChooseSugaryFlavorController {
        priceText.setText("TOTAL DO PEDIDO: R$ " + String.format("%.2f", SharedControl.getInstance().getOrder().getPrice()));
 
     }
-
 
     private void setIngredientsPrice(ToggleGroup toggleGroup, String ingredientsType, GridPane container) {
         Sugary sugary = new Sugary();
@@ -156,34 +149,45 @@ public class ChooseSugaryFlavorController {
 
         for(int i = 0; i < numIngredientes; i++) {
 
-                // Obtendo o texto do RadioButton
-                String text = ingredients[i].getOption();
+            // Obtendo o texto do RadioButton
+            String text = ingredients[i].getOption();
 
-                // Configurando os dados do usuário
-                double price = ingredients[i].getPrice();
+            // Configurando os dados do usuário
+            double price = ingredients[i].getPrice();
 
 
-                RadioButton a = new RadioButton(text + "\n" + "R$ " + String.format("%.2f", price));
-                a.setUserData(price);
-                a.setToggleGroup(toggleGroup);
+            RadioButton a = new RadioButton(text + "\n" + "R$ " + String.format("%.2f", price));
+            a.setUserData(price);
+            a.setToggleGroup(toggleGroup);
 
-                a.setStyle("-fx-text-fill: #303030;");
+            a.setStyle("-fx-text-fill: #303030;");
 
-                container.add(a, col++, row);
+            container.add(a, col++, row);
 
-                if (col == 2) {
-                    col = 0;
-                    row++;
-                }
+            if (col == 2) {
+                col = 0;
+                row++;
             }
         }
+    }
 
-
-
-
+    @FXML
+    private void goToChoosePizzaPage (){
+        SceneNavigator.navigateTo("/views/Tela2.fxml", "/styles/Tela2.css");
+    }
 
     @FXML
     private void goToSaltyFlavorsPage() {
         SceneNavigator.navigateTo("/views/Tela3-1.fxml", "/styles/Tela3.css");
+    }
+
+    @FXML
+    private void goToNextPage (){
+        SceneNavigator.navigateTo("/views/Tela4.fxml", "/styles/Tela4.css");
+    }
+
+    @FXML
+    private void goToSugaryFlavorsPage (){
+        SceneNavigator.navigateTo("/views/Tela3-2.fxml", "/styles/Tela3.css");
     }
 }

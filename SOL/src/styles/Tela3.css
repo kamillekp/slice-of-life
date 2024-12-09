@@ -1,13 +1,2 @@
-.scroll-bar:horizontal {
-    -fx-opacity: 0;          /* Torna a barra de rolagem invisível */
-    -fx-padding: 0;          /* Remove o espaçamento ao redor da barra */
-    -fx-background-color: transparent; /* Remove qualquer fundo */
-    -fx-border-color: transparent;     /* Remove qualquer borda */
-    -fx-min-width: 0;
-    -fx-pref-width: 0;
-    -fx-max-width: 0;
-    -fx-min-height: 0;
-    -fx-pref-height: 0;
-    -fx-max-height: 0;
-}
+
 
