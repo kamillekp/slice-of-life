@@ -32,6 +32,14 @@ public class SharedControl {
         return flavorsCounter;
     }
 
+    public void resetPizza() {
+        this.pizza = new Pizza();
+    }
+
+    public void resetCounter(){
+        flavorsCounter = 0;
+    }
+
     public void incrementFlavorsCounter(){
         flavorsCounter++;
     }
@@ -39,6 +47,11 @@ public class SharedControl {
     public void decrementFlavorsCounter(){
         flavorsCounter--;
     }
+
+    public void resetInstance(){
+        instance = new SharedControl();
+    }
+
 
     public Pizza getPizza() {
         return pizza;

@@ -67,8 +67,10 @@ public class ChooseSugaryFlavorController {
 
         if(flavorPrice == 0)
             goAheadButton.setDisable(true);
-        else
+        else {
+            SharedControl.getInstance().getPizza().setPrice(SharedControl.getInstance().getPizza().getPrice() - flavorPrice);
             SharedControl.getInstance().getOrder().setTotalPrice(SharedControl.getInstance().getOrder().getPrice() - flavorPrice);
+        }
 
         ChangeListener<Object> updateTotalListener = (observable, oldValue, newValue) -> {
             double total = getTotal(pizzaToppingGroup, pizzaFruitGroup, pizzaCondimentGroup);
@@ -227,10 +229,12 @@ public class ChooseSugaryFlavorController {
     }
 
     private void setCurrentPrice(ToggleGroup pizzaToppingFlavor, ToggleGroup pizzaFruitFlavor, ToggleGroup pizzaCondimentGroup){
-        double previousPrice = SharedControl.getInstance().getOrder().getPrice();
+        double previousTotalPrice = SharedControl.getInstance().getOrder().getPrice();
+        double previousCurrentPizzaPrice = SharedControl.getInstance().getPizza().getPrice();
         double flavorPrice = getTotal(pizzaToppingFlavor, pizzaFruitFlavor, pizzaCondimentGroup);
 
-        SharedControl.getInstance().getOrder().setTotalPrice(previousPrice + flavorPrice);
+        SharedControl.getInstance().getPizza().setPrice(previousCurrentPizzaPrice + flavorPrice);
+        SharedControl.getInstance().getOrder().setTotalPrice(previousTotalPrice + flavorPrice);
 
     }
 

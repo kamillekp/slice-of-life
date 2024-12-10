@@ -1,5 +1,7 @@
 package application;
 
+import java.util.ArrayList;
+
 public class Salty {
     private final Pair[] cheese = {
             new Pair("Gorgonzola", 1),
@@ -71,6 +73,58 @@ public class Salty {
         }
 
         return -1;
+    }
+
+
+    public Pair[] getIngredientsByType(String type) {
+        if(type.equals("cheese"))
+            return cheese;
+        else if(type.equals("protein"))
+            return protein;
+        else if(type.equals("vegetable"))
+            return vegetable;
+        else if(type.equals("green leaf"))
+            return greenLeafy;
+        else
+            return null;
+    }
+
+
+
+    public String findType(String ingredient){
+        for(Pair pair : this.cheese){
+            if (pair.getOption().equals(ingredient))
+                return "cheese";
+        }
+
+        for(Pair pair : this.protein){
+            if (pair.getOption().equals(ingredient))
+                return "protein";
+        }
+
+        for(Pair pair : this.vegetable){
+            if(pair.getOption().equals(ingredient))
+                return "vegetable";
+        }
+
+        for(Pair pair : this.greenLeafy){
+            if(pair.getOption().equals(ingredient))
+                return "green leaf";
+        }
+
+
+        return null;
+    }
+
+    public String getFirstFromType(String type, ArrayList<String> ingredients){
+        Pair[] ingredientsFromType = getIngredientsByType(type);
+
+        for(Pair ingredient : ingredientsFromType){
+            if(ingredients.contains(ingredient.getOption()))
+                return ingredient.getOption();
+        }
+
+        return null;
     }
     
 }

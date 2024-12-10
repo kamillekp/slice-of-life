@@ -9,11 +9,14 @@ public class Pizza {
     private String size;
     private boolean finished;
     private ArrayList<Flavor> flavors;
+    private double price;
 
     public Pizza() {
         this.flavors = new ArrayList<>();
         this.finished = false;
         this.border = false;
+        this.price = 0;
+        this.numFlavor = 0;
     }
 
     public boolean isBorder() {
@@ -55,6 +58,11 @@ public class Pizza {
     public void addFlavor(Flavor flavor) {
         this.flavors.add(flavor);
     }
+
+    public double getPrice() {return this.price;}
+
+    public void setPrice(double price) {this.price = price;}
+
 
     public void setBorder(boolean b) {this.border = b;}
 

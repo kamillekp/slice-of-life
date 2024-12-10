@@ -43,7 +43,7 @@
          </font>
       </Text>
 
-      <Button id="button_extra_pizza" layoutX="52.0" layoutY="576.0" mnemonicParsing="false" onAction="#goToChoosePizzaPage" prefHeight="55.0" prefWidth="920.0" style="-fx-background-color: #FF7043; -fx-background-radius: 10; -fx-font-family: Arial;" text="MAIS UMA PIZZA?" textFill="WHITE">
+      <Button id="button_extra_pizza" fx:id="anotherPizzaButton" layoutX="52.0" layoutY="576.0" mnemonicParsing="false" onAction="#goToChoosePizzaPage" prefHeight="55.0" prefWidth="920.0" style="-fx-background-color: #FF7043; -fx-background-radius: 10; -fx-font-family: Arial;" text="MAIS UMA PIZZA?" textFill="WHITE">
          <font>
             <Font name="Arial" size="34.0" />
          </font>

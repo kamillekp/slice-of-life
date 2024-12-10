@@ -64,9 +64,17 @@
     -fx-font-size: 30px;
 }
 
+#button_extra_pizza:hover{
+    -fx-cursor: hand;
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
 .removeButton {
-    -fx-background-color: red;
+    -fx-background-color: #C62828;
     -fx-text-fill: white;
+    -fx-padding: 0;
+    -fx-min-width: 20px;
 }
 
 .removeButton:hover{
