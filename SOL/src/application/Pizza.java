@@ -13,6 +13,7 @@ public class Pizza {
     public Pizza() {
         this.flavors = new ArrayList<>();
         this.finished = false;
+        this.border = false;
     }
 
     public boolean isBorder() {

@@ -10,7 +10,7 @@ public class SharedControl {
     public SharedControl() {
         order = new Order();
         flavorsCounter = 0;
-
+        this.finishedPizzaInfo = false;
     }
 
     public static SharedControl getInstance() {
