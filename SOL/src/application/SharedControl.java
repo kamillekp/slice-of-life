@@ -9,6 +9,8 @@ public class SharedControl {
 
     public SharedControl() {
         order = new Order();
+        flavorsCounter = 0;
+
     }
 
     public static SharedControl getInstance() {
@@ -24,6 +26,18 @@ public class SharedControl {
 
     public Order getOrder() {
         return order;
+    }
+
+    public int getFlavorsCounter() {
+        return flavorsCounter;
+    }
+
+    public void incrementFlavorsCounter(){
+        flavorsCounter++;
+    }
+
+    public void decrementFlavorsCounter(){
+        flavorsCounter--;
     }
 
     public Pizza getPizza() {

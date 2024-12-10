@@ -1,6 +1,5 @@
 package application;
 
-import java.util.Arrays;
 
 public class Sugary {
     private final Pair[] topping = {
@@ -57,6 +56,10 @@ public class Sugary {
             return topping;
     }
     public double getPrice(String ingredientType, String ingredientName){
+
+        if(ingredientType == null)
+            return -1;
+
         Pair[] ingredients;
 
         ingredients = getIngredientsByType(ingredientType);
@@ -67,6 +70,27 @@ public class Sugary {
         }
 
         return -1;
+    }
+
+
+    public String findType(String ingredient){
+        for(Pair pair : this.condiment){
+            if (pair.getOption().equals(ingredient))
+                    return "condiment";
+        }
+
+        for(Pair pair : this.fruit){
+            if (pair.getOption().equals(ingredient))
+                return "fruit";
+        }
+
+        for(Pair pair : this.topping){
+            if(pair.getOption().equals(ingredient))
+                return "topping";
+        }
+
+
+            return null;
     }
 
 }

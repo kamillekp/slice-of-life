@@ -111,7 +111,7 @@
                   </ScrollPane>
                </children>
             </AnchorPane>
-            <Button layoutX="798.0" layoutY="5.0" mnemonicParsing="false" onAction="#goToSaltyFlavorsPage" prefHeight="34.0" prefWidth="107.0" style="-fx-background-color: #388E3C; -fx-border-color: #216324; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-width: 2;" text="SALGADOS" textFill="WHITE">
+            <Button fx:id="changeFlavourTypeButton" layoutX="798.0" layoutY="5.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="107.0" style="-fx-border-color: #216324; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-width: 2;" stylesheets="@../styles/Tela3.css" text="SALGADOS" textFill="WHITE">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
@@ -159,22 +159,22 @@
             <Font name="Arial" size="30.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="347.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ESCOLHA OS INGREDIENTES DO SABOR">
-         <font>
-            <Font name="Arial Bold" size="15.0" />
-         </font>
-      </Text>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eaeaea" height="92.0" layoutY="676.0" strokeType="INSIDE" width="1024.0" />
-      <Button layoutX="40.0" layoutY="695.0" mnemonicParsing="false" onAction="#goToChoosePizzaPage" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #388E3C; -fx-border-color: #216324; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-width: 2;" text="VOLTAR" textFill="WHITE">
+      <Button fx:id="goBackButton" layoutX="40.0" layoutY="695.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" style="-fx-border-color: #216324; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-width: 2;" stylesheets="@../styles/Tela3.css" text="VOLTAR" textFill="WHITE">
          <font>
             <Font name="Arial" size="25.0" />
          </font>
       </Button>
-      <Button layoutX="794.0" layoutY="695.0" mnemonicParsing="false" onAction="#goToNextPage" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #388E3C; -fx-border-color: #216324; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-width: 2;" text="SEGUIR" textFill="WHITE">
+      <Button fx:id="goAheadButton" layoutX="794.0" layoutY="695.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" style="-fx-border-color: #216324; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-width: 2;" stylesheets="@../styles/Tela3.css" text="SEGUIR" textFill="WHITE">
          <font>
             <Font name="Arial" size="25.0" />
          </font>
       </Button>
       <Label fx:id="priceText" layoutX="327.0" layoutY="697.0" prefHeight="50.0" prefWidth="370.0" style="-fx-font-size: 25; -fx-font-weight: bold;" />
+      <Label fx:id="flavorNumberLabel" layoutX="338.0" layoutY="101.0" prefHeight="22.0" prefWidth="318.0" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

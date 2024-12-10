@@ -1,22 +1,20 @@
 package controllers;
 
-import application.SharedControl;
+import application.*;
 import javafx.geometry.Insets;
 import javafx.scene.layout.ColumnConstraints;
 
-import javafx.geometry.HPos;
 
-import application.Pair;
-import application.SceneNavigator;
-import application.Sugary;
 import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
+
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+
+import java.util.ArrayList;
 
 public class ChooseSugaryFlavorController {
 
@@ -40,84 +38,119 @@ public class ChooseSugaryFlavorController {
 
     @FXML
     VBox condimentsVBox;
-/*
-    ToggleGroup group1 = new ToggleGroup();
-    RadioButton option1Group1 = new RadioButton("Opção 1 (10)");
-    RadioButton option2Group1 = new RadioButton("Opção 2 (20)");
-    RadioButton option3Group1 = new RadioButton("Opção 3 (30)");
-        option1Group1.setToggleGroup(group1);
-        option2Group1.setToggleGroup(group1);
-        option3Group1.setToggleGroup(group1);
 
-    // Associar valores aos botões do primeiro grupo usando setUserData
-        option1Group1.setUserData(10);
-        option2Group1.setUserData(20);
-        option3Group1.setUserData(30);
+    @FXML
+    Button changeFlavourTypeButton;
 
-    // Segundo ToggleGroup e suas opções
-    ToggleGroup group2 = new ToggleGroup();
-    RadioButton option1Group2 = new RadioButton("Opção A (5)");
-    RadioButton option2Group2 = new RadioButton("Opção B (15)");
-    RadioButton option3Group2 = new RadioButton("Opção C (25)");
-        option1Group2.setToggleGroup(group2);
-        option2Group2.setToggleGroup(group2);
-        option3Group2.setToggleGroup(group2);
+    @FXML
+    Button goAheadButton;
 
-    // Associar valores aos botões do segundo grupo usando setUserData
-        option1Group2.setUserData(5);
-        option2Group2.setUserData(15);
-        option3Group2.setUserData(25);
+    @FXML
+    Button goBackButton;
 
-    // Listener para atualizar o valor total
-    ChangeListener<Object> updateTotalListener = (observable, oldValue, newValue) -> {
-        int value1 = group1.getSelectedToggle() != null ? (int) group1.getSelectedToggle().getUserData() : 0;
-        int value2 = group2.getSelectedToggle() != null ? (int) group2.getSelectedToggle().getUserData() : 0;
-        int total = value1 + value2;
-        totalLabel.setText("Valor total: " + total);
-    };
+    @FXML
+    Label flavorNumberLabel;
 
-    // Adiciona o listener aos dois grupos
-        group1.selectedToggleProperty().addListener(updateTotalListener);
-        group2.selectedToggleProperty().addListener(updateTotalListener);
-*/
     public void initialize() {
-        Sugary sugary = new Sugary();
 
-        Pair[] topping = sugary.getTopping();
-        Pair[] fruit = sugary.getFruit();
-        Pair[] condiment = sugary.getCondiment();
+        flavorNumberLabel.setText("ESCOLHA OS INGREDIENTES DO " + (SharedControl.getInstance().getFlavorsCounter() + 1) + "º SABOR");
 
-        ToggleGroup pizzaToppingFlavor = new ToggleGroup();
-        ToggleGroup pizzaFruitFlavor = new ToggleGroup();
+        ToggleGroup pizzaToppingGroup = new ToggleGroup();
+        ToggleGroup pizzaFruitGroup = new ToggleGroup();
         ToggleGroup pizzaCondimentGroup = new ToggleGroup();
 
-        setIngredientsPrice(pizzaToppingFlavor, "topping", toppingsGrid);
-        setIngredientsPrice(pizzaFruitFlavor, "fruit", fruitsGrid);
-        setIngredientsPrice(pizzaCondimentGroup, "condiment", condimentsGrid);
+        InitializeToggleGroup(pizzaToppingGroup, "topping", toppingsGrid);
+        InitializeToggleGroup(pizzaFruitGroup, "fruit", fruitsGrid);
+        InitializeToggleGroup(pizzaCondimentGroup, "condiment", condimentsGrid);
 
+        double flavorPrice = initializeFlavorPrice(pizzaToppingGroup, pizzaFruitGroup, pizzaCondimentGroup);
+
+        if(flavorPrice == 0)
+            goAheadButton.setDisable(true);
+        else
+            SharedControl.getInstance().getOrder().setTotalPrice(SharedControl.getInstance().getOrder().getPrice() - flavorPrice);
 
         ChangeListener<Object> updateTotalListener = (observable, oldValue, newValue) -> {
-            double toppingPrice = pizzaToppingFlavor.getSelectedToggle() != null ? (double) pizzaToppingFlavor.getSelectedToggle().getUserData() : 0;
-            double fruitPrice = pizzaFruitFlavor.getSelectedToggle() != null ? (double) pizzaFruitFlavor.getSelectedToggle().getUserData() : 0;
-            double condimentPrice = pizzaCondimentGroup.getSelectedToggle() != null ? (double) pizzaCondimentGroup.getSelectedToggle().getUserData() : 0;
+            double total = getTotal(pizzaToppingGroup, pizzaFruitGroup, pizzaCondimentGroup);
 
+            goAheadButton.setDisable(false);
 
-            // O valor inicial vai ter que ser corrigido depois
-            double total = SharedControl.getInstance().getOrder().getPrice() + toppingPrice + fruitPrice + condimentPrice;
-
-            priceText.setText("TOTAL DO PEDIDO: R$ " + String.format("%.2f", total));
+            priceText.setText("TOTAL DO PEDIDO: R$ " + String.format("%.2f", SharedControl.getInstance().getOrder().getPrice() + total));
         };
 
-        pizzaToppingFlavor.selectedToggleProperty().addListener(updateTotalListener);
-        pizzaFruitFlavor.selectedToggleProperty().addListener(updateTotalListener);
+        pizzaToppingGroup.selectedToggleProperty().addListener(updateTotalListener);
+        pizzaFruitGroup.selectedToggleProperty().addListener(updateTotalListener);
         pizzaCondimentGroup.selectedToggleProperty().addListener(updateTotalListener);
 
         // O valor inicial vai ter que ser corrigido depois
-       priceText.setText("TOTAL DO PEDIDO: R$ " + String.format("%.2f", SharedControl.getInstance().getOrder().getPrice()));
+       priceText.setText("TOTAL DO PEDIDO: R$ " + String.format("%.2f", SharedControl.getInstance().getOrder().getPrice() + flavorPrice));
+
+       goBackButton.setOnAction(event -> goBack(pizzaToppingGroup, pizzaFruitGroup, pizzaCondimentGroup));
+       goAheadButton.setOnAction(event -> goAhead(pizzaToppingGroup, pizzaFruitGroup, pizzaCondimentGroup));
+       changeFlavourTypeButton.setOnAction(event -> goToSaltyFlavorsPage());
+    }
+
+
+    private double initializeFlavorPrice(ToggleGroup pizzaToppingGroup, ToggleGroup pizzaFruitGroup, ToggleGroup pizzaCondimentGroup){
+        Sugary sugary = new Sugary();
+        int currentFlavorNumber = SharedControl.getInstance().getFlavorsCounter();
+        Flavor currentFlavor;
+        double flavorPrice = 0.0;
+
+        if(currentFlavorNumber < SharedControl.getInstance().getPizza().getFlavors().size()){
+            currentFlavor = SharedControl.getInstance().getPizza().getFlavors().get(currentFlavorNumber);
+
+            for(String ingredient : currentFlavor.getIngredients()) {
+
+                String ingredientType = sugary.findType(ingredient);
+                double priceOfCurrentIngredient = sugary.getPrice(ingredientType, ingredient);
+
+
+                if(ingredientType.equals("topping"))
+                    selectUnselectableRadioGroupByText(pizzaToppingGroup, ingredient + "\n" + "R$ " + String.format("%.2f", priceOfCurrentIngredient));
+
+                else if(ingredientType.equals("fruit"))
+                    selectUnselectableRadioGroupByText(pizzaFruitGroup, ingredient + "\n" + "R$ " + String.format("%.2f", priceOfCurrentIngredient));
+
+                else if(ingredientType.equals("condiment"))
+                    selectUnselectableRadioGroupByText(pizzaCondimentGroup, ingredient + "\n" + "R$ " + String.format("%.2f", priceOfCurrentIngredient));
+
+                flavorPrice += priceOfCurrentIngredient;
+            }
+        }
+
+        return flavorPrice;
+    }
+
+    private static double getTotal(ToggleGroup pizzaToppingGroup, ToggleGroup pizzaFruitGroup, ToggleGroup pizzaCondimentGroup) {
+
+        UnselectableRadioGroup toppingSelectedToggle = (UnselectableRadioGroup) pizzaToppingGroup.getSelectedToggle();
+        UnselectableRadioGroup fruitSelectedToggle = (UnselectableRadioGroup) pizzaFruitGroup.getSelectedToggle();
+        UnselectableRadioGroup condimentSelectedToggle = (UnselectableRadioGroup) pizzaCondimentGroup.getSelectedToggle();
+
+        double toppingPrice = toppingSelectedToggle != null ? (double) toppingSelectedToggle.getUserData() : 0;
+        double fruitPrice = fruitSelectedToggle != null ? (double) fruitSelectedToggle.getUserData() : 0;
+        double condimentPrice = condimentSelectedToggle != null ? (double) condimentSelectedToggle.getUserData() : 0;
+
+        // O valor inicial vai ter que ser corrigido depois
+        return  toppingPrice + fruitPrice + condimentPrice;
 
     }
 
-    private void setIngredientsPrice(ToggleGroup toggleGroup, String ingredientsType, GridPane container) {
+
+    public void selectUnselectableRadioGroupByText(ToggleGroup toggleGroup, String text) {
+        for (Toggle toggle : toggleGroup.getToggles()) {
+            if (toggle instanceof UnselectableRadioGroup UnselectableRadioGroup) {
+                if (UnselectableRadioGroup.getText().equals(text)) {
+                    toggleGroup.selectToggle(UnselectableRadioGroup);
+                    break;
+                }
+            }
+        }
+    }
+
+
+    private void InitializeToggleGroup(ToggleGroup toggleGroup, String ingredientsType, GridPane container) {
         Sugary sugary = new Sugary();
         Pair[] ingredients = sugary.getIngredientsByType(ingredientsType);
         int numIngredientes = ingredients.length;
@@ -147,22 +180,28 @@ public class ChooseSugaryFlavorController {
         int row = 0;
         int col = 0;
 
-        for(int i = 0; i < numIngredientes; i++) {
+        for (Pair ingredient : ingredients) {
 
-            // Obtendo o texto do RadioButton
-            String text = ingredients[i].getOption();
+            // Obtendo o texto do UnselectableRadioGroup
+            String text = ingredient.getOption();
 
             // Configurando os dados do usuário
-            double price = ingredients[i].getPrice();
+            double price = ingredient.getPrice();
 
 
-            RadioButton a = new RadioButton(text + "\n" + "R$ " + String.format("%.2f", price));
-            a.setUserData(price);
-            a.setToggleGroup(toggleGroup);
+            UnselectableRadioGroup newButton = new UnselectableRadioGroup(text + "\n" + "R$ " + String.format("%.2f", price));
+            newButton.setUserData(price);
+            newButton.setToggleGroup(toggleGroup);
+            newButton.setStyle("-fx-text-fill: #303030;");
 
-            a.setStyle("-fx-text-fill: #303030;");
+            newButton.addEventFilter(javafx.scene.input.MouseEvent.MOUSE_CLICKED, event -> {
+                if (toggleGroup.getSelectedToggle() == newButton) {
+                    System.out.println("Aqui");
+                    //toggleGroup.selectToggle(null);
+                }
+            });
 
-            container.add(a, col++, row);
+            container.add(newButton, col++, row);
 
             if (col == 2) {
                 col = 0;
@@ -171,23 +210,83 @@ public class ChooseSugaryFlavorController {
         }
     }
 
-    @FXML
-    private void goToChoosePizzaPage (){
-        SceneNavigator.navigateTo("/views/Tela2.fxml", "/styles/Tela2.css");
+    private void setCurrentFlavor(ToggleGroup pizzaToppingFlavor, ToggleGroup pizzaFruitFlavor, ToggleGroup pizzaCondimentGroup, int index){
+        ArrayList<String> ingredients = getIngredients(pizzaToppingFlavor, pizzaFruitFlavor, pizzaCondimentGroup);
+
+
+        Flavor currentFlavor = new Flavor("doce", ingredients);
+
+        if(index < SharedControl.getInstance().getPizza().getFlavors().size()){
+            SharedControl.getInstance().getPizza().getFlavors().set(index, currentFlavor);
+        }
+        else
+            SharedControl.getInstance().getPizza().getFlavors().add(currentFlavor);
+
     }
 
-    @FXML
+    private void setCurrentPrice(ToggleGroup pizzaToppingFlavor, ToggleGroup pizzaFruitFlavor, ToggleGroup pizzaCondimentGroup){
+        double previousPrice = SharedControl.getInstance().getOrder().getPrice();
+        double flavorPrice = getTotal(pizzaToppingFlavor, pizzaFruitFlavor, pizzaCondimentGroup);
+
+        SharedControl.getInstance().getOrder().setTotalPrice(previousPrice + flavorPrice);
+
+    }
+
+    private void goBack(ToggleGroup pizzaToppingFlavor, ToggleGroup pizzaFruitFlavor, ToggleGroup pizzaCondimentGroup) {
+        int currentFlavorNumber = SharedControl.getInstance().getFlavorsCounter();
+
+        setCurrentFlavor(pizzaToppingFlavor, pizzaFruitFlavor, pizzaCondimentGroup, currentFlavorNumber);
+        setCurrentPrice(pizzaToppingFlavor, pizzaFruitFlavor, pizzaCondimentGroup);
+
+
+        if(currentFlavorNumber == 0)
+            SceneNavigator.navigateTo("/views/Tela2.fxml", "/styles/Tela2.css");
+        else {
+            SharedControl.getInstance().decrementFlavorsCounter();
+
+            // Aqui deveria checar se o flavor anterior eh salgado ou doce
+            SceneNavigator.navigateTo("/views/Tela3-2.fxml", "/styles/Tela3.css");
+        }
+    }
+
+    private void goAhead(ToggleGroup pizzaToppingFlavor, ToggleGroup pizzaFruitFlavor, ToggleGroup pizzaCondimentGroup){
+        int currentFlavorNumber = SharedControl.getInstance().getFlavorsCounter();
+
+        setCurrentFlavor(pizzaToppingFlavor, pizzaFruitFlavor, pizzaCondimentGroup, currentFlavorNumber);
+        setCurrentPrice(pizzaToppingFlavor, pizzaFruitFlavor, pizzaCondimentGroup);
+
+        if(currentFlavorNumber + 1 == SharedControl.getInstance().getPizza().getNumFlavor())
+            SceneNavigator.navigateTo("/views/Tela4.fxml", "/styles/Tela4.css");
+
+        // Aqui também deveria checar se o próximo flavour será editado. Se estiver, checa o tipo dele e já carrega na página do tipo
+        else{
+            SharedControl.getInstance().incrementFlavorsCounter();
+            SceneNavigator.navigateTo("/views/Tela3-2.fxml", "/styles/Tela3.css");
+        }
+    }
+
+    private ArrayList<String> getIngredients(ToggleGroup pizzaToppingFlavor, ToggleGroup pizzaFruitFlavor, ToggleGroup pizzaCondimentGroup){
+        UnselectableRadioGroup toppingSelectedToggle = (UnselectableRadioGroup) pizzaToppingFlavor.getSelectedToggle();
+        UnselectableRadioGroup fruitSelectedToggle = (UnselectableRadioGroup) pizzaFruitFlavor.getSelectedToggle();
+        UnselectableRadioGroup condimentSelectedToggle = (UnselectableRadioGroup) pizzaCondimentGroup.getSelectedToggle();
+
+        String toppingIngredient = toppingSelectedToggle != null ? toppingSelectedToggle.getText().split("\n")[0] : null;
+        String fruitIngredient = fruitSelectedToggle != null ? fruitSelectedToggle.getText().split("\n")[0] : null;
+        String condimentIngredient = condimentSelectedToggle != null ? condimentSelectedToggle.getText().split("\n")[0] : null;
+
+        ArrayList<String> ingredients = new ArrayList<>();
+
+        if(toppingIngredient != null)
+            ingredients.add(toppingIngredient);
+        if(fruitIngredient != null)
+            ingredients.add(fruitIngredient);
+        if(condimentIngredient != null)
+            ingredients.add(condimentIngredient);
+
+        return ingredients;
+    }
+
     private void goToSaltyFlavorsPage() {
         SceneNavigator.navigateTo("/views/Tela3-1.fxml", "/styles/Tela3.css");
-    }
-
-    @FXML
-    private void goToNextPage (){
-        SceneNavigator.navigateTo("/views/Tela4.fxml", "/styles/Tela4.css");
-    }
-
-    @FXML
-    private void goToSugaryFlavorsPage (){
-        SceneNavigator.navigateTo("/views/Tela3-2.fxml", "/styles/Tela3.css");
     }
 }

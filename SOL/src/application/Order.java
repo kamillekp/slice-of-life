@@ -23,6 +23,8 @@ public class Order {
         return client;
     }
 
+    public void setTotalPrice(double totalPrice) {this.totalPrice = totalPrice;}
+
     public boolean isCompleted() {
         return completed;
     }

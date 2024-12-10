@@ -3,9 +3,11 @@ package controllers;
 import application.SceneNavigator;
 import application.SharedControl;
 import javafx.fxml.FXML;
+
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+
 
 public class PaymentController {
     @FXML
@@ -19,7 +21,12 @@ public class PaymentController {
 
     @FXML
     private void goToFlavorPage(){
-        SceneNavigator.navigateTo("/views/Tela3-1.fxml", "/styles/Tela3.css");
+        String lastPizzaFlavorType = SharedControl.getInstance().getPizza().getFlavors().getLast().getType();
+
+        if(lastPizzaFlavorType.equals("doce"))
+            SceneNavigator.navigateTo("/views/Tela3-2.fxml", "/styles/Tela3.css");
+        else if(lastPizzaFlavorType.equals("salgado"))
+            SceneNavigator.navigateTo("/views/Tela3-1.fxml", "/styles/Tela3.css");
     }
 
     @FXML
