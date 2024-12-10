@@ -1,13 +1,12 @@
-
 package application;
 
 public class Card {
     private String name;
     private String validity;
-    private int number;
-    private int cvv;
+    private String number;
+    private String cvv;
 
-    public Card(String name, String validity, int number, int cvv) {
+    public Card(String name, String validity, String number, String cvv) {
         this.name = name;
         this.validity = validity;
         this.number = number;
@@ -22,11 +21,27 @@ public class Card {
          return validity;
     }    
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public int getCvv() {
+    public String getCvv() {
         return cvv;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setValidity(String validity) {
+        this.validity = validity;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public void setCvv(String cvv) {
+        this.cvv = cvv;
     }
 }

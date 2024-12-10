@@ -3,33 +3,49 @@ package application;
 import java.util.ArrayList;
 
 public class Order {
-    private ArrayList<Pizza> pizzas = new ArrayList<Pizza>();
+    private ArrayList<Pizza> pizzas;
+    private Client client;
     private boolean completed;
-    private State state;
-    
+    private double totalPrice;
+
     public Order() {
         this.completed = false;
+        this.client = new Client();
+        this.pizzas = new ArrayList<>();
+        this.totalPrice = 0;
     }
 
-    
-    public void setPizzas(ArrayList<Pizza> pizzas) {
-    	this.pizzas = pizzas;
-    }
     public ArrayList<Pizza> getPizzas() {
-    	return this.pizzas;
+        return pizzas;
     }
 
-    
-    
+    public Client getClient() {
+        return client;
+    }
 
-	public void processOrder() {
-		// TODO Auto-generated method stub
-		return;
-	}
+    public void setTotalPrice(double totalPrice) {this.totalPrice = totalPrice;}
 
+    public boolean isCompleted() {
+        return completed;
+    }
 
-	public void setState(State state) {
-		this.state = state;
-		
-	}
+    public double getPrice() {
+        return totalPrice;
+    }
+
+    public void addPizza(Pizza pizza) {
+        this.pizzas.add(pizza);
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public void changeCompleted() {
+        this.completed = !completed;
+    }
+
+    public void updateTotalPrice(double price) {
+        this.totalPrice = this.totalPrice + price;
+    }
 }

@@ -1,8 +1,6 @@
 .table-view {
    -fx-background-color: #E0E0E0;
    -fx-border-color: transparent;
- 
-   
 }
 
 
@@ -39,8 +37,12 @@
 
 
 .button{
-	-fx-background-color:  #388E3C; /* Leve mudança na cor de fundo */
-    -fx-font-size: 15px; /* Mantém o tamanho fixo do texto */
+	-fx-background-color:  #388E3C;
+    -fx-font-size: 20px;
+}
+
+#button_extra_pizza{
+    -fx-font-size: 30px;
 }
 
 .button:hover{

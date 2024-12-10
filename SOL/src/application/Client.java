@@ -1,34 +1,30 @@
 package application;
 
-public class Client extends Order{
+
+public class Client {
     private String name;
     private String surname;
-    private boolean register; // verificar
+    private boolean register;
     private Address address;
     private Payment payment;
 
-    public Client(String name, String surname, Address address, Payment payment) {
-        this.name = name;
-        this.surname = surname;
-        this.register = true;
-        this.address = address;     
-        this.payment = payment;
-    }  
-    
- 
-    
     public Client() {
 		this.name = null;
 		this.surname = null;
 		this.register = false;
-		this.address = null;
-		this.payment = null;
 	}
 
+    public void initAddress(String street, String number, String city, String zipCode, String complement){
+        if(complement != null){
+            this.address = new Address(street, number, city, zipCode, complement);
+        }
+        else{
+            this.address = new Address(street, number, city, zipCode);
+        }
+    }
 
-
-	public void ChangeRegister(){       // verificar
-        this.register = !this.register;
+    public void initPayment(String type, Card card){
+        this.payment = new Payment(type, card);
     }
 
     public String getName() {
@@ -39,7 +35,7 @@ public class Client extends Order{
         return surname;
     }
 
-    public boolean getRegister() {      // verificar
+    public boolean isRegister() {      // verificar
         return register;
     }  
     
@@ -50,4 +46,25 @@ public class Client extends Order{
     public Payment getPayment() {
         return payment;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void changeRegister(){
+        this.register = !this.register;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
+
 }

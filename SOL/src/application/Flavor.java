@@ -6,16 +6,17 @@ public class Flavor {
     private String type;
     private ArrayList<String> ingredients;
 
-    // Só para teste
     public Flavor(String type, ArrayList<String> ingredients) {
     	this.ingredients = ingredients;
     	this.type = type;
     }
-    
-    public Flavor() {
-    	return;
+
+
+    public Flavor(String type){
+        this.ingredients = new ArrayList<>();
+        this.type = type;
     }
-    
+
     
     public String getType() {
     	return this.type;
@@ -24,5 +25,7 @@ public class Flavor {
     public ArrayList<String> getIngredients(){
     	return this.ingredients;
     }
+
+
 }
 

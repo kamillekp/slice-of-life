@@ -6,47 +6,62 @@ import java.util.List;
 public class Pizza {
     private boolean border;
     private int numFlavor;
-    private int size;
+    private String size;
+    private boolean finished;
     private ArrayList<Flavor> flavors;
 
-    public void setBorder(boolean border) {
-        this.border = border;
+    public Pizza() {
+        this.flavors = new ArrayList<>();
+        this.finished = false;
     }
 
-    public boolean getBorder() {
+    public boolean isBorder() {
         return border;
-    }
-
-    public void setNumFlavor(int numFlavor) {
-        this.numFlavor = numFlavor;
     }
 
     public int getNumFlavor() {
         return numFlavor;
     }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public int getSize() {
+    public String getSize() {
         return size;
     }
 
-    public void setFlavors(ArrayList<Flavor> flavors) {
-        this.flavors = flavors;
+    public boolean isFinished() {
+        return finished;
     }
 
     public ArrayList<Flavor> getFlavors() {
         return flavors;
     }
-    
+
+    public void changeBorder() {
+        this.border = !border;
+    }
+
+    public void setNumFlavor(int numFlavor) {
+        this.numFlavor = numFlavor;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public void changeFinished() {
+        this.finished = !finished;
+    }
+
+    public void addFlavor(Flavor flavor) {
+        this.flavors.add(flavor);
+    }
+
+    public void setBorder(boolean b) {this.border = b;}
+
     public List<Flavor> getSaboresDoces() {
-    	return this.getFlavors().stream().filter(f -> f.getType().equals("doce")).toList();
+        return this.getFlavors().stream().filter(f -> f.getType().equals("doce")).toList();
     }
-    
+
     public List<Flavor> getSaboresSalgados() {
-    	return this.getFlavors().stream().filter(f -> f.getType().equals("salgado")).toList();
+        return this.getFlavors().stream().filter(f -> f.getType().equals("salgado")).toList();
     }
-    
 }
