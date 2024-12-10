@@ -24,7 +24,7 @@
             <Font name="Arial Bold" size="100.0" />
          </font>
       </Text>
-      <Button layoutX="367.0" layoutY="589.0" mnemonicParsing="false" onAction="#GoToChoosePizzaPage" prefHeight="80.0" prefWidth="290.0" style="-fx-background-color: #388E3C; -fx-border-color: #216324; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-width: 3;" text="BORA PEDIR!" textFill="WHITE">
+      <Button layoutX="367.0" layoutY="589.0" mnemonicParsing="false" onAction="#goToChoosePizzaPage" prefHeight="80.0" prefWidth="290.0" style="-fx-background-color: #388E3C; -fx-border-color: #216324; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-width: 3;" text="BORA PEDIR!" textFill="WHITE">
          <font>
             <Font size="40.0" />
          </font>

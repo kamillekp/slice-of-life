@@ -41,7 +41,7 @@
       </Pane>
       <Pane layoutY="676.0" prefHeight="92.0" prefWidth="1024.0" style="-fx-background-color: EAEAEA;">
          <children>
-            <Button layoutX="18.0" layoutY="22.0" mnemonicParsing="false" onAction="#goToFlavorPage" prefHeight="48.0" prefWidth="182.0" style="-fx-background-color: #388E3C; -fx-border-width: 2; -fx-border-color: #216324; -fx-border-radius: 10; -fx-background-radius: 10;" text="VOLTAR" textFill="WHITE">
+            <Button layoutX="18.0" layoutY="22.0" mnemonicParsing="false" onAction="#backToFlavorPage" prefHeight="48.0" prefWidth="182.0" style="-fx-background-color: #388E3C; -fx-border-width: 2; -fx-border-color: #216324; -fx-border-radius: 10; -fx-background-radius: 10;" text="VOLTAR" textFill="WHITE">
                <font>
                   <Font name="Arial" size="23.0" />
                </font>

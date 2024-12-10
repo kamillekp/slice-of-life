@@ -19,37 +19,37 @@ import java.util.ArrayList;
 public class ChooseSugaryFlavorController {
 
     @FXML
-    Label priceText;
+    private Label priceText;
 
     @FXML
-    GridPane toppingsGrid;
+    private GridPane toppingsGrid;
 
     @FXML
-    GridPane fruitsGrid;
+    private GridPane fruitsGrid;
 
     @FXML
-    GridPane condimentsGrid;
+    private GridPane condimentsGrid;
 
     @FXML
-    VBox toppingsVBox;
+    private VBox toppingsVBox;
 
     @FXML
-    VBox fruitsVBox;
+    private VBox fruitsVBox;
 
     @FXML
-    VBox condimentsVBox;
+    private VBox condimentsVBox;
 
     @FXML
-    Button changeFlavourTypeButton;
+    private Button changeFlavourTypeButton;
 
     @FXML
-    Button goAheadButton;
+    private Button goAheadButton;
 
     @FXML
-    Button goBackButton;
+    private Button goBackButton;
 
     @FXML
-    Label flavorNumberLabel;
+    private Label flavorNumberLabel;
 
     public void initialize() {
 

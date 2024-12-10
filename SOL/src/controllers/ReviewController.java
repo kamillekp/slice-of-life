@@ -29,18 +29,14 @@ import javafx.scene.text.FontWeight;
 public class ReviewController {
 
     @FXML private VBox tablesVBox;
-	
-    @FXML
-    private TextFlow textFlow2;
-
+    @FXML private TextFlow textFlow2;
     @FXML private TableView<Pizza> tableViewListagemPizzas;
     @FXML private TableColumn<Pizza, Void> colPizzas;
     @FXML private TableColumn<Pizza, String> colTamanho;
     @FXML private TableColumn<Pizza, Integer> colNumSabores;
     @FXML private TableColumn<Pizza, Boolean> colBorda;
 
-    @FXML
-    public void initialize() {
+    @FXML public void initialize() {
 
 		tablesVBox.setSpacing(20);
 		double rowHeight = 25.0;
@@ -378,21 +374,17 @@ public class ReviewController {
         return table;
     }
 
-	@FXML
-	private void goToReviewPage() {
+	@FXML private void goToReviewPage() {
 		SceneNavigator.navigateTo("/views/Tela4.fxml", "/styles/Tela4.css");
 	}
 
-    @FXML
-    private void goToFinalPage() {
+    @FXML private void goToFinalPage() {
       SceneNavigator.navigateTo("/views/Tela6.fxml", "/styles/Tela6.css");
     }
 
-	@FXML
-	private void goToChoosePizzaPage() {
+	@FXML private void goToChoosePizzaPage() {
 		SceneNavigator.navigateTo("/views/Tela2.fxml", "/styles/Tela2.css");
 	}
-
 
 	public void appendToTextFlow2(String texto, boolean isBold, int fontSize, Pos textAlignment) {
     	Text textNode = new Text(texto);

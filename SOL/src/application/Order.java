@@ -44,8 +44,4 @@ public class Order {
     public void changeCompleted() {
         this.completed = !completed;
     }
-
-    public void updateTotalPrice(double price) {
-        this.totalPrice = this.totalPrice + price;
-    }
 }
