@@ -1,5 +1,6 @@
 package controllers;
 
+import application.Card;
 import application.SceneNavigator;
 import application.SharedControl;
 import javafx.fxml.FXML;
@@ -45,77 +46,120 @@ public class PaymentController {
         validityInput.setDisable(true);
         numberCardInput.setDisable(true);
         cvvInput.setDisable(true);
+
+        nameInput.setText("");
+        validityInput.setText("");
+        numberCardInput.setText("");
+        cvvInput.setText("");
     }
 
     @FXML
     private void goToReviewPage(){
-        boolean case0 = typePaymentButtons.getSelectedToggle() != null;
+        boolean somethingOnButton = typePaymentButtons.getSelectedToggle() != null;
 
-        boolean case1 = !nameInput.getText().isEmpty()
+        boolean cardInformationFilled = !nameInput.getText().isEmpty()
                         && !validityInput.getText().isEmpty()
                         && !numberCardInput.getText().isEmpty()
                         && !cvvInput.getText().isEmpty();
 
-        boolean case2 = !cityInput.getText().isEmpty()
+        boolean addressInformationFilled = !cityInput.getText().isEmpty()
                         && !streetInput.getText().isEmpty()
                         && !numberAddressInput.getText().isEmpty()
                         && !zipInput.getText().isEmpty();
 
+        boolean someCardInfo = !nameInput.getText().isEmpty()
+                        || !validityInput.getText().isEmpty()
+                        || !numberCardInput.getText().isEmpty()
+                        || !cvvInput.getText().isEmpty();
+
+        boolean someAddressInfo = !cityInput.getText().isEmpty()
+                        || !streetInput.getText().isEmpty()
+                        || !numberAddressInput.getText().isEmpty()
+                        || !zipInput.getText().isEmpty()
+                        || !complementInput.getText().isEmpty();
+
         if(!SharedControl.getInstance().getOrder().getClient().isRegister()){
-            if(case0 && case2){
+            if(somethingOnButton && addressInformationFilled){
                 RadioButton selectedPButton = (RadioButton) typePaymentButtons.getSelectedToggle();
                 String typePayment = selectedPButton.getText();
 
+                String complement = null;
                 String city = cityInput.getText();
                 String street = streetInput.getText();
                 String numberAddress = numberAddressInput.getText();
                 String zip = zipInput.getText();
                 if(!complementInput.getText().isEmpty()){
-                    String complement = complementInput.getText();
+                    complement = complementInput.getText();
                 }
 
+                SharedControl.getInstance().getOrder().getClient().initAddress(street, numberAddress, city, zip, complement);
+
                 if(typePayment.equals("Cartão de crédito/débito")){
-                    if(case1){
+                    if(cardInformationFilled){
                         String name = nameInput.getText();
                         String validity = validityInput.getText();
                         String numberCard = numberCardInput.getText();
                         String cvv = cvvInput.getText();
 
+                        SharedControl.getInstance().getOrder().getClient().initPayment(typePayment, new Card(name, validity, numberCard, cvv));
                         SharedControl.getInstance().getOrder().getClient().changeRegister();
+
+                        //SharedControl.getInstance().getOrder().getClient().print();
                         SceneNavigator.navigateTo("/views/Tela5.fxml", "/styles/Tela5.css");
                     }
                 }
                 else{
+                    SharedControl.getInstance().getOrder().getClient().initPayment(typePayment, new Card());
                     SharedControl.getInstance().getOrder().getClient().changeRegister();
+
+                    //SharedControl.getInstance().getOrder().getClient().print();
                     SceneNavigator.navigateTo("/views/Tela5.fxml", "/styles/Tela5.css");
                 }
             }
         }
         else{
-            if(case0){
+            if(somethingOnButton){
                 RadioButton selectedPButton = (RadioButton) typePaymentButtons.getSelectedToggle();
                 String typePayment = selectedPButton.getText();
 
                 if(typePayment.equals("Cartão de crédito/débito")){
-                    if(SharedControl.getInstance().getOrder().getClient().getPayment().getType().equals("Cartão de crédito/débito")) {
-                        if (!nameInput.getText().isEmpty() || !validityInput.getText().isEmpty() || !numberCardInput.getText().isEmpty() || !cvvInput.getText().isEmpty()) {
+                    if(SharedControl.getInstance().getOrder().getClient().getPayment().getType().equals(typePayment)) {
+                        if (someCardInfo) {
                             String name, validity, numberCard, cvv;
-                            if (!nameInput.getText().isEmpty()) {name = nameInput.getText();}
-                            if (!validityInput.getText().isEmpty()) {validity = validityInput.getText();}
-                            if (!numberCardInput.getText().isEmpty()) {numberCard = numberCardInput.getText();}
-                            if (!cvvInput.getText().isEmpty()) {cvv = cvvInput.getText();}
 
+                            if (!nameInput.getText().isEmpty()) {
+                                name = nameInput.getText();
+                                SharedControl.getInstance().getOrder().getClient().getPayment().getCard().setName(name);
+                            }
+                            if (!validityInput.getText().isEmpty()) {
+                                validity = validityInput.getText();
+                                SharedControl.getInstance().getOrder().getClient().getPayment().getCard().setValidity(validity);
+                            }
+                            if (!numberCardInput.getText().isEmpty()) {
+                                numberCard = numberCardInput.getText();
+                                SharedControl.getInstance().getOrder().getClient().getPayment().getCard().setNumber(numberCard);
+                            }
+                            if (!cvvInput.getText().isEmpty()) {
+                                cvv = cvvInput.getText();
+                                SharedControl.getInstance().getOrder().getClient().getPayment().getCard().setCvv(cvv);
+                            }
+
+                            //SharedControl.getInstance().getOrder().getClient().getPayment().print();
                             SceneNavigator.navigateTo("/views/Tela5.fxml", "/styles/Tela5.css");
                         }
-                        else{
-                            if(case1) {
-                                String name = nameInput.getText();
-                                String validity = validityInput.getText();
-                                String numberCard = numberCardInput.getText();
-                                String cvv = cvvInput.getText();
+                    }
+                    else{
+                        if(cardInformationFilled) {
+                            String name = nameInput.getText();
+                            String validity = validityInput.getText();
+                            String numberCard = numberCardInput.getText();
+                            String cvv = cvvInput.getText();
 
-                                SceneNavigator.navigateTo("/views/Tela5.fxml", "/styles/Tela5.css");
-                            }
+                            SharedControl.getInstance().getOrder().getClient().getPayment().setType(typePayment);
+                            SharedControl.getInstance().getOrder().getClient().getPayment().setCard(new Card(name, validity, numberCard, cvv));
+
+                            //SharedControl.getInstance().getOrder().getClient().getPayment().print();
+                            SceneNavigator.navigateTo("/views/Tela5.fxml", "/styles/Tela5.css");
                         }
                     }
                 }
@@ -126,18 +170,35 @@ public class PaymentController {
                         SharedControl.getInstance().getOrder().getClient().getPayment().getCard().setNumber(null);
                         SharedControl.getInstance().getOrder().getClient().getPayment().getCard().setCvv(null);
                     }
+
+                    SharedControl.getInstance().getOrder().getClient().getPayment().setType(typePayment);
+
+                    //SharedControl.getInstance().getOrder().getClient().getPayment().print();
                     SceneNavigator.navigateTo("/views/Tela5.fxml", "/styles/Tela5.css");
                 }
             }
-            if(!cityInput.getText().isEmpty() || !streetInput.getText().isEmpty() || !numberAddressInput.getText().isEmpty() || !zipInput.getText().isEmpty()){
-                    String city, street, numberAddress, zip;
+            if(someAddressInfo){
+                String city, street, numberAddress, zip;
 
-                    if(!cityInput.getText().isEmpty()){city = cityInput.getText();}
-                    if(!streetInput.getText().isEmpty()) {street = streetInput.getText();}
-                    if(!numberAddressInput.getText().isEmpty()) {numberAddress = numberAddressInput.getText();}
-                    if(!zipInput.getText().isEmpty()) {zip = zipInput.getText();}
+                if(!cityInput.getText().isEmpty()){
+                    city = cityInput.getText();
+                    SharedControl.getInstance().getOrder().getClient().getAddress().setCity(city);
+                }
+                if(!streetInput.getText().isEmpty()) {
+                    street = streetInput.getText();
+                    SharedControl.getInstance().getOrder().getClient().getAddress().setStreet(street);
+                }
+                if(!numberAddressInput.getText().isEmpty()) {
+                    numberAddress = numberAddressInput.getText();
+                    SharedControl.getInstance().getOrder().getClient().getAddress().setNumber(numberAddress);
+                }
+                if(!zipInput.getText().isEmpty()) {
+                    zip = zipInput.getText();
+                    SharedControl.getInstance().getOrder().getClient().getAddress().setZipCode(zip);
+                }
 
-                    SceneNavigator.navigateTo("/views/Tela5.fxml", "/styles/Tela5.css");
+                //SharedControl.getInstance().getOrder().getClient().getAddress().print();
+                SceneNavigator.navigateTo("/views/Tela5.fxml", "/styles/Tela5.css");
             }
         }
     }

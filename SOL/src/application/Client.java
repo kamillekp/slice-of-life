@@ -24,7 +24,12 @@ public class Client {
     }
 
     public void initPayment(String type, Card card){
-        this.payment = new Payment(type, card);
+        if(card != null){
+            this.payment = new Payment(type, card);
+        }
+        else{
+            this.payment = new Payment(type);
+        }
     }
 
     public String getName() {
@@ -59,12 +64,10 @@ public class Client {
         this.register = !this.register;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void print(){
+        System.out.println("Name: " + this.name);
+        System.out.println("Surname: " + this.surname);
+        this.payment.print();
+        this.address.print();
     }
-
-    public void setPayment(Payment payment) {
-        this.payment = payment;
-    }
-
 }

@@ -13,6 +13,13 @@ public class Card {
         this.cvv = cvv;
     }
 
+    public Card(){
+        this.name = null;
+        this.validity = null;
+        this.number = null;
+        this.cvv = null;
+    }
+
     public String getName() {
             return name;
     } 
@@ -43,5 +50,12 @@ public class Card {
 
     public void setCvv(String cvv) {
         this.cvv = cvv;
+    }
+
+    public void print() {
+        System.out.println("Name: " + name);
+        System.out.println("Validity: " + validity);
+        System.out.println("Number: " + number);
+        System.out.println("CVV: " + cvv);
     }
 }
