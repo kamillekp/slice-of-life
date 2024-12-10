@@ -200,6 +200,9 @@ public class PaymentController {
                 //SharedControl.getInstance().getOrder().getClient().getAddress().print();
                 SceneNavigator.navigateTo("/views/Tela5.fxml", "/styles/Tela5.css");
             }
+            if(!somethingOnButton && !someAddressInfo){
+                SceneNavigator.navigateTo("/views/Tela5.fxml", "/styles/Tela5.css");
+            }
         }
     }
 }

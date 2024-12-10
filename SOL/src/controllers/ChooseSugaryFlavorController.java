@@ -140,7 +140,6 @@ public class ChooseSugaryFlavorController {
 
     }
 
-
     public void selectUnselectableRadioGroupByText(ToggleGroup toggleGroup, String text) {
         for (Toggle toggle : toggleGroup.getToggles()) {
             if (toggle instanceof UnselectableRadioGroup UnselectableRadioGroup) {
@@ -260,7 +259,12 @@ public class ChooseSugaryFlavorController {
 
         if(currentFlavorNumber + 1 == SharedControl.getInstance().getPizza().getNumFlavor()){
             SharedControl.getInstance().getOrder().getPizzas().add(SharedControl.getInstance().getPizza());
-            SceneNavigator.navigateTo("/views/Tela4.fxml", "/styles/Tela4.css");
+            if(SharedControl.getInstance().getOrder().getClient().isRegister()){
+                SceneNavigator.navigateTo("/views/Tela5.fxml", "/styles/Tela5.css");
+            }
+            else{
+                SceneNavigator.navigateTo("/views/Tela4.fxml", "/styles/Tela4.css");
+            }
         }
 
 
