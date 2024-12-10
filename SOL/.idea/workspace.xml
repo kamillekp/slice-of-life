@@ -6,21 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="00e4f94a-eef0-41ef-a6fb-26e9c976048d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/ChooseSugaryFlavorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SOL/controllers/ChooseSugaryFlavorController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/Flavor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/Flavor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/PizzaInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/PizzaInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/SharedControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/SharedControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ChoosePizzaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ChoosePizzaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ChooseSaltyFlavorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ChooseSaltyFlavorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ChooseSugaryFlavorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ChooseSugaryFlavorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/ChoosePizzaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SOL/controllers/ChoosePizzaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/InitialController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SOL/controllers/InitialController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/PaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SOL/controllers/PaymentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/ReviewController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SOL/controllers/ReviewController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/ReviewController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SOL/controllers/ReviewController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/ReviewController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SOL/controllers/ReviewController$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/ReviewController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SOL/controllers/ReviewController$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/ReviewController$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SOL/controllers/ReviewController$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/ReviewController$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SOL/controllers/ReviewController$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/ReviewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SOL/controllers/ReviewController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/FinalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/FinalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/InitialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/InitialController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/PaymentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Tela1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Tela1.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Tela2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Tela2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Tela4.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Tela4.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Tela5.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Tela5.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +111,7 @@
       <workItem from="1733520313965" duration="24617000" />
       <workItem from="1733684748293" duration="39425000" />
       <workItem from="1733852379713" duration="1592000" />
-      <workItem from="1733855487188" duration="3458000" />
+      <workItem from="1733855487188" duration="4315000" />
     </task>
     <servers />
   </component>
