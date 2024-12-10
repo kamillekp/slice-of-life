@@ -67,7 +67,7 @@ public class ReviewController {
 
 			if (payment != null && adress != null) {
 
-				appendToTextFlow2("     Endereço\n\n", true, 14, Pos.CENTER_LEFT);
+				appendToTextFlow2("     Endereço\n", true, 14, Pos.CENTER_LEFT);
 
 				appendToTextFlow2("          CEP: " + adress.getZipCode() + "\n", false, 12, Pos.CENTER_LEFT);
 				appendToTextFlow2("          Rua/Avenida " + adress.getStreet() + ", " + adress.getcity() + "\n", false, 12, Pos.CENTER_LEFT);
@@ -75,7 +75,7 @@ public class ReviewController {
 				appendToTextFlow2("          Complemento: " + adress.getComplement() + "\n", false, 12, Pos.CENTER_LEFT);
 
 
-				appendToTextFlow2("     Pagamento\n\n", true, 14, Pos.CENTER_LEFT);
+				appendToTextFlow2("     Pagamento\n", true, 14, Pos.CENTER_LEFT);
 
 				appendToTextFlow2("          Total do pedido: " + payment.getValue() + "R$\n", false, 12, Pos.CENTER_LEFT);
 				appendToTextFlow2("          Tipo: " + payment.getType() + "\n", false, 12, Pos.CENTER_LEFT);
