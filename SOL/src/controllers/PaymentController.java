@@ -21,6 +21,8 @@ public class PaymentController {
 
     @FXML
     private void goToFlavorPage(){
+
+        SharedControl.getInstance().getOrder().getPizzas().removeLast();
         String lastPizzaFlavorType = SharedControl.getInstance().getPizza().getFlavors().getLast().getType();
 
         if(lastPizzaFlavorType.equals("doce"))
