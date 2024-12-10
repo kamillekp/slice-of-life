@@ -73,7 +73,10 @@ public class ChooseSugaryFlavorController {
         ChangeListener<Object> updateTotalListener = (observable, oldValue, newValue) -> {
             double total = getTotal(pizzaToppingGroup, pizzaFruitGroup, pizzaCondimentGroup);
 
-            goAheadButton.setDisable(false);
+            if(total == 0)
+                goAheadButton.setDisable(true);
+            else
+                goAheadButton.setDisable(false);
 
             priceText.setText("TOTAL DO PEDIDO: R$ " + String.format("%.2f", SharedControl.getInstance().getOrder().getPrice() + total));
         };
