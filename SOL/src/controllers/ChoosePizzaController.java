@@ -2,7 +2,6 @@ package controllers;
 
 import application.SceneNavigator;
 import application.SharedControl;
-import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -10,23 +9,14 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
 public class ChoosePizzaController {
+    @FXML private Label totalPriceLabel;
+    @FXML private ToggleGroup pizzaSizeButtons;
+    @FXML private ToggleGroup pizzaFlavorButtons;
+    @FXML private ToggleGroup pizzaBorderButtons;
 
-    @FXML
-    private void goToInitialPage(ActionEvent event) {
+    @FXML private void backToInitialPage() {
         SceneNavigator.navigateTo("/views/Tela1.fxml", "/styles/Tela1.css");
     }
-
-    @FXML
-    private Label totalPriceLabel;
-
-    @FXML
-    private ToggleGroup pizzaSizeButtons;
-
-    @FXML
-    private ToggleGroup pizzaFlavorButtons;
-
-    @FXML
-    private ToggleGroup pizzaBorderButtons;
 
     /*public void initialize(){
 
@@ -45,8 +35,7 @@ public class ChoosePizzaController {
     } */
 
 
-    @FXML
-    private void GoToChooseFlavorPage(ActionEvent event) {
+    @FXML private void goToChooseFlavorPage(ActionEvent event) {
         boolean case0 =  pizzaSizeButtons.getSelectedToggle() != null
                         && pizzaFlavorButtons.getSelectedToggle() != null
                         && pizzaBorderButtons.getSelectedToggle() != null;
@@ -81,7 +70,7 @@ public class ChoosePizzaController {
                     default -> 0;
                 };*/
 
-                SharedControl.getInstance().InitPizza();
+                SharedControl.getInstance().initPizza();
                 SharedControl.getInstance().getPizza().setSize(size);
                 SharedControl.getInstance().getPizza().setNumFlavor(numFlavor);
                 SharedControl.getInstance().getPizza().setBorder(border);

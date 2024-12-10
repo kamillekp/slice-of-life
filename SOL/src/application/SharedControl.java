@@ -20,7 +20,7 @@ public class SharedControl {
         return instance;
     }
 
-    public void InitPizza() {
+    public void initPizza() {
         this.pizza = new Pizza();
     }
 

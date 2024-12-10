@@ -19,14 +19,4 @@ public class PizzaInfo {
             new Pair("Com Borda", 1),
             new Pair("Sem Borda", 0),
     };
-
-    public Pair[] getSizes() {
-        return sizes;
-    }
-
-    public Pair[] getNumFlavors() {
-        return numFlavors;
-    }
-
-
 }

@@ -11,17 +11,11 @@ import javafx.scene.control.ToggleGroup;
 
 
 public class PaymentController {
-    @FXML
-    ToggleGroup typePaymentButtons;
+    @FXML private ToggleGroup typePaymentButtons;
+    @FXML private TextField nameInput, validityInput, numberCardInput, cvvInput;
+    @FXML private TextField cityInput, streetInput, complementInput, numberAddressInput, zipInput;
 
-    @FXML
-    TextField nameInput, validityInput, numberCardInput, cvvInput;
-
-    @FXML
-    TextField cityInput, streetInput, complementInput, numberAddressInput, zipInput;
-
-    @FXML
-    private void goToFlavorPage(){
+    @FXML private void backToFlavorPage(){
 
         SharedControl.getInstance().getOrder().getPizzas().removeLast();
         String lastPizzaFlavorType = SharedControl.getInstance().getPizza().getFlavors().getLast().getType();
@@ -32,16 +26,14 @@ public class PaymentController {
             SceneNavigator.navigateTo("/views/Tela3-1.fxml", "/styles/Tela3.css");
     }
 
-    @FXML
-    private void cardInformationActivated(){
+    @FXML private void cardInformationActivated(){
         nameInput.setDisable(false);
         validityInput.setDisable(false);
         numberCardInput.setDisable(false);
         cvvInput.setDisable(false);
     }
 
-    @FXML
-    private void cardInformationInactivated(){
+    @FXML private void cardInformationInactivated(){
         nameInput.setDisable(true);
         validityInput.setDisable(true);
         numberCardInput.setDisable(true);
@@ -53,8 +45,7 @@ public class PaymentController {
         cvvInput.setText("");
     }
 
-    @FXML
-    private void goToReviewPage(){
+    @FXML private void goToReviewPage(){
         boolean somethingOnButton = typePaymentButtons.getSelectedToggle() != null;
 
         boolean cardInformationFilled = !nameInput.getText().isEmpty()

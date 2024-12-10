@@ -9,14 +9,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
 public class InitialController {
-    @FXML
-    TextField nameInput;
+    @FXML private TextField nameInput;
+    @FXML private TextField surnameInput;
 
-    @FXML
-    TextField surnameInput;
-
-    @FXML
-    private void GoToChoosePizzaPage(ActionEvent event) {
+    @FXML private void goToChoosePizzaPage() {
         String name = nameInput.getText();
         String surname = surnameInput.getText();
 
