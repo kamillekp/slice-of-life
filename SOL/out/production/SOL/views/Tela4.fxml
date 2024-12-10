@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #64B5F6;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PaymentController">
+<Pane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #64B5F6;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PaymentController">
    <children>
       <Pane prefHeight="92.0" prefWidth="1024.0" style="-fx-background-color: EAEAEA;">
          <children>
@@ -60,7 +60,7 @@
                   <Font name="Arial" size="16.0" />
                </font>
             </Text>
-            <RadioButton fx:id="option0PBG" layoutX="47.0" layoutY="47.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="300.0" text="Dinheiro" textFill="#303030">
+            <RadioButton fx:id="option0PBG" layoutX="47.0" layoutY="47.0" mnemonicParsing="false" onAction="#cardInformationInactivated" prefHeight="30.0" prefWidth="300.0" text="Dinheiro" textFill="#303030">
                <font>
                   <Font name="Arial" size="20.0" />
                </font>
@@ -68,12 +68,12 @@
                   <ToggleGroup fx:id="typePaymentButtons" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="option1PBG" layoutX="47.0" layoutY="100.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="300.0" text="Cartão de crédito/débito" textFill="#303030" toggleGroup="$typePaymentButtons">
+            <RadioButton fx:id="option1PBG" layoutX="47.0" layoutY="100.0" mnemonicParsing="false" onMouseClicked="#cardInformationActivated" prefHeight="30.0" prefWidth="300.0" text="Cartão de crédito/débito" textFill="#303030" toggleGroup="$typePaymentButtons">
                <font>
                   <Font name="Arial" size="20.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="option2PBG" layoutX="47.0" layoutY="156.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="300.0" text="Pix" textFill="#303030" toggleGroup="$typePaymentButtons">
+            <RadioButton fx:id="option2PBG" layoutX="47.0" layoutY="156.0" mnemonicParsing="false" onAction="#cardInformationInactivated" prefHeight="30.0" prefWidth="300.0" text="Pix" textFill="#303030" toggleGroup="$typePaymentButtons">
                <font>
                   <Font name="Arial" size="20.0" />
                </font>
@@ -87,25 +87,25 @@
                   <Font name="Arial" size="16.0" />
                </font>
             </Text>
-            <TextField fx:id="nameInput" layoutX="37.0" layoutY="67.0" prefHeight="30.0" prefWidth="230.0" />
+            <TextField fx:id="nameInput" disable="true" layoutX="37.0" layoutY="67.0" prefHeight="30.0" prefWidth="230.0" />
             <Text fill="#303030" layoutX="37.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
             </Text>
-            <TextField fx:id="validityInput" layoutX="306.0" layoutY="67.0" prefHeight="30.0" prefWidth="128.0" />
+            <TextField fx:id="validityInput" disable="true" layoutX="306.0" layoutY="67.0" prefHeight="30.0" prefWidth="128.0" />
             <Text fill="#303030" layoutX="306.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Validade:">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
             </Text>
-            <TextField fx:id="numberCardInput" layoutX="37.0" layoutY="150.0" prefHeight="30.0" prefWidth="230.0" />
+            <TextField fx:id="numberCardInput" disable="true" layoutX="37.0" layoutY="150.0" prefHeight="30.0" prefWidth="230.0" />
             <Text fill="#303030" layoutX="37.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número:">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
             </Text>
-            <TextField fx:id="cvvInput" layoutX="306.0" layoutY="150.0" prefHeight="30.0" prefWidth="128.0" />
+            <TextField fx:id="cvvInput" disable="true" layoutX="306.0" layoutY="150.0" prefHeight="30.0" prefWidth="128.0" />
             <Text fill="#303030" layoutX="306.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CVV:">
                <font>
                   <Font name="Arial" size="18.0" />
