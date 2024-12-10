@@ -54,7 +54,7 @@
             <Font size="26.0" />
          </font>
       </Button>
-      <Button layoutX="40.0" layoutY="695.0" mnemonicParsing="false" onAction="#goToReviewPage" prefHeight="51.0" prefWidth="182.0" style="-fx-font-family: aRIAL; -fx-background-radius: 10; -fx-border-color: #216324; -fx-border-radius: 10; -fx-border-width: 2;" styleClass="changePageButton" stylesheets="@../styles/Tela5.css" text="VOLTAR" textFill="WHITE">
+      <Button layoutX="40.0" layoutY="695.0" mnemonicParsing="false" onAction="#backToPaymentPage" prefHeight="51.0" prefWidth="182.0" style="-fx-font-family: aRIAL; -fx-background-radius: 10; -fx-border-color: #216324; -fx-border-radius: 10; -fx-border-width: 2;" styleClass="changePageButton" stylesheets="@../styles/Tela5.css" text="VOLTAR" textFill="WHITE">
          <font>
             <Font name="Arial" size="26.0" />
          </font>
