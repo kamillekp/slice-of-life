@@ -38,7 +38,6 @@ public class ReviewController {
 	@FXML private Button anotherPizzaButton;
 
     @FXML public void initialize() {
-
 		tablesVBox.setSpacing(20);
 		double rowHeight = 25.0;
 		ArrayList<Pizza> pizzas = SharedControl.getInstance().getOrder().getPizzas();
@@ -427,7 +426,7 @@ public class ReviewController {
 
 
 
-	@FXML private void goToReviewPage() {
+	@FXML private void backToPaymentPage() {
 		SceneNavigator.navigateTo("/views/Tela4.fxml", "/styles/Tela4.css");
 	}
 
