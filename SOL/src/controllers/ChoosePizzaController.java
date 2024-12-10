@@ -90,7 +90,19 @@ public class ChoosePizzaController {
                     case "option2PFG" -> 2;
                     default -> 3;
                 };*/
+
+
+                int numPreviouslyAddedFlavors = SharedControl.getInstance().getPizza().getFlavors().size();
+
+                while(numPreviouslyAddedFlavors > numFlavor){
+                    SharedControl.getInstance().getPizza().getFlavors().remove(numPreviouslyAddedFlavors - 1);
+                    numPreviouslyAddedFlavors--;
+                }
+
                 SharedControl.getInstance().getPizza().setNumFlavor(numFlavor);
+
+
+
             }
             if(pizzaBorderButtons.getSelectedToggle() != null){
                 RadioButton selectedPBButton = (RadioButton) pizzaBorderButtons.getSelectedToggle();

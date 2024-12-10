@@ -19,4 +19,20 @@ public class SceneNavigator {
     public static Stage getStage() {
     	return stage;
     }
+
+    // Carrega a nova cena
+    public static void navigateTo(String fxmlFile, String cssFile) {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(SceneNavigator.class.getResource(fxmlFile));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(SceneNavigator.class.getResource(cssFile).toExternalForm());
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
