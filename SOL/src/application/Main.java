@@ -10,7 +10,7 @@ public class Main extends Application {
 			new SharedControl();
 
 			SceneNavigator.setStage(primaryStage);
-			SceneNavigator.navigateTo("/views/Tela4.fxml", "/styles/Tela4.css");
+			SceneNavigator.navigateTo("/views/Tela1.fxml", "/styles/Tela1.css");
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
