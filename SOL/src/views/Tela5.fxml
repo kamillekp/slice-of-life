@@ -49,20 +49,20 @@
          </font>
       </Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eaeaea" height="92.0" layoutY="676.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke-width: 0;" width="1024.0" />
-      <Button fx:id="finalButton" layoutX="794.0" layoutY="695.0" mnemonicParsing="false" onAction="#goToFinalPage" prefHeight="51.0" prefWidth="182.0" style="-fx-font-family: aRIAL; -fx-background-radius: 10; -fx-border-color: #216324; -fx-border-radius: 10; -fx-border-width: 2;" stylesheets="@../styles/Tela5.css" text="FINALIZAR" textFill="WHITE">
+      <Button fx:id="finalButton" layoutX="794.0" layoutY="695.0" mnemonicParsing="false" onAction="#goToFinalPage" prefHeight="51.0" prefWidth="182.0" style="-fx-font-family: aRIAL; -fx-background-radius: 10; -fx-border-color: #216324; -fx-border-radius: 10; -fx-border-width: 2;" styleClass="changePageButton" stylesheets="@../styles/Tela5.css" text="FINALIZAR" textFill="WHITE">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button layoutX="40.0" layoutY="695.0" mnemonicParsing="false" onAction="#goToReviewPage" prefHeight="51.0" prefWidth="182.0" style="-fx-font-family: aRIAL; -fx-background-radius: 10; -fx-border-color: #216324; -fx-border-radius: 10; -fx-border-width: 2;" stylesheets="@../styles/Tela5.css" text="VOLTAR" textFill="WHITE">
+      <Button layoutX="40.0" layoutY="695.0" mnemonicParsing="false" onAction="#goToReviewPage" prefHeight="51.0" prefWidth="182.0" style="-fx-font-family: aRIAL; -fx-background-radius: 10; -fx-border-color: #216324; -fx-border-radius: 10; -fx-border-width: 2;" styleClass="changePageButton" stylesheets="@../styles/Tela5.css" text="VOLTAR" textFill="WHITE">
          <font>
             <Font name="Arial" size="26.0" />
          </font>
       </Button>
       <TextFlow fx:id="textFlow2" layoutX="584.0" layoutY="152.0" prefHeight="385.0" prefWidth="392.0" style="-fx-background-color: E0E0E0; -fx-background-radius: 15; -fx-padding: 15;" />
-      <ScrollPane layoutX="52.0" layoutY="152.0" prefHeight="385.0" prefWidth="507.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: transparent;">
+      <ScrollPane layoutX="52.0" layoutY="152.0" prefHeight="385.0" prefWidth="507.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: transparent; -fx-background: transparent;">
          <content>
-            <VBox fx:id="tablesVBox" alignment="center" prefWidth="488.0" style="-fx-background-color: #E0E0E0; -fx-border-radius: 15; -fx-background-radius: 15;">
+            <VBox fx:id="tablesVBox" alignment="TOP_CENTER" prefHeight="383.0" prefWidth="504.0" style="-fx-background-color: #E0E0E0; -fx-border-radius: 15; -fx-background-radius: 15;">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: #E0E0E0;" text="Listagem do Pedido">
                      <font>
@@ -70,12 +70,12 @@
                      </font>
                   </Text>
                   <TableView id="orderTable" fx:id="tableViewListagemPizzas" prefHeight="150.0" prefWidth="475.0" style="-fx-background-color: #E0E0E0; -fx-border-color: transparent;">
-                    <columns>
-                      <TableColumn fx:id="colPizzas" prefWidth="74.0" style="-fx-background-color: #E0E0E0; -fx-border-color: transparent; -fx-font-weight: bold;" />
-                      <TableColumn fx:id="colTamanho" prefWidth="113.0" style="-fx-background-color: #E0E0E0; -fx-border-color: transparent;" />
+                     <columns>
+                        <TableColumn fx:id="colPizzas" prefWidth="74.0" style="-fx-background-color: #E0E0E0; -fx-border-color: transparent; -fx-font-weight: bold;" />
+                        <TableColumn fx:id="colTamanho" prefWidth="113.0" style="-fx-background-color: #E0E0E0; -fx-border-color: transparent;" />
                         <TableColumn fx:id="colNumSabores" prefWidth="99.0" style="-fx-background-color: #E0E0E0; -fx-border-color: transparent;" />
                         <TableColumn fx:id="colBorda" prefWidth="105.0" style="-fx-background-color: #E0E0E0; -fx-border-color: transparent;" />
-                    </columns>
+                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>

@@ -258,8 +258,11 @@ public class ChooseSugaryFlavorController {
         setCurrentFlavor(pizzaToppingFlavor, pizzaFruitFlavor, pizzaCondimentGroup, currentFlavorNumber);
         setCurrentPrice(pizzaToppingFlavor, pizzaFruitFlavor, pizzaCondimentGroup);
 
-        if(currentFlavorNumber + 1 == SharedControl.getInstance().getPizza().getNumFlavor())
+        if(currentFlavorNumber + 1 == SharedControl.getInstance().getPizza().getNumFlavor()){
+            SharedControl.getInstance().getOrder().getPizzas().add(SharedControl.getInstance().getPizza());
             SceneNavigator.navigateTo("/views/Tela4.fxml", "/styles/Tela4.css");
+        }
+
 
         // Aqui também deveria checar se o próximo flavour será editado. Se estiver, checa o tipo dele e já carrega na página do tipo
         else{

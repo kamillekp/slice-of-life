@@ -2,8 +2,10 @@ package controllers;
 
 import application.SceneNavigator;
 import application.SharedControl;
+import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
@@ -15,6 +17,9 @@ public class ChoosePizzaController {
     }
 
     @FXML
+    private Label totalPriceLabel;
+
+    @FXML
     private ToggleGroup pizzaSizeButtons;
 
     @FXML
@@ -22,6 +27,23 @@ public class ChoosePizzaController {
 
     @FXML
     private ToggleGroup pizzaBorderButtons;
+
+    /*public void initialize(){
+
+        totalPriceLabel.setText("TOTAL DO PEDIDO: " + String.format("%.2f", SharedControl.getInstance().getOrder().getPrice()));
+
+        ChangeListener<Object> updateTotalListener = (observable, oldValue, newValue) -> {
+            double total = getTotal(pizzaSizeButtons, pizzaFlavorButtons, pizzaBorderButtons);
+
+            priceText.setText("TOTAL DO PEDIDO: R$ " + String.format("%.2f", SharedControl.getInstance().getOrder().getPrice() + total));
+        };
+
+    }
+
+    private double getTotal(ToggleGroup pizzaSizeButtons, ToggleGroup pizzaFlavorButtons, ToggleGroup pizzaBorderButtons) {
+
+    } */
+
 
     @FXML
     private void GoToChooseFlavorPage(ActionEvent event) {
@@ -90,7 +112,19 @@ public class ChoosePizzaController {
                     case "option2PFG" -> 2;
                     default -> 3;
                 };*/
+
+
+                int numPreviouslyAddedFlavors = SharedControl.getInstance().getPizza().getFlavors().size();
+
+                while(numPreviouslyAddedFlavors > numFlavor){
+                    SharedControl.getInstance().getPizza().getFlavors().remove(numPreviouslyAddedFlavors - 1);
+                    numPreviouslyAddedFlavors--;
+                }
+
                 SharedControl.getInstance().getPizza().setNumFlavor(numFlavor);
+
+
+
             }
             if(pizzaBorderButtons.getSelectedToggle() != null){
                 RadioButton selectedPBButton = (RadioButton) pizzaBorderButtons.getSelectedToggle();

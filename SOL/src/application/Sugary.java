@@ -1,6 +1,8 @@
 package application;
 
 
+import java.util.ArrayList;
+
 public class Sugary {
     private final Pair[] topping = {
             new Pair("Ao leite", 1),
@@ -93,4 +95,14 @@ public class Sugary {
             return null;
     }
 
+    public String getFirstFromType(String type,ArrayList<String> ingredients){
+        Pair[] ingredientsFromType = getIngredientsByType(type);
+
+        for(Pair ingredient : ingredientsFromType){
+            if(ingredients.contains(ingredient.getOption()))
+                return ingredient.getOption();
+        }
+
+        return null;
+    }
 }
