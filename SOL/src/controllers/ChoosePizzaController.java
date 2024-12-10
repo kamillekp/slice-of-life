@@ -64,6 +64,8 @@ public class ChoosePizzaController {
                 SharedControl.getInstance().getPizza().setNumFlavor(numFlavor);
                 SharedControl.getInstance().getPizza().setBorder(border);
                 SharedControl.getInstance().changeFinishedPizzaInfo();
+
+                SceneNavigator.navigateTo("/views/Tela3-1.fxml", "/styles/Tela3.css");
             }
         }
         else{
@@ -100,9 +102,9 @@ public class ChoosePizzaController {
                 };*/
                 SharedControl.getInstance().getPizza().setBorder(border);
             }
-        }
 
-        SceneNavigator.navigateTo("/views/Tela3-1.fxml", "/styles/Tela3.css");
+            SceneNavigator.navigateTo("/views/Tela3-1.fxml", "/styles/Tela3.css");
+        }
     }
 }
 
