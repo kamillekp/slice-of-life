@@ -1,6 +1,7 @@
 package controllers;
 
 import application.SceneNavigator;
+import application.ScreenChoosePizzaState;
 import application.SharedControl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,10 +14,6 @@ public class ChoosePizzaController {
     @FXML private ToggleGroup pizzaSizeButtons;
     @FXML private ToggleGroup pizzaFlavorButtons;
     @FXML private ToggleGroup pizzaBorderButtons;
-
-    @FXML private void backToInitialPage() {
-        SceneNavigator.navigateTo("/views/Tela1.fxml", "/styles/Tela1.css");
-    }
 
     /*public void initialize(){
 
@@ -34,17 +31,34 @@ public class ChoosePizzaController {
 
     } */
 
+    @FXML public void initialize() {
+        if(ScreenChoosePizzaState.getTgPizzaSizeButtons() != null && ScreenChoosePizzaState.getTgPizzaFlavorButtons() != null && ScreenChoosePizzaState.getTgPizzaBorderButtons() != null) {
+            pizzaSizeButtons.selectToggle(ScreenChoosePizzaState.getTgPizzaSizeButtons());
+            pizzaFlavorButtons.selectToggle(ScreenChoosePizzaState.getTgPizzaFlavorButtons());
+            pizzaBorderButtons.selectToggle(ScreenChoosePizzaState.getTgPizzaBorderButtons());
+        }
+    }
+
+    @FXML private void backToInitialPage() {
+        SceneNavigator.navigateTo("/views/Tela1.fxml", "/styles/Tela1.css");
+    }
 
     @FXML private void goToChooseFlavorPage(ActionEvent event) {
-        boolean case0 =  pizzaSizeButtons.getSelectedToggle() != null
-                        && pizzaFlavorButtons.getSelectedToggle() != null
-                        && pizzaBorderButtons.getSelectedToggle() != null;
+        boolean pizzaInfosPressed =  pizzaSizeButtons.getSelectedToggle() != null
+                                     && pizzaFlavorButtons.getSelectedToggle() != null
+                                     && pizzaBorderButtons.getSelectedToggle() != null;
 
         if(!SharedControl.getInstance().isFinishedPizzaInfo()){
-            if(case0){
+            if(pizzaInfosPressed){
                 RadioButton selectedPSButton = (RadioButton) pizzaSizeButtons.getSelectedToggle();
                 RadioButton selectedPFButton = (RadioButton) pizzaFlavorButtons.getSelectedToggle();
                 RadioButton selectedPBButton = (RadioButton) pizzaBorderButtons.getSelectedToggle();
+
+                ScreenChoosePizzaState.setTgPizzaSizeButtons(selectedPSButton);
+                ScreenChoosePizzaState.setTgPizzaFlavorButtons(selectedPFButton);
+                ScreenChoosePizzaState.setTgPizzaBorderButtons(selectedPBButton);
+
+                System.out.println(ScreenChoosePizzaState.getTgPizzaSizeButtons());
 
                 String size = selectedPSButton.getText();
                 /*double sizePrice = switch (selectedPSButton.getId()) {
