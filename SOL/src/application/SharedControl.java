@@ -52,7 +52,6 @@ public class SharedControl {
         instance = new SharedControl();
     }
 
-
     public Pizza getPizza() {
         return pizza;
     }

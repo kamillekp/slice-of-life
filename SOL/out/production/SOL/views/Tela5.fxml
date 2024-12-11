@@ -43,7 +43,7 @@
          </font>
       </Text>
 
-      <Button id="button_extra_pizza" layoutX="52.0" layoutY="576.0" mnemonicParsing="false" onAction="#goToChoosePizzaPage" prefHeight="55.0" prefWidth="920.0" style="-fx-background-color: #FF7043; -fx-background-radius: 10; -fx-font-family: Arial;" text="MAIS UMA PIZZA?" textFill="WHITE">
+      <Button id="button_extra_pizza" fx:id="anotherPizzaButton" layoutX="52.0" layoutY="576.0" mnemonicParsing="false" onAction="#goToChoosePizzaPage" prefHeight="55.0" prefWidth="920.0" style="-fx-background-color: #FF7043; -fx-background-radius: 10; -fx-font-family: Arial;" text="MAIS UMA PIZZA?" textFill="WHITE">
          <font>
             <Font name="Arial" size="34.0" />
          </font>
@@ -54,7 +54,7 @@
             <Font size="26.0" />
          </font>
       </Button>
-      <Button layoutX="40.0" layoutY="695.0" mnemonicParsing="false" onAction="#goToReviewPage" prefHeight="51.0" prefWidth="182.0" style="-fx-font-family: aRIAL; -fx-background-radius: 10; -fx-border-color: #216324; -fx-border-radius: 10; -fx-border-width: 2;" styleClass="changePageButton" stylesheets="@../styles/Tela5.css" text="VOLTAR" textFill="WHITE">
+      <Button layoutX="40.0" layoutY="695.0" mnemonicParsing="false" onAction="#backToPaymentPage" prefHeight="51.0" prefWidth="182.0" style="-fx-font-family: aRIAL; -fx-background-radius: 10; -fx-border-color: #216324; -fx-border-radius: 10; -fx-border-width: 2;" styleClass="changePageButton" stylesheets="@../styles/Tela5.css" text="VOLTAR" textFill="WHITE">
          <font>
             <Font name="Arial" size="26.0" />
          </font>

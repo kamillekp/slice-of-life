@@ -1,8 +1,6 @@
 package controllers;
 
-import application.Card;
-import application.SceneNavigator;
-import application.SharedControl;
+import application.*;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.RadioButton;
@@ -14,6 +12,36 @@ public class PaymentController {
     @FXML private ToggleGroup typePaymentButtons;
     @FXML private TextField nameInput, validityInput, numberCardInput, cvvInput;
     @FXML private TextField cityInput, streetInput, complementInput, numberAddressInput, zipInput;
+
+    @FXML public void initialize() {
+        if(SharedControl.getInstance().getOrder().getClient().isRegister()){
+            boolean isCardFilled = SharedControl.getInstance().getOrder().getClient().getPayment().getCard().getName() != null
+                    && SharedControl.getInstance().getOrder().getClient().getPayment().getCard().getNumber() != null
+                    && SharedControl.getInstance().getOrder().getClient().getPayment().getCard().getCvv() != null
+                    && SharedControl.getInstance().getOrder().getClient().getPayment().getCard().getValidity() != null;
+
+            String typePaymentText = SharedControl.getInstance().getOrder().getClient().getPayment().getType();
+
+            typePaymentButtons.selectToggle(ScreenPaymentState.getTgTypePayment());
+
+            cityInput.setText(SharedControl.getInstance().getOrder().getClient().getAddress().getcity());
+            streetInput.setText(SharedControl.getInstance().getOrder().getClient().getAddress().getStreet());
+            numberAddressInput.setText(SharedControl.getInstance().getOrder().getClient().getAddress().getNumber());
+            zipInput.setText(SharedControl.getInstance().getOrder().getClient().getAddress().getZipCode());
+            if(SharedControl.getInstance().getOrder().getClient().getAddress().getComplement() != null){
+                complementInput.setText(SharedControl.getInstance().getOrder().getClient().getAddress().getComplement());
+            }
+
+            if(typePaymentText.equals("Cartão de crédito/débito") && isCardFilled) {
+                cardInformationActivated();
+
+                nameInput.setText(SharedControl.getInstance().getOrder().getClient().getPayment().getCard().getName());
+                validityInput.setText(SharedControl.getInstance().getOrder().getClient().getPayment().getCard().getValidity());
+                numberCardInput.setText(SharedControl.getInstance().getOrder().getClient().getPayment().getCard().getNumber());
+                cvvInput.setText(SharedControl.getInstance().getOrder().getClient().getPayment().getCard().getCvv());
+            }
+        }
+    }
 
     @FXML private void backToFlavorPage(){
 
@@ -73,6 +101,8 @@ public class PaymentController {
             if(somethingOnButton && addressInformationFilled){
                 RadioButton selectedPButton = (RadioButton) typePaymentButtons.getSelectedToggle();
                 String typePayment = selectedPButton.getText();
+
+                ScreenPaymentState.setTgTypePayment((typePaymentButtons.getSelectedToggle()));
 
                 String complement = null;
                 String city = cityInput.getText();
