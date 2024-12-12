@@ -104,11 +104,11 @@ public class ReviewController {
 			Label pizzaLabel = new Label("Pizza " + contNumPizzas + " - " + "R$ " + String.format("%.2f", currentPizzaPrice));
 			pizzaLabel.setStyle("-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 16px");
 
-			List<Flavor> savoryFlavors = pizza.getSaboresSalgados();
-			List<Flavor> sweetFlavors = pizza.getSaboresDoces();
+			List<Flavour> savoryFlavours = pizza.getSaboresSalgados();
+			List<Flavour> sweetFlavours = pizza.getSaboresDoces();
 
-			TableView<Flavor> tableSavoryFlavors = createSavoryFlavorsTable(savoryFlavors, 0, rowHeight);
-			TableView<Flavor> tableSweetFlavors = createSweetFlavorsTable(sweetFlavors, savoryFlavors.size(), rowHeight);
+			TableView<Flavour> tableSavoryFlavors = createSavoryFlavorsTable(savoryFlavours, 0, rowHeight);
+			TableView<Flavour> tableSweetFlavors = createSweetFlavorsTable(sweetFlavours, savoryFlavours.size(), rowHeight);
 
 
 			// Nunca deveria acontecer
@@ -129,15 +129,15 @@ public class ReviewController {
 
 
   
-    private TableView<Flavor> createSavoryFlavorsTable(List<Flavor> flavors, int contNumFlavors, double rowHeight) {
+    private TableView<Flavour> createSavoryFlavorsTable(List<Flavour> flavours, int contNumFlavors, double rowHeight) {
 
 		Salty salty = new Salty();
 
-		if(flavors.isEmpty())
+		if(flavours.isEmpty())
 			return null;
 
-    	TableColumn<Flavor, Void> colNum = new TableColumn<>();
-    	colNum.setCellValueFactory(new PropertyValueFactory<Flavor, Void>(""));
+    	TableColumn<Flavour, Void> colNum = new TableColumn<>();
+    	colNum.setCellValueFactory(new PropertyValueFactory<Flavour, Void>(""));
 
 		colNum.setCellFactory(column -> new TableCell<>() {
 			@Override
@@ -148,7 +148,7 @@ public class ReviewController {
 		});
 
     	  
-        TableView<Flavor> table = new TableView<>();
+        TableView<Flavour> table = new TableView<>();
         colNum.prefWidthProperty().bind(table.widthProperty().multiply(0.15));
          
         colNum.setStyle("-fx-font-weight: bold");
@@ -157,10 +157,10 @@ public class ReviewController {
         table.getColumns().add(colNum);
         
         
-        table.setItems(FXCollections.observableArrayList(flavors));
+        table.setItems(FXCollections.observableArrayList(flavours));
 
         
-        TableColumn<Flavor, String> cheeseCol = new TableColumn<>("Queijo");
+        TableColumn<Flavour, String> cheeseCol = new TableColumn<>("Queijo");
         cheeseCol.setCellValueFactory(data -> {
 			String ingredient = salty.getFirstFromType("cheese",  data.getValue().getIngredients());
 
@@ -172,7 +172,7 @@ public class ReviewController {
         
         table.getColumns().add(cheeseCol);
 
-        TableColumn<Flavor, String> proteinCol = new TableColumn<>("Proteína");
+        TableColumn<Flavour, String> proteinCol = new TableColumn<>("Proteína");
         proteinCol.setCellValueFactory(data -> {
 			String ingredient = salty.getFirstFromType("protein",  data.getValue().getIngredients());
 
@@ -183,7 +183,7 @@ public class ReviewController {
         
         table.getColumns().add(proteinCol);
         	
-        TableColumn<Flavor, String> vegetablesCol = new TableColumn<>("Vegetais");
+        TableColumn<Flavour, String> vegetablesCol = new TableColumn<>("Vegetais");
         vegetablesCol.setCellValueFactory(data -> {
 			String ingredient = salty.getFirstFromType("vegetable",  data.getValue().getIngredients());
 
@@ -194,7 +194,7 @@ public class ReviewController {
         
         table.getColumns().add(vegetablesCol);
         		
-        TableColumn<Flavor, String> leafyCol = new TableColumn<>("Folhas");
+        TableColumn<Flavour, String> leafyCol = new TableColumn<>("Folhas");
         leafyCol.setCellValueFactory(data -> {
 			String ingredient = salty.getFirstFromType("green leaf",  data.getValue().getIngredients());
 
@@ -221,18 +221,18 @@ public class ReviewController {
 
 
 
-	private TableView<Flavor> createSweetFlavorsTable(List<Flavor> flavors, int contNumFlavors, double rowHeight) {
+	private TableView<Flavour> createSweetFlavorsTable(List<Flavour> flavours, int contNumFlavors, double rowHeight) {
 
-		if(flavors.isEmpty())
+		if(flavours.isEmpty())
 			return null;
 
-		TableView<Flavor> table = new TableView<>();
+		TableView<Flavour> table = new TableView<>();
 		Sugary sugary = new Sugary();
 
 
 
-		TableColumn<Flavor, Void> colNum = new TableColumn<>();
-		colNum.setCellValueFactory(new PropertyValueFactory<Flavor, Void>(""));
+		TableColumn<Flavour, Void> colNum = new TableColumn<>();
+		colNum.setCellValueFactory(new PropertyValueFactory<Flavour, Void>(""));
 
 
 		colNum.setCellFactory((column) -> new TableCell<>() {
@@ -252,9 +252,9 @@ public class ReviewController {
 		table.getColumns().add(colNum);
 
 
-		table.setItems(FXCollections.observableArrayList(flavors));
+		table.setItems(FXCollections.observableArrayList(flavours));
 
-		TableColumn<Flavor, String> toppingCol = new TableColumn<>("Cobertura");
+		TableColumn<Flavour, String> toppingCol = new TableColumn<>("Cobertura");
 		toppingCol.setCellValueFactory(data -> {
 			String ingredient = sugary.getFirstFromType("topping",  data.getValue().getIngredients());
 
@@ -266,7 +266,7 @@ public class ReviewController {
 
 		table.getColumns().add(toppingCol);
 
-		TableColumn<Flavor, String> fruitCol = new TableColumn<>("Fruta");
+		TableColumn<Flavour, String> fruitCol = new TableColumn<>("Fruta");
 		fruitCol.setCellValueFactory(data -> {
 			String ingredient = sugary.getFirstFromType("fruit",  data.getValue().getIngredients());
 			return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
@@ -277,7 +277,7 @@ public class ReviewController {
 
 		table.getColumns().add(fruitCol);
 
-		TableColumn<Flavor, String> condimentCol = new TableColumn<>("Condimento");
+		TableColumn<Flavour, String> condimentCol = new TableColumn<>("Condimento");
 		condimentCol.setCellValueFactory(data -> {
 			String ingredient = sugary.getFirstFromType("condiment",  data.getValue().getIngredients());
 			return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
@@ -288,7 +288,7 @@ public class ReviewController {
 		table.getColumns().add(condimentCol);
 
 
-		TableColumn<Flavor, String> nullCol = new TableColumn<>("");
+		TableColumn<Flavour, String> nullCol = new TableColumn<>("");
 		nullCol.prefWidthProperty().bind(table.widthProperty().multiply(0.208));
 		nullCol.setResizable(false);
 

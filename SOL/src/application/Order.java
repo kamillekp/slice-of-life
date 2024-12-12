@@ -11,7 +11,7 @@ public class Order {
     public Order() {
         this.completed = false;
         this.client = new Client();
-        this.pizzas = new ArrayList<>();
+        this.pizzas = new ArrayList<Pizza>();
         this.totalPrice = 0;
     }
 

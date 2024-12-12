@@ -50,12 +50,12 @@ public class Sugary {
 
 
     public Pair[] getIngredientsByType(String type) {
-        if(type.equals("condiment"))
-            return condiment;
-        else if(type.equals("fruit"))
-            return fruit;
-        else
-            return topping;
+        return switch (type) {
+            case "condiment" -> condiment;
+            case "fruit" -> fruit;
+            case "topping" -> topping;
+            default -> null;
+        };
     }
     public double getPrice(String ingredientType, String ingredientName){
 

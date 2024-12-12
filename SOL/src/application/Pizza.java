@@ -8,11 +8,11 @@ public class Pizza {
     private int numFlavor;
     private String size;
     private boolean finished;
-    private ArrayList<Flavor> flavors;
+    private ArrayList<Flavour> flavours;
     private double price;
 
     public Pizza() {
-        this.flavors = new ArrayList<>();
+        this.flavours = new ArrayList<>();
         this.finished = false;
         this.border = false;
         this.price = 0;
@@ -35,8 +35,8 @@ public class Pizza {
         return finished;
     }
 
-    public ArrayList<Flavor> getFlavors() {
-        return flavors;
+    public ArrayList<Flavour> getFlavors() {
+        return flavours;
     }
 
     public void changeBorder() {
@@ -55,8 +55,8 @@ public class Pizza {
         this.finished = !finished;
     }
 
-    public void addFlavor(Flavor flavor) {
-        this.flavors.add(flavor);
+    public void addFlavor(Flavour flavour) {
+        this.flavours.add(flavour);
     }
 
     public double getPrice() {return this.price;}
@@ -66,11 +66,11 @@ public class Pizza {
 
     public void setBorder(boolean b) {this.border = b;}
 
-    public List<Flavor> getSaboresDoces() {
+    public List<Flavour> getSaboresDoces() {
         return this.getFlavors().stream().filter(f -> f.getType().equals("doce")).toList();
     }
 
-    public List<Flavor> getSaboresSalgados() {
+    public List<Flavour> getSaboresSalgados() {
         return this.getFlavors().stream().filter(f -> f.getType().equals("salgado")).toList();
     }
 }
