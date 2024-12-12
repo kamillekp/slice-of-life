@@ -32,7 +32,10 @@ public class ChoosePizzaController {
     } */
 
     @FXML public void initialize() {
-        if(ScreenChoosePizzaState.getTgPizzaSizeButtons() != null && ScreenChoosePizzaState.getTgPizzaFlavorButtons() != null && ScreenChoosePizzaState.getTgPizzaBorderButtons() != null) {
+        if(ScreenChoosePizzaState.getTgPizzaSizeButtons() != null &&
+           ScreenChoosePizzaState.getTgPizzaFlavorButtons() != null &&
+           ScreenChoosePizzaState.getTgPizzaBorderButtons() != null) {
+
             pizzaSizeButtons.selectToggle(ScreenChoosePizzaState.getTgPizzaSizeButtons());
             pizzaFlavorButtons.selectToggle(ScreenChoosePizzaState.getTgPizzaFlavorButtons());
             pizzaBorderButtons.selectToggle(ScreenChoosePizzaState.getTgPizzaBorderButtons());
@@ -70,7 +73,7 @@ public class ChoosePizzaController {
 
                 String numFlavorText = selectedPFButton.getText();
                 int numFlavor = Integer.parseInt(numFlavorText);
-                /*double flavorPrice = switch (selectedPFButton.getId()) {
+                /*double flavourPrice = switch (selectedPFButton.getId()) {
                     case "option0PFG" -> 0;
                     case "option1PFG" -> 1;
                     case "option2PFG" -> 2;
@@ -109,7 +112,7 @@ public class ChoosePizzaController {
                 RadioButton selectedPFButton = (RadioButton) pizzaFlavorButtons.getSelectedToggle();
                 String numFlavorText = selectedPFButton.getText();
                 int numFlavor = Integer.parseInt(numFlavorText);
-                /*double flavorPrice = switch (selectedPFButton.getId()) {
+                /*double flavourPrice = switch (selectedPFButton.getId()) {
                     case "option0PFG" -> 0;
                     case "option1PFG" -> 1;
                     case "option2PFG" -> 2;

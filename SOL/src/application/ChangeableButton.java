@@ -1,10 +1,9 @@
 package application;
 
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.scene.control.RadioButton;
 
-public class UnselectableRadioGroup extends RadioButton {
+public class ChangeableButton extends RadioButton {
     @Override
     public void fire() {
         if (!isDisabled()) {
@@ -13,7 +12,7 @@ public class UnselectableRadioGroup extends RadioButton {
         }
     }
 
-    public UnselectableRadioGroup(String text) {
+    public ChangeableButton(String text) {
         super(text);
     }
 }
