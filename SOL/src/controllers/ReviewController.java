@@ -39,6 +39,7 @@ public class ReviewController {
     @FXML private TableColumn<Pizza, Integer> colNumSabores;
     @FXML private TableColumn<Pizza, Boolean> colBorda;
 	@FXML private Button anotherPizzaButton;
+	@FXML private Button editButton;
 
 	@FXML private Label priceText;
 
@@ -62,7 +63,7 @@ public class ReviewController {
 
 		for (int idPizza = 1; idPizza <= pizzas.size(); idPizza++)
 			createPizzaFlavourTable(pizzas.get(idPizza - 1), idPizza, TABLES_ROW_HEIGHT, TABLES_MARGIN_BOTTOM_BY_NUM_LINES, TABLES_MIN_MARGIN_BOTTOM);
-
+		editPersonalData();
 		initializeTextFlow();
 
         anotherPizzaButton.setDisable(pizzas.size() >= 5);
@@ -70,9 +71,9 @@ public class ReviewController {
 	}
 
 	private void initializeTextFlow() {
-		appendToTextFlow("Dados Pessoais\n", true, 15, Pos.CENTER);
 
-		appendToTextFlow(order.getClient().getName() + " " + order.getClient().getSurname() + "\n", false, 20, Pos.CENTER);
+
+		appendToTextFlow(order.getClient().getName() + " " + order.getClient().getSurname() + "\n", false, 20, Pos.CENTER_LEFT);
 
 
 		Payment payment = order.getClient().getPayment();
@@ -386,6 +387,11 @@ public class ReviewController {
 
 	}
 
+	private void editPersonalData(){
+		editButton.setOnAction(event -> {
+			backToPaymentPage();
+		});
+	}
 
 	@FXML private void backToPaymentPage() {
 		SceneNavigator.navigateTo("/views/Tela4.fxml", "/styles/Tela4.css");
