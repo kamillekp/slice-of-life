@@ -3,6 +3,7 @@ package controllers;
 import application.*;
 import javafx.fxml.FXML;
 
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
@@ -13,7 +14,12 @@ public class PaymentController {
     @FXML private TextField nameInput, validityInput, numberCardInput, cvvInput;
     @FXML private TextField cityInput, streetInput, complementInput, numberAddressInput, zipInput;
 
+    @FXML private Label priceText;
+
     @FXML public void initialize() {
+
+        priceText.setText("TOTAL DO PEDIDO: R$ " + String.format("%.2f", SharedControl.getInstance().getOrder().getPrice()));
+
         if(SharedControl.getInstance().getOrder().getClient().isRegister()){
             boolean isCardFilled = SharedControl.getInstance().getOrder().getClient().getPayment().getCard().getName() != null
                     && SharedControl.getInstance().getOrder().getClient().getPayment().getCard().getNumber() != null

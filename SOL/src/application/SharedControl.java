@@ -21,7 +21,6 @@ public class SharedControl {
         flavoursCounter = 0;
 
         pizza = null;
-        finishedPizzaInfo = false;
         editingAddedPizza = false;
     }
 
@@ -93,7 +92,4 @@ public class SharedControl {
         this.editingAddedPizza = editingAddedPizza;
     }
 
-    public void changeFinishedPizzaInfo() {
-        finishedPizzaInfo = !finishedPizzaInfo;
-    }
 }
