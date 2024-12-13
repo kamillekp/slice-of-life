@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Toggle;
 
 
 public class PaymentController {
@@ -27,6 +28,14 @@ public class PaymentController {
                     && SharedControl.getInstance().getOrder().getClient().getPayment().getCard().getValidity() != null;
 
             String typePaymentText = SharedControl.getInstance().getOrder().getClient().getPayment().getType();
+            for(Toggle toggle: typePaymentButtons.getToggles()){
+                RadioButton radioButton = (RadioButton) toggle;
+                if(typePaymentText.equals(radioButton.getText())){
+                    radioButton.setSelected(true);
+                }
+
+            }
+
 
             typePaymentButtons.selectToggle(ScreenPaymentState.getTgTypePayment());
 
