@@ -56,8 +56,8 @@
 
 
 .changePageButton{
-	-fx-background-color:  #388E3C;
     -fx-font-size: 20px;
+	-fx-background-color:  #388E3C;
 }
 
 .changePageButton:hover{

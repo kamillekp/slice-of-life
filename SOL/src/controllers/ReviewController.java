@@ -38,9 +38,14 @@ public class ReviewController {
     @FXML private TableColumn<Pizza, Boolean> colBorda;
 	@FXML private Button anotherPizzaButton;
 
+	@FXML private Label priceText;
+
     @FXML public void initialize() {
 		tablesVBox.setSpacing(20);
 		double rowHeight = 25.0;
+
+		priceText.setText("TOTAL DO PEDIDO: R$ " + String.format("%.2f", SharedControl.getInstance().getOrder().getPrice()));
+
 		ArrayList<Pizza> pizzas = SharedControl.getInstance().getOrder().getPizzas();
 
 
