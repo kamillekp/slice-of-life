@@ -2,12 +2,13 @@
 package controllers;
 
 
+import application.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import application.*;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -25,6 +26,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
 import javafx.scene.text.FontWeight;
+import javafx.util.Callback;
 
 
 public class ReviewController {
@@ -40,43 +42,41 @@ public class ReviewController {
 
 	@FXML private Label priceText;
 
+
+    private final SharedControl sharedControl = SharedControl.getInstance();
+	private final Order order = sharedControl.getOrder();
+
     @FXML public void initialize() {
-		tablesVBox.setSpacing(20);
-		double rowHeight = 25.0;
-
-		priceText.setText("TOTAL DO PEDIDO: R$ " + String.format("%.2f", SharedControl.getInstance().getOrder().getPrice()));
-
-		ArrayList<Pizza> pizzas = SharedControl.getInstance().getOrder().getPizzas();
+		final double TABLES_VERTICAL_SPACING = 20;
+		final double TABLES_ROW_HEIGHT = 25;
+		final double TABLES_MIN_MARGIN_BOTTOM = 20;
+		final int TABLES_MARGIN_BOTTOM_BY_NUM_LINES = 10;
 
 
-		createPizzasListTable(pizzas, rowHeight);
+		tablesVBox.setSpacing(TABLES_VERTICAL_SPACING);
 
-		int idPizza = 1;
+		priceText.setText("TOTAL DO PEDIDO: R$ " + String.format("%.2f", order.getPrice()));
 
-		for (Pizza pizza : pizzas) {
-			createPizzaFlavourTable(pizza, idPizza, rowHeight);
-			idPizza++;
-		}
+		ArrayList<Pizza> pizzas = order.getPizzas();
+        createPizzasListTable(pizzas, TABLES_ROW_HEIGHT, TABLES_MARGIN_BOTTOM_BY_NUM_LINES, TABLES_MIN_MARGIN_BOTTOM);
+
+		for (int idPizza = 1; idPizza <= pizzas.size(); idPizza++)
+			createPizzaFlavourTable(pizzas.get(idPizza - 1), idPizza, TABLES_ROW_HEIGHT, TABLES_MARGIN_BOTTOM_BY_NUM_LINES, TABLES_MIN_MARGIN_BOTTOM);
 
 		initializeTextFlow();
 
-		if(SharedControl.getInstance().getOrder().getPizzas().size() >= 5)
-			anotherPizzaButton.setDisable(true);
-		else
-			anotherPizzaButton.setDisable(false);
-
+        anotherPizzaButton.setDisable(pizzas.size() >= 5);
 
 	}
-
 
 	private void initializeTextFlow() {
 		appendToTextFlow("Dados Pessoais\n", true, 15, Pos.CENTER);
 
-		appendToTextFlow(SharedControl.getInstance().getOrder().getClient().getName() + " " + SharedControl.getInstance().getOrder().getClient().getSurname() + "\n", false, 20, Pos.CENTER);
+		appendToTextFlow(order.getClient().getName() + " " + order.getClient().getSurname() + "\n", false, 20, Pos.CENTER);
 
 
-		Payment payment = SharedControl.getInstance().getOrder().getClient().getPayment();
-		Address adress = SharedControl.getInstance().getOrder().getClient().getAddress();
+		Payment payment = order.getClient().getPayment();
+		Address adress = order.getClient().getAddress();
 
 		if (payment != null && adress != null) {
 
@@ -90,7 +90,7 @@ public class ReviewController {
 
 			appendToTextFlow(" ".repeat(4) + "Pagamento\n", true, 14, Pos.CENTER_LEFT);
 
-			appendToTextFlow(" ".repeat(8) + "Total do pedido: " + "R$ " + String.format("%.2f", SharedControl.getInstance().getOrder().getPrice()) + "\n", false, 12, Pos.CENTER_LEFT);
+			appendToTextFlow(" ".repeat(8) + "Total do pedido: " + "R$ " + String.format("%.2f", order.getPrice()) + "\n", false, 12, Pos.CENTER_LEFT);
 			appendToTextFlow(" ".repeat(8) + "Tipo: " + payment.getType() + "\n", false, 12, Pos.CENTER_LEFT);
 
 			if (Objects.equals(payment.getType(), "PIX")) {
@@ -100,12 +100,12 @@ public class ReviewController {
 		}
 	}
 
-	private void createPizzaFlavourTable(Pizza pizza, int contNumPizzas, double rowHeight){
+	private void createPizzaFlavourTable(Pizza pizza, int contNumPizzas, double rowHeight, int tableMarginBottonByLines, double tableMinMarginBottom){
 
 			VBox pizzaSection = new VBox(5);
 			pizzaSection.setAlignment(Pos.CENTER);
 
-			double currentPizzaPrice = SharedControl.getInstance().getOrder().getPizzas().get(contNumPizzas - 1).getPrice();
+			double currentPizzaPrice = order.getPizzas().get(contNumPizzas - 1).getPrice();
 
 			Label pizzaLabel = new Label("Pizza " + contNumPizzas + " - " + "R$ " + String.format("%.2f", currentPizzaPrice));
 			pizzaLabel.setStyle("-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 16px");
@@ -113,8 +113,8 @@ public class ReviewController {
 			List<Flavour> savoryFlavours = pizza.getSaboresSalgados();
 			List<Flavour> sweetFlavours = pizza.getSaboresDoces();
 
-			TableView<Flavour> tableSavoryFlavors = createSavoryFlavorsTable(savoryFlavours, 0, rowHeight);
-			TableView<Flavour> tableSweetFlavors = createSweetFlavorsTable(sweetFlavours, savoryFlavours.size(), rowHeight);
+			TableView<Flavour> tableSavoryFlavors = createSavoryFlavorsTable(savoryFlavours, 0, rowHeight, tableMarginBottonByLines, tableMinMarginBottom);
+			TableView<Flavour> tableSweetFlavors = createSweetFlavorsTable(sweetFlavours, savoryFlavours.size(), rowHeight, tableMarginBottonByLines, tableMinMarginBottom);
 
 
 			// Nunca deveria acontecer
@@ -133,189 +133,145 @@ public class ReviewController {
 
 		}
 
-
-  
-    private TableView<Flavour> createSavoryFlavorsTable(List<Flavour> flavours, int contNumFlavors, double rowHeight) {
+    private TableView<Flavour> createSavoryFlavorsTable(List<Flavour> flavours, int contNumFlavors, double rowHeight, int tableMarginBottonByLines, double tableMinMarginBottom) {
 
 		Salty salty = new Salty();
 
 		if(flavours.isEmpty())
 			return null;
 
-    	TableColumn<Flavour, Void> colNum = new TableColumn<>();
-    	colNum.setCellValueFactory(new PropertyValueFactory<Flavour, Void>(""));
 
-		colNum.setCellFactory(column -> new TableCell<>() {
-			@Override
-			protected void updateItem(Void item, boolean empty) {
-				super.updateItem(item, empty);
-				setText(empty ? null : "Sabor " + (getIndex() + 1 + contNumFlavors));
-			}
-		});
+		TableView<Flavour> table = new TableView<>();
+		table.setItems(FXCollections.observableArrayList(flavours));
 
-    	  
-        TableView<Flavour> table = new TableView<>();
-        colNum.prefWidthProperty().bind(table.widthProperty().multiply(0.15));
+		TableColumn<Flavour, String> colNum = createColumn(table, "", 0.15,
+				data -> {
+					int index = table.getItems().indexOf(data.getValue());
+					int displayIndex = index + 1 + contNumFlavors;
+					return new SimpleStringProperty("Pizza " + displayIndex);
+				}
+		);
          
         colNum.setStyle("-fx-font-weight: bold");
-        colNum.setResizable(false);
-        
-        table.getColumns().add(colNum);
-        
-        
-        table.setItems(FXCollections.observableArrayList(flavours));
 
-        
-        TableColumn<Flavour, String> cheeseCol = new TableColumn<>("Queijo");
-        cheeseCol.setCellValueFactory(data -> {
-			String ingredient = salty.getFirstFromType("cheese",  data.getValue().getIngredients());
 
-			return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
-		});
-        
-        cheeseCol.prefWidthProperty().bind(table.widthProperty().multiply(0.21));
-        cheeseCol.setResizable(false);
-        
-        table.getColumns().add(cheeseCol);
+        createColumn(table, "Queijo", 0.21,
+				data -> {
+					String ingredient = salty.getFirstFromType("cheese", data.getValue().getIngredients());
+					return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
+				}
+		);
 
-        TableColumn<Flavour, String> proteinCol = new TableColumn<>("Proteína");
-        proteinCol.setCellValueFactory(data -> {
-			String ingredient = salty.getFirstFromType("protein",  data.getValue().getIngredients());
+		createColumn(table, "Proteína", 0.21,
+				data -> {
+					String ingredient = salty.getFirstFromType("protein", data.getValue().getIngredients());
+					return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
+				}
+		);
 
-			return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
-		});
-        proteinCol.prefWidthProperty().bind(table.widthProperty().multiply(0.21));
-        proteinCol.setResizable(false);
-        
-        table.getColumns().add(proteinCol);
-        	
-        TableColumn<Flavour, String> vegetablesCol = new TableColumn<>("Vegetais");
-        vegetablesCol.setCellValueFactory(data -> {
-			String ingredient = salty.getFirstFromType("vegetable",  data.getValue().getIngredients());
+		createColumn(table, "Vegetais", 0.21,
+				data -> {
+					String ingredient = salty.getFirstFromType("vegetable", data.getValue().getIngredients());
+					return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
+				}
+		);
 
-			return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
-		});
-        vegetablesCol.prefWidthProperty().bind(table.widthProperty().multiply(0.21));
-        vegetablesCol.setResizable(false);
-        
-        table.getColumns().add(vegetablesCol);
-        		
-        TableColumn<Flavour, String> leafyCol = new TableColumn<>("Folhas");
-        leafyCol.setCellValueFactory(data -> {
-			String ingredient = salty.getFirstFromType("green leaf",  data.getValue().getIngredients());
-
-			return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
-		});
-        leafyCol.prefWidthProperty().bind(table.widthProperty().multiply(0.208));
-        leafyCol.setResizable(false);
-        
-        table.getColumns().add(leafyCol);
+		createColumn(table, "Folhas", 0.21,
+				data -> {
+					String ingredient = salty.getFirstFromType("green leaf", data.getValue().getIngredients());
+					return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
+				}
+		);
 
 		int numRows = table.getItems().size();
-		final int MARGIN_BOTTOM_BY_NUM_LINES = 10;
-		final int MIN_MARGIN_BOTTOM = 20;
 
-		table.setMinHeight((rowHeight + MARGIN_BOTTOM_BY_NUM_LINES) * numRows + MIN_MARGIN_BOTTOM);
+		table.setMinHeight((rowHeight + tableMarginBottonByLines) * numRows + tableMinMarginBottom);
 		table.setSelectionModel(null);
-
-
-
 
         return table; 
          
     }
 
 
-
-	private TableView<Flavour> createSweetFlavorsTable(List<Flavour> flavours, int contNumFlavors, double rowHeight) {
+	private TableView<Flavour> createSweetFlavorsTable(List<Flavour> flavours, int contNumFlavors, double rowHeight, int tableMarginBottonByLines, double tableMinMarginBottom) {
 
 		if(flavours.isEmpty())
 			return null;
 
 		TableView<Flavour> table = new TableView<>();
-		Sugary sugary = new Sugary();
-
-
-
-		TableColumn<Flavour, Void> colNum = new TableColumn<>();
-		colNum.setCellValueFactory(new PropertyValueFactory<Flavour, Void>(""));
-
-
-		colNum.setCellFactory((column) -> new TableCell<>() {
-			@Override
-			protected void updateItem(Void item, boolean empty) {
-				super.updateItem(item, empty);
-				setText(empty ? null : "Sabor " + (getIndex() + 1 + contNumFlavors));
-			}
-		});
-
-
-		colNum.prefWidthProperty().bind(table.widthProperty().multiply(0.15));
-		colNum.setStyle("-fx-font-weight: bold");
-		colNum.setResizable(false);
-
-
-		table.getColumns().add(colNum);
-
-
 		table.setItems(FXCollections.observableArrayList(flavours));
 
-		TableColumn<Flavour, String> toppingCol = new TableColumn<>("Cobertura");
-		toppingCol.setCellValueFactory(data -> {
-			String ingredient = sugary.getFirstFromType("topping",  data.getValue().getIngredients());
+		Sugary sugary = new Sugary();
 
-			return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
-		});
+		TableColumn<Flavour, String> colNum = createColumn(table, "", 0.15,
+				data -> {
+					int index = table.getItems().indexOf(data.getValue());
+					int displayIndex = index + 1 + contNumFlavors;
+					return new SimpleStringProperty("Pizza " + displayIndex);
+				}
+		);
 
-		toppingCol.prefWidthProperty().bind(table.widthProperty().multiply(0.21));
-		toppingCol.setResizable(false);
+		colNum.setStyle("-fx-font-weight: bold");
 
-		table.getColumns().add(toppingCol);
+		createColumn(table, "Cobertura", 0.21,
+				data -> {
+					String ingredient = sugary.getFirstFromType("topping", data.getValue().getIngredients());
+					return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
+				}
+		);
 
-		TableColumn<Flavour, String> fruitCol = new TableColumn<>("Fruta");
-		fruitCol.setCellValueFactory(data -> {
-			String ingredient = sugary.getFirstFromType("fruit",  data.getValue().getIngredients());
-			return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
-		});
+		createColumn(table, "Fruta", 0.21,
+				data -> {
+					String ingredient = sugary.getFirstFromType("fruit", data.getValue().getIngredients());
+					return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
+				}
+		);
 
-		fruitCol.prefWidthProperty().bind(table.widthProperty().multiply(0.21));
-		fruitCol.setResizable(false);
+		createColumn(table, "Condimento", 0.21,
+				data -> {
+					String ingredient = sugary.getFirstFromType("condiment", data.getValue().getIngredients());
+					return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
+				}
+		);
 
-		table.getColumns().add(fruitCol);
-
-		TableColumn<Flavour, String> condimentCol = new TableColumn<>("Condimento");
-		condimentCol.setCellValueFactory(data -> {
-			String ingredient = sugary.getFirstFromType("condiment",  data.getValue().getIngredients());
-			return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
-		});
-		condimentCol.prefWidthProperty().bind(table.widthProperty().multiply(0.21));
-		condimentCol.setResizable(false);
-
-		table.getColumns().add(condimentCol);
-
-
-		TableColumn<Flavour, String> nullCol = new TableColumn<>("");
-		nullCol.prefWidthProperty().bind(table.widthProperty().multiply(0.208));
-		nullCol.setResizable(false);
-
-		table.getColumns().add(nullCol);
+		createColumn(table, "", 0.208,
+				data -> null
+		);
 
 
 		int numRows = table.getItems().size();
-		final int MARGIN_BOTTOM_BY_NUM_LINES = 10;
-		final int MIN_MARGIN_BOTTOM = 20;
 
-		table.setMinHeight((rowHeight + MARGIN_BOTTOM_BY_NUM_LINES) * numRows + MIN_MARGIN_BOTTOM);
+		table.setMinHeight((rowHeight + tableMarginBottonByLines) * numRows + tableMinMarginBottom);
 		table.setSelectionModel(null);
-
 
 		return table;
 	}
 
-	private void createPizzasListTable(ArrayList<Pizza> pizzas, double rowHeight) {
+
+	private <T> TableColumn<T, String> createColumn(
+			TableView<T> table,
+			String header,
+			double widthPercentage,
+			Callback<TableColumn.CellDataFeatures<T, String>, ObservableValue<String>> cellValueFactory
+	) {
+		TableColumn<T, String> column = new TableColumn<>(header);
+		column.setCellValueFactory(cellValueFactory);
+		column.prefWidthProperty().bind(table.widthProperty().multiply(widthPercentage));
+		column.setResizable(false);
+		column.setReorderable(false);
+
+		table.getColumns().add(column);
+
+		return column;
+	}
+
+
+	private void createPizzasListTable(ArrayList<Pizza> pizzas, double rowHeight, int tableMarginBottonByLines, double tableMinMarginBottom) {
 		ObservableList<Pizza> pizzas_list = FXCollections.observableArrayList(pizzas);
 
 		colPizzas.setCellValueFactory(new PropertyValueFactory<Pizza, Void>(""));
+		tableViewListagemPizzas.setItems(pizzas_list);
+
 
 		colPizzas.setCellFactory(column -> new TableCell<>() {
 			@Override
@@ -381,14 +337,14 @@ public class ReviewController {
 
 				editButton.setOnAction(event -> {
 					Pizza pizza = getTableView().getItems().get(getIndex());
-					SharedControl.getInstance().setPizza(pizza);
-					SharedControl.getInstance().setEditingAddedPizza(true);
+					sharedControl.setPizza(pizza);
+					sharedControl.setEditingAddedPizza(true);
 					
 					SceneNavigator.navigateTo("/views/tela2.fxml", "/styles/tela2.css");
 				});
 
 
-				if(SharedControl.getInstance().getOrder().getPizzas().size() == 1)
+				if(order.getPizzas().size() == 1)
 					btnExcluir.setDisable(true);
 				else
 					btnExcluir.setDisable(false);
@@ -397,12 +353,10 @@ public class ReviewController {
 					// Obtém o índice do item na tabela
 					Pizza pizza = getTableView().getItems().get(getIndex());
 
-					Order order = SharedControl.getInstance().getOrder();
 
 					// Remove do atributo estático de SharedControl
 					order.setTotalPrice(order.getPrice() - pizza.getPrice());
 					order.getPizzas().remove(pizza);
-
 
 					// Atualiza a altura da tabela
 					SceneNavigator.navigateTo("/views/tela5.fxml", "/styles/tela5.css");
@@ -425,16 +379,12 @@ public class ReviewController {
 
 		tableViewListagemPizzas.getColumns().add(colExcluir);
 
-		tableViewListagemPizzas.setItems(pizzas_list);
-
 		int numRows = tableViewListagemPizzas.getItems().size();
-		final int MARGIN_BOTTOM_BY_NUM_OF_LINES = 10;
-		tableViewListagemPizzas.setMinHeight((rowHeight + MARGIN_BOTTOM_BY_NUM_OF_LINES) * numRows);
+		tableViewListagemPizzas.setMinHeight((rowHeight + tableMarginBottonByLines) * numRows + tableMinMarginBottom);
 
 		tableViewListagemPizzas.setSelectionModel(null);
 
 	}
-
 
 
 	@FXML private void backToPaymentPage() {
@@ -446,8 +396,8 @@ public class ReviewController {
     }
 
 	@FXML private void goToChoosePizzaPage() {
-		SharedControl.getInstance().resetPizza();
-		SharedControl.getInstance().resetCounter();
+		sharedControl.resetPizza();
+		sharedControl.resetCounter();
 
 		SceneNavigator.navigateTo("/views/Tela2.fxml", "/styles/Tela2.css");
 	}
@@ -490,5 +440,4 @@ public class ReviewController {
     	vbox.getChildren().add(textNode);
     	textFlow2.getChildren().add(vbox);
     }
-
 }
