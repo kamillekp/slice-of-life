@@ -3,7 +3,7 @@ package application;
 
 import java.util.ArrayList;
 
-public class Sugary {
+public class Sugary extends Ingredients {
     private final Pair[] topping = {
             new Pair("Ao leite", 1),
             new Pair("Meio Amargo", 2),
@@ -48,7 +48,7 @@ public class Sugary {
         return fruit;
     }
 
-
+    @Override
     public Pair[] getIngredientsByType(String type) {
         return switch (type) {
             case "condiment" -> condiment;
@@ -57,24 +57,8 @@ public class Sugary {
             default -> null;
         };
     }
-    public double getPrice(String ingredientType, String ingredientName){
 
-        if(ingredientType == null)
-            return -1;
-
-        Pair[] ingredients;
-
-        ingredients = getIngredientsByType(ingredientType);
-
-        for(Pair ingredient : ingredients){
-            if(ingredient.getOption().equals(ingredientName))
-                return ingredient.getPrice();
-        }
-
-        return -1;
-    }
-
-
+    @Override
     public String findType(String ingredient){
         for(Pair pair : this.condiment){
             if (pair.getOption().equals(ingredient))
@@ -91,18 +75,8 @@ public class Sugary {
                 return "topping";
         }
 
-
-            return null;
-    }
-
-    public String getFirstFromType(String type,ArrayList<String> ingredients){
-        Pair[] ingredientsFromType = getIngredientsByType(type);
-
-        for(Pair ingredient : ingredientsFromType){
-            if(ingredients.contains(ingredient.getOption()))
-                return ingredient.getOption();
-        }
-
         return null;
     }
+
+
 }

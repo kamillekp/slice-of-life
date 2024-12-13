@@ -53,7 +53,9 @@ public class ChooseSugaryFlavorController {
     @FXML
     private VBox condimentsVBox;
 
-    private SharedControl sharedControl = SharedControl.getInstance();
+    private final SharedControl sharedControl = SharedControl.getInstance();
+    private final Pizza currentPizza = sharedControl.getPizza();
+    private final Order currentOrder = sharedControl.getOrder();
 
     public void initialize() {
         flavourNumberLabel.setText("ESCOLHA OS INGREDIENTES DO " + (sharedControl.getFlavorsCounter() + 1) + "º SABOR");
@@ -71,8 +73,6 @@ public class ChooseSugaryFlavorController {
         if (previousFlavourPrice == 0) // a pizza não existe
             goAheadButton.setDisable(true);
         else {
-            Pizza currentPizza = sharedControl.getPizza();
-            Order currentOrder = sharedControl.getOrder();
 
             currentPizza.setPrice(currentPizza.getPrice() - previousFlavourPrice);
             currentOrder.setTotalPrice(currentOrder.getPrice() - previousFlavourPrice);
@@ -86,7 +86,7 @@ public class ChooseSugaryFlavorController {
             else
                 goAheadButton.setDisable(false);
 
-            priceText.setText("TOTAL DO PEDIDO: R$ " + String.format("%.2f", sharedControl.getOrder().getPrice() + currentFlavorPrice));
+            priceText.setText("TOTAL DO PEDIDO: R$ " + String.format("%.2f", currentOrder.getPrice() + currentFlavorPrice));
         };
 
         pizzaToppingGroup.selectedToggleProperty().addListener(updateTotalListener);
@@ -94,7 +94,7 @@ public class ChooseSugaryFlavorController {
         pizzaCondimentGroup.selectedToggleProperty().addListener(updateTotalListener);
 
         // O valor inicial vai ter que ser corrigido depois
-       priceText.setText("TOTAL DO PEDIDO: R$ " + String.format("%.2f", sharedControl.getOrder().getPrice() + previousFlavourPrice));
+       priceText.setText("TOTAL DO PEDIDO: R$ " + String.format("%.2f", currentOrder.getPrice() + previousFlavourPrice));
 
        goBackButton.setOnAction(event -> goBack(pizzaToppingGroup, pizzaFruitGroup, pizzaCondimentGroup));
        goAheadButton.setOnAction(event -> goAhead(pizzaToppingGroup, pizzaFruitGroup, pizzaCondimentGroup));
@@ -108,8 +108,8 @@ public class ChooseSugaryFlavorController {
         Flavour currentFlavour;
         double flavourPrice = 0.0;
 
-        if(currentFlavorNumber < sharedControl.getPizza().getFlavors().size()){
-            currentFlavour = sharedControl.getPizza().getFlavors().get(currentFlavorNumber);
+        if(currentFlavorNumber < currentPizza.getFlavors().size()){
+            currentFlavour = currentPizza.getFlavors().get(currentFlavorNumber);
 
             for(String ingredient : currentFlavour.getIngredients()) {
 
@@ -232,21 +232,21 @@ public class ChooseSugaryFlavorController {
 
         Flavour currentFlavour = new Flavour("doce", ingredients);
 
-        if(index < sharedControl.getPizza().getFlavors().size()){
-            sharedControl.getPizza().getFlavors().set(index, currentFlavour);
+        if(index < currentPizza.getFlavors().size()){
+            currentPizza.getFlavors().set(index, currentFlavour);
         }
         else
-            sharedControl.getPizza().getFlavors().add(currentFlavour);
+            currentPizza.getFlavors().add(currentFlavour);
 
     }
 
     private void setCurrentPrice(ToggleGroup pizzaToppingFlavor, ToggleGroup pizzaFruitFlavor, ToggleGroup pizzaCondimentGroup){
-        double previousTotalPrice = sharedControl.getOrder().getPrice();
-        double previousCurrentPizzaPrice = sharedControl.getPizza().getPrice();
+        double previousTotalPrice = currentOrder.getPrice();
+        double previousCurrentPizzaPrice = currentPizza.getPrice();
         double flavourPrice = getCurrentFlavourPrice(pizzaToppingFlavor, pizzaFruitFlavor, pizzaCondimentGroup);
 
-        sharedControl.getPizza().setPrice(previousCurrentPizzaPrice + flavourPrice);
-        sharedControl.getOrder().setTotalPrice(previousTotalPrice + flavourPrice);
+        currentPizza.setPrice(previousCurrentPizzaPrice + flavourPrice);
+        currentOrder.setTotalPrice(previousTotalPrice + flavourPrice);
 
     }
 
@@ -273,13 +273,12 @@ public class ChooseSugaryFlavorController {
         setCurrentFlavor(pizzaToppingFlavor, pizzaFruitFlavor, pizzaCondimentGroup, currentFlavorNumber);
         setCurrentPrice(pizzaToppingFlavor, pizzaFruitFlavor, pizzaCondimentGroup);
 
-        Order currentOrder = sharedControl.getOrder();
         ArrayList<Pizza> pizzas = currentOrder.getPizzas();
 
-        if(currentFlavorNumber + 1 == sharedControl.getPizza().getNumFlavor()){
+        if(currentFlavorNumber + 1 == currentPizza.getNumFlavor()){
 
             if(!sharedControl.isEditingAddedPizza())
-                pizzas.add(sharedControl.getPizza());
+                pizzas.add(currentPizza);
             else{
                 sharedControl.setPizza(pizzas.getLast());
                 sharedControl.setEditingAddedPizza(false);
