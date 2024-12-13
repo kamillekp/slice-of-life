@@ -15,6 +15,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ChooseSugaryFlavorController {
 
@@ -142,7 +143,7 @@ public class ChooseSugaryFlavorController {
         double fruitPrice = fruitSelectedToggle != null ? (double) fruitSelectedToggle.getUserData() : 0;
         double condimentPrice = condimentSelectedToggle != null ? (double) condimentSelectedToggle.getUserData() : 0;
 
-        // O valor inicial vai ter que ser corrigido depois
+
         return  toppingPrice + fruitPrice + condimentPrice;
 
     }
@@ -162,8 +163,6 @@ public class ChooseSugaryFlavorController {
     private void initializeToggleGroup(ToggleGroup toggleGroup, String ingredientsType, GridPane container) {
         Sugary sugary = new Sugary();
         Pair[] ingredients = sugary.getIngredientsByType(ingredientsType);
-        int numIngredientes = ingredients.length;
-
 
         container.setHgap(container.getWidth() / 4); // Espaçamento horizontal entre as células
         container.setVgap(15); // Espaçamento vertical entre as células (botões)
@@ -274,10 +273,19 @@ public class ChooseSugaryFlavorController {
         setCurrentFlavor(pizzaToppingFlavor, pizzaFruitFlavor, pizzaCondimentGroup, currentFlavorNumber);
         setCurrentPrice(pizzaToppingFlavor, pizzaFruitFlavor, pizzaCondimentGroup);
 
-        if(currentFlavorNumber + 1 == sharedControl.getPizza().getNumFlavor()){
-            sharedControl.getOrder().getPizzas().add(sharedControl.getPizza());
+        Order currentOrder = sharedControl.getOrder();
+        ArrayList<Pizza> pizzas = currentOrder.getPizzas();
 
-            if(sharedControl.getOrder().getClient().isRegister()){
+        if(currentFlavorNumber + 1 == sharedControl.getPizza().getNumFlavor()){
+
+            if(!sharedControl.isEditingAddedPizza())
+                pizzas.add(sharedControl.getPizza());
+            else{
+                sharedControl.setPizza(pizzas.getLast());
+                sharedControl.setEditingAddedPizza(false);
+            }
+
+            if(currentOrder.getClient().isRegister()){
                 SceneNavigator.navigateTo("/views/Tela5.fxml", "/styles/Tela5.css");
             }
             else{

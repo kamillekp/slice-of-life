@@ -8,6 +8,7 @@ public class SharedControl {
     private Order order; // Order object to store order details
     private Pizza pizza; // Pizza object to store pizza details
     private boolean finishedPizzaInfo; // Flag to indicate if pizza info is finished
+    private boolean editingAddedPizza; // Flag to indicate if the user is editing an already added pizza or creating a new one
     private int flavoursCounter; // Counter for the number of flavours
 
     /**
@@ -18,7 +19,10 @@ public class SharedControl {
         order = new Order();
         // Static counter for the number of flavours of the current pizza (?)
         flavoursCounter = 0;
-        this.finishedPizzaInfo = false;
+
+        pizza = null;
+        finishedPizzaInfo = false;
+        editingAddedPizza = false;
     }
 
     /**
@@ -74,11 +78,20 @@ public class SharedControl {
         return pizza;
     }
 
+    public void setPizza(Pizza pizza) {this.pizza = pizza;}
+
 
     public boolean isFinishedPizzaInfo() {
         return finishedPizzaInfo;
     }
 
+    public boolean isEditingAddedPizza() {
+        return editingAddedPizza;
+    }
+
+    public void setEditingAddedPizza(boolean editingAddedPizza) {
+        this.editingAddedPizza = editingAddedPizza;
+    }
 
     public void changeFinishedPizzaInfo() {
         finishedPizzaInfo = !finishedPizzaInfo;
