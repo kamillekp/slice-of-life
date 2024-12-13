@@ -2,7 +2,7 @@ package application;
 
 import java.util.ArrayList;
 
-public class Salty {
+public class Salty extends Ingredients {
     private final Pair[] cheese = {
             new Pair("Gorgonzola", 1),
             new Pair("Ricota", 2),
@@ -52,29 +52,7 @@ public class Salty {
     }
 
 
-    public double getPrice(String ingredientType, String ingredientName){
-        Pair[] ingredients;
-
-        switch (ingredientType) {
-            case "cheese" -> ingredients = cheese;
-            case "vegetable" -> ingredients = vegetable;
-            case "protein" -> ingredients = protein;
-            case "green leaf" -> ingredients = greenLeafy;
-
-            default -> {
-                return -1;
-            }
-        }
-
-        for(Pair ingredient : ingredients){
-            if(ingredient.getOption().equals(ingredientName))
-                return ingredient.getPrice();
-        }
-
-        return -1;
-    }
-
-
+    @Override
     public Pair[] getIngredientsByType(String type) {
         return switch (type) {
             case "cheese" -> cheese;
@@ -85,8 +63,7 @@ public class Salty {
         };
     }
 
-
-
+    @Override
     public String findType(String ingredient){
         for(Pair pair : this.cheese){
             if (pair.getOption().equals(ingredient))
@@ -106,18 +83,6 @@ public class Salty {
         for(Pair pair : this.greenLeafy){
             if(pair.getOption().equals(ingredient))
                 return "green leaf";
-        }
-
-
-        return null;
-    }
-
-    public String getFirstFromType(String type, ArrayList<String> ingredients){
-        Pair[] ingredientsFromType = getIngredientsByType(type);
-
-        for(Pair ingredient : ingredientsFromType){
-            if(ingredients.contains(ingredient.getOption()))
-                return ingredient.getOption();
         }
 
         return null;

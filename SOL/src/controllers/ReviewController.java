@@ -17,6 +17,7 @@ import javafx.scene.control.*;
 
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -52,7 +53,7 @@ public class ReviewController {
 			idPizza++;
 		}
 
-		initializeTextFlow(textFlow2);
+		initializeTextFlow();
 
 		if(SharedControl.getInstance().getOrder().getPizzas().size() >= 5)
 			anotherPizzaButton.setDisable(true);
@@ -63,7 +64,7 @@ public class ReviewController {
 	}
 
 
-	private void initializeTextFlow(TextFlow textFlow) {
+	private void initializeTextFlow() {
 		appendToTextFlow("Dados Pessoais\n", true, 15, Pos.CENTER);
 
 		appendToTextFlow(SharedControl.getInstance().getOrder().getClient().getName() + " " + SharedControl.getInstance().getOrder().getClient().getSurname() + "\n", false, 20, Pos.CENTER);
@@ -366,17 +367,20 @@ public class ReviewController {
 		TableColumn<Pizza, Void> colExcluir = new TableColumn<>("Excluir");
 		colExcluir.setCellFactory(column -> new TableCell<>() {
 
-			private final Button btnExcluir = new Button("X");
+			private final HBox buttonsBox = new HBox(5);
+
+			private final Button editButton = createButton(rowHeight, "Editar", "editButton");
+			private final Button btnExcluir = createButton(rowHeight, "X", "removeButton");
 
 			{
 
-				btnExcluir.setMinHeight(rowHeight);
-				btnExcluir.setMaxHeight(rowHeight);
-
-				double fontSize = rowHeight * 0.5; // Ajuste o fator conforme necessário
-
-				btnExcluir.setStyle("-fx-font-size: " + fontSize + "px;");
-				btnExcluir.getStyleClass().add("removeButton");
+				editButton.setOnAction(event -> {
+					Pizza pizza = getTableView().getItems().get(getIndex());
+					SharedControl.getInstance().setPizza(pizza);
+					SharedControl.getInstance().setEditingAddedPizza(true);
+					
+					SceneNavigator.navigateTo("/views/tela2.fxml", "/styles/tela2.css");
+				});
 
 
 				if(SharedControl.getInstance().getOrder().getPizzas().size() == 1)
@@ -399,6 +403,7 @@ public class ReviewController {
 					SceneNavigator.navigateTo("/views/tela5.fxml", "/styles/tela5.css");
 				});
 
+				buttonsBox.getChildren().addAll(editButton, btnExcluir);
 			}
 
 			@Override
@@ -407,9 +412,10 @@ public class ReviewController {
 				if (empty) {
 					setGraphic(null);
 				} else {
-					setGraphic(btnExcluir);
+					setGraphic(buttonsBox);
 				}
 			}
+
 		});
 
 		tableViewListagemPizzas.getColumns().add(colExcluir);
@@ -440,6 +446,25 @@ public class ReviewController {
 
 		SceneNavigator.navigateTo("/views/Tela2.fxml", "/styles/Tela2.css");
 	}
+
+
+	public Button createButton(double height, String text, String styleClass) {
+
+		Button btnExcluir = new Button(text);
+
+
+		btnExcluir.setMinHeight(height);
+		btnExcluir.setMaxHeight(height);
+
+		double fontSize = height * 0.5;
+
+		btnExcluir.setStyle("-fx-font-size: " + fontSize + "px;");
+
+		btnExcluir.getStyleClass().add(styleClass);
+		
+        return btnExcluir;
+    }
+
 
 	public void appendToTextFlow(String texto, boolean isBold, int fontSize, Pos textAlignment) {
     	Text textNode = new Text(texto);

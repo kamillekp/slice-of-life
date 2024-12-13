@@ -1,5 +1,7 @@
 package controllers;
 
+import application.Order;
+import application.Pizza;
 import application.SceneNavigator;
 import application.SharedControl;
 import javafx.fxml.FXML;
@@ -9,6 +11,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
 
 public class ChooseSaltyFlavorController {
+
 
     @FXML
     private Label priceText;
@@ -37,6 +40,10 @@ public class ChooseSaltyFlavorController {
 
     @FXML
     private GridPane greenLeavesGrid;
+
+    private final SharedControl sharedControl = SharedControl.getInstance();
+    private final Pizza currentPizza = sharedControl.getPizza();
+    private final Order currentOrder = sharedControl.getOrder();
 
     void initialize(){
         flavourNumberLabel.setText("ESCOLHA OS INGREDIENTES DO " + (SharedControl.getInstance().getFlavorsCounter() + 1) + "º SABOR");
