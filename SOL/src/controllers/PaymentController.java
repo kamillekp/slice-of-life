@@ -28,32 +28,37 @@ public class PaymentController {
                     && SharedControl.getInstance().getOrder().getClient().getPayment().getCard().getValidity() != null;
 
             String typePaymentText = SharedControl.getInstance().getOrder().getClient().getPayment().getType();
+
             for(Toggle toggle: typePaymentButtons.getToggles()){
                 RadioButton radioButton = (RadioButton) toggle;
                 if(typePaymentText.equals(radioButton.getText())){
                     radioButton.setSelected(true);
                 }
-
             }
 
 
             typePaymentButtons.selectToggle(ScreenPaymentState.getTgTypePayment());
 
-            cityInput.setText(SharedControl.getInstance().getOrder().getClient().getAddress().getcity());
-            streetInput.setText(SharedControl.getInstance().getOrder().getClient().getAddress().getStreet());
-            numberAddressInput.setText(SharedControl.getInstance().getOrder().getClient().getAddress().getNumber());
-            zipInput.setText(SharedControl.getInstance().getOrder().getClient().getAddress().getZipCode());
-            if(SharedControl.getInstance().getOrder().getClient().getAddress().getComplement() != null){
-                complementInput.setText(SharedControl.getInstance().getOrder().getClient().getAddress().getComplement());
+            if(cityInput.getText().isEmpty() || streetInput.getText().isEmpty() || numberAddressInput.getText().isEmpty() || zipInput.getText().isEmpty()){
+                cityInput.setText(SharedControl.getInstance().getOrder().getClient().getAddress().getcity());
+                streetInput.setText(SharedControl.getInstance().getOrder().getClient().getAddress().getStreet());
+                numberAddressInput.setText(SharedControl.getInstance().getOrder().getClient().getAddress().getNumber());
+                zipInput.setText(SharedControl.getInstance().getOrder().getClient().getAddress().getZipCode());
+                if(SharedControl.getInstance().getOrder().getClient().getAddress().getComplement() != null){
+                    complementInput.setText(SharedControl.getInstance().getOrder().getClient().getAddress().getComplement());
+                }
             }
 
-            if(typePaymentText.equals("Cartão de crédito/débito") && isCardFilled) {
-                cardInformationActivated();
 
-                nameInput.setText(SharedControl.getInstance().getOrder().getClient().getPayment().getCard().getName());
-                validityInput.setText(SharedControl.getInstance().getOrder().getClient().getPayment().getCard().getValidity());
-                numberCardInput.setText(SharedControl.getInstance().getOrder().getClient().getPayment().getCard().getNumber());
-                cvvInput.setText(SharedControl.getInstance().getOrder().getClient().getPayment().getCard().getCvv());
+            if(typePaymentText.equals("Cartão de crédito/débito") && isCardFilled){
+
+                cardInformationActivated();
+                if (nameInput.getText().isEmpty() || validityInput.getText().isEmpty() || numberCardInput.getText().isEmpty()) {
+                    nameInput.setText(SharedControl.getInstance().getOrder().getClient().getPayment().getCard().getName());
+                    validityInput.setText(SharedControl.getInstance().getOrder().getClient().getPayment().getCard().getValidity());
+                    numberCardInput.setText(SharedControl.getInstance().getOrder().getClient().getPayment().getCard().getNumber());
+                    cvvInput.setText(SharedControl.getInstance().getOrder().getClient().getPayment().getCard().getCvv());
+                }
             }
         }
     }
