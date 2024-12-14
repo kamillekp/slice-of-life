@@ -7,6 +7,9 @@ import javafx.scene.control.Control;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class SceneNavigator {
     private static Stage stage;
@@ -23,16 +26,18 @@ public class SceneNavigator {
     // Carrega a nova cena
     public static void navigateTo(String fxmlFile, String cssFile) {
         try {
-
             FXMLLoader loader = new FXMLLoader(SceneNavigator.class.getResource(fxmlFile));
+            System.out.print("Teste");
             Parent root = loader.load();
             Scene scene = new Scene(root);
-            scene.getStylesheets().add(SceneNavigator.class.getResource(cssFile).toExternalForm());
+            scene.getStylesheets().add(SceneNavigator.class.getResource(cssFile).toExternalForm());;
             stage.setScene(scene);
             stage.show();
+
+            System.out.printf("Navigated to %s\n", fxmlFile);
+
         } catch (IOException e) {
-            e.printStackTrace();
+            Logger.getLogger(SceneNavigator.class.getName()).log(Level.SEVERE, null, e);
         }
     }
-
 }
