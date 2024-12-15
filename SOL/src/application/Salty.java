@@ -35,23 +35,6 @@ public class Salty extends Ingredients {
             new Pair("Espinafre", 6)
     };
 
-    public Pair[] getCheese() {
-        return cheese;
-    }
-
-    public Pair[] getVegetable() {
-        return vegetable;
-    }
-
-    public Pair[] getProtein() {
-        return protein;
-    }
-
-    public Pair[] getGreenLeafy() {
-        return greenLeafy;
-    }
-
-
     @Override
     public Pair[] getIngredientsByType(String type) {
         return switch (type) {

@@ -31,16 +31,8 @@ public class Pizza {
         return size;
     }
 
-    public boolean isFinished() {
-        return finished;
-    }
-
     public ArrayList<Flavour> getFlavors() {
         return flavours;
-    }
-
-    public void changeBorder() {
-        this.border = !border;
     }
 
     public void setNumFlavor(int numFlavor) {
@@ -51,26 +43,18 @@ public class Pizza {
         this.size = size;
     }
 
-    public void changeFinished() {
-        this.finished = !finished;
-    }
-
-    public void addFlavor(Flavour flavour) {
-        this.flavours.add(flavour);
-    }
-
     public double getPrice() {return this.price;}
 
     public void setPrice(double price) {this.price = price;}
 
-
     public void setBorder(boolean b) {this.border = b;}
 
-    public List<Flavour> getSaboresDoces() {
+    public List<Flavour> getSugaryFlavour() {
         return this.getFlavors().stream().filter(f -> f.getType().equals("doce")).toList();
     }
 
-    public List<Flavour> getSaboresSalgados() {
+
+    public List<Flavour> getSaltyFlavour() {
         return this.getFlavors().stream().filter(f -> f.getType().equals("salgado")).toList();
     }
 }

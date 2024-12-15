@@ -79,11 +79,6 @@ public class SharedControl {
 
     public void setPizza(Pizza pizza) {this.pizza = pizza;}
 
-
-    public boolean isFinishedPizzaInfo() {
-        return finishedPizzaInfo;
-    }
-
     public boolean isEditingAddedPizza() {
         return editingAddedPizza;
     }

@@ -25,23 +25,7 @@ public class Order {
 
     public void setTotalPrice(double totalPrice) {this.totalPrice = totalPrice;}
 
-    public boolean isCompleted() {
-        return completed;
-    }
-
     public double getPrice() {
         return totalPrice;
-    }
-
-    public void addPizza(Pizza pizza) {
-        this.pizzas.add(pizza);
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
-    public void changeCompleted() {
-        this.completed = !completed;
     }
 }
