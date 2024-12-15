@@ -129,22 +129,22 @@ public class ReviewController {
 	}
 
 	private TableView<Flavour> createSweetFlavorsTable(List<Flavour> flavours, int contNumFlavors){
-		Sugary sugary = new Sugary();
+		SugaryMenu sugaryMenu = new SugaryMenu();
 
 		Map<String, Callback<TableColumn.CellDataFeatures<Flavour, String>, ObservableValue<String>>> columnMappings = new LinkedHashMap<>();
 
 		columnMappings.put("Cobertura", data -> {
-			String ingredient = sugary.getFirstFromType("topping", data.getValue().getIngredients());
+			String ingredient = sugaryMenu.getFirstFromType("topping", data.getValue().getIngredients());
 			return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
 		});
 
 		columnMappings.put("Fruta", data -> {
-			String ingredient = sugary.getFirstFromType("fruit", data.getValue().getIngredients());
+			String ingredient = sugaryMenu.getFirstFromType("fruit", data.getValue().getIngredients());
 			return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
 		});
 
 		columnMappings.put("Condimento", data -> {
-			String ingredient = sugary.getFirstFromType("condiment", data.getValue().getIngredients());
+			String ingredient = sugaryMenu.getFirstFromType("condiment", data.getValue().getIngredients());
 			return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
 		});
 
@@ -155,24 +155,24 @@ public class ReviewController {
 
 
 	private TableView<Flavour> createSavoryFlavorsTable(List<Flavour> flavours, int contNumFlavors) {
-		Salty salty = new Salty();
+		SaltyMenu saltyMenu = new SaltyMenu();
 
 		// Usando LinkedHashMap para garantir a ordem das colunas
 		Map<String, Callback<TableColumn.CellDataFeatures<Flavour, String>, ObservableValue<String>>> columnMappings = new LinkedHashMap<>();
 		columnMappings.put("Queijo", data -> {
-			String ingredient = salty.getFirstFromType("cheese", data.getValue().getIngredients());
+			String ingredient = saltyMenu.getFirstFromType("cheese", data.getValue().getIngredients());
 			return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
 		});
 		columnMappings.put("Proteína", data -> {
-			String ingredient = salty.getFirstFromType("protein", data.getValue().getIngredients());
+			String ingredient = saltyMenu.getFirstFromType("protein", data.getValue().getIngredients());
 			return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
 		});
 		columnMappings.put("Vegetais", data -> {
-			String ingredient = salty.getFirstFromType("vegetable", data.getValue().getIngredients());
+			String ingredient = saltyMenu.getFirstFromType("vegetable", data.getValue().getIngredients());
 			return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
 		});
 		columnMappings.put("Folhas", data -> {
-			String ingredient = salty.getFirstFromType("green leaf", data.getValue().getIngredients());
+			String ingredient = saltyMenu.getFirstFromType("green leaf", data.getValue().getIngredients());
 			return new SimpleStringProperty(ingredient == null ? "-" : ingredient);
 		});
 
