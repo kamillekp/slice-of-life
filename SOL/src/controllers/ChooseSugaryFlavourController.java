@@ -24,12 +24,15 @@ public class ChooseSugaryFlavourController extends ChooseFlavourController {
     @FXML
     private GridPane condimentsGrid;
 
-    private static final ToggleGroup pizzaToppingGroup = new ToggleGroup();
-    private static final ToggleGroup pizzaFruitGroup = new ToggleGroup();
-    private static final ToggleGroup pizzaCondimentGroup = new ToggleGroup();
-
     private static final String FLAVOUR_TYPE = "doce";
     private static final SugaryMenu SUGARY_MENU_INGREDIENTS = new SugaryMenu();
+
+
+    private final ToggleGroup pizzaToppingGroup = new ToggleGroup();
+    private final ToggleGroup pizzaFruitGroup = new ToggleGroup();
+    private final ToggleGroup pizzaCondimentGroup = new ToggleGroup();
+
+
 
 
     @Override
@@ -66,7 +69,7 @@ public class ChooseSugaryFlavourController extends ChooseFlavourController {
 
         goBackButton.setOnAction(event -> goBack(FLAVOUR_TYPE));
         goAheadButton.setOnAction(event -> goAhead(FLAVOUR_TYPE));
-        changeFlavourTypeButton.setOnAction(event -> goToSugaryFlavorsPage());
+        changeFlavourTypeButton.setOnAction(event -> goToSaltyFlavorsPage());
     }
 
     @Override

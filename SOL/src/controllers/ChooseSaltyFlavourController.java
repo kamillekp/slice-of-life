@@ -28,16 +28,14 @@ public class ChooseSaltyFlavourController extends ChooseFlavourController {
     @FXML
     private Label flavourNumberLabel;
 
-
-
-    private static final ToggleGroup pizzaCheeseGroup = new ToggleGroup();
-    private static final ToggleGroup pizzaVegetableGroup = new ToggleGroup();
-    private static final ToggleGroup pizzaProteinGroup = new ToggleGroup();
-    private static final ToggleGroup pizzaGreensGroup = new ToggleGroup();
-
-
     private static final String FLAVOUR_TYPE = "salgado";
     private static final SaltyMenu SALTY_MENU_INGREDIENTS = new SaltyMenu();
+
+    private final ToggleGroup pizzaCheeseGroup = new ToggleGroup();
+    private final ToggleGroup pizzaVegetableGroup = new ToggleGroup();
+    private final ToggleGroup pizzaProteinGroup = new ToggleGroup();
+    private final ToggleGroup pizzaGreensGroup = new ToggleGroup();
+
 
     @Override
     public void initialize() {
