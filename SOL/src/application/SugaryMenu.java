@@ -34,17 +34,6 @@ public class SugaryMenu extends IngredientsMenu {
             new Pair("Castanhas", 6)
     };
 
-    public Pair[] getTopping() {
-        return topping;
-    }
-
-    public Pair[] getCondiment() {
-        return condiment;
-    }
-
-    public Pair[] getFruit() {
-        return fruit;
-    }
 
     @Override
     public Pair[] getIngredientsByType(String type) {
