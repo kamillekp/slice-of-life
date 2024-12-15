@@ -3,13 +3,11 @@ package application;
 import java.util.ArrayList;
 
 public class Order {
-    private ArrayList<Pizza> pizzas;
-    private Client client;
-    private boolean completed;
+    private final ArrayList<Pizza> pizzas;
+    private final Client client;
     private double totalPrice;
 
     public Order() {
-        this.completed = false;
         this.client = new Client();
         this.pizzas = new ArrayList<Pizza>();
         this.totalPrice = 0;

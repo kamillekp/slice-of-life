@@ -32,7 +32,7 @@ public abstract class ChooseFlavourController {
     final Pizza currentPizza = sharedControl.getPizza();
     final Order currentOrder = sharedControl.getOrder();
 
-    // Excecção: Precisa ser pública para ser chamada pelo SceneNavigator
+    // Exceção: Precisa ser pública para ser chamada pelo SceneNavigator
     public abstract void initialize();
 
     abstract double initializeFlavorPrice();
@@ -55,7 +55,7 @@ public abstract class ChooseFlavourController {
             else
                 SceneNavigator.navigateTo("/views/Tela3-2.fxml", "/styles/Tela3.css");
         }
-    };
+    }
 
     public void goAhead(String type){
         int currentFlavorNumber = sharedControl.getFlavorsCounter();
@@ -95,7 +95,7 @@ public abstract class ChooseFlavourController {
                 SceneNavigator.navigateTo("/views/Tela3-1.fxml", "/styles/Tela3.css");
 
         }
-    };
+    }
 
     abstract ArrayList<String> getIngredients();
 

@@ -7,8 +7,8 @@ public class Pizza {
     private boolean border;
     private int numFlavor;
     private String size;
-    private boolean finished;
-    private ArrayList<Flavour> flavours;
+    private final boolean finished;
+    private final ArrayList<Flavour> flavours;
     private double price;
 
     public Pizza() {

@@ -3,7 +3,6 @@ package application;
 public class Payment {
     private String type;
     private Card card;
-    private float value;
 
     public Payment(String type, Card card) {
         this.type = type;
