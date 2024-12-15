@@ -5,7 +5,7 @@ package application;
  */
 public class SharedControl {
     private static SharedControl instance; // Singleton instance
-    private Order order; // Order object to store order details
+    private final Order order; // Order object to store order details
     private Pizza pizza; // Pizza object to store pizza details
     private boolean finishedPizzaInfo; // Flag to indicate if pizza info is finished
     private boolean editingAddedPizza; // Flag to indicate if the user is editing an already added pizza or creating a new one

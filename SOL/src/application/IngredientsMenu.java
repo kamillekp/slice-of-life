@@ -2,7 +2,7 @@ package application;
 
 import java.util.ArrayList;
 
-public abstract class Ingredients {
+public abstract class IngredientsMenu {
     // Método abstrato para obter ingredientes por tipo
     public abstract Pair[] getIngredientsByType(String type);
 

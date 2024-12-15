@@ -1,8 +1,6 @@
 package application;
 
-import java.util.ArrayList;
-
-public class Salty extends Ingredients {
+public class SaltyMenu extends IngredientsMenu {
     private final Pair[] cheese = {
             new Pair("Gorgonzola", 1),
             new Pair("Ricota", 2),

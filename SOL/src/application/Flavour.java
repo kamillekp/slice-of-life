@@ -19,6 +19,5 @@ public class Flavour {
     	return this.ingredients;
     }
 
-
 }
 

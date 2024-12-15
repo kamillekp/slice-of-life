@@ -27,10 +27,9 @@ public abstract class ChooseFlavourController {
     @FXML
     Button goBackButton;
 
-
-    static final SharedControl sharedControl = SharedControl.getInstance();
-    static final Pizza currentPizza = sharedControl.getPizza();
-    static final Order currentOrder = sharedControl.getOrder();
+    final SharedControl sharedControl = SharedControl.getInstance();
+    final Pizza currentPizza = sharedControl.getPizza();
+    final Order currentOrder = sharedControl.getOrder();
 
     public abstract void initialize();
 
@@ -48,7 +47,11 @@ public abstract class ChooseFlavourController {
             SceneNavigator.navigateTo("/views/Tela2.fxml", "/styles/Tela2.css");
         else {
             sharedControl.decrementFlavorsCounter();
-            SceneNavigator.navigateTo("/views/Tela3-1.fxml", "/styles/Tela3.css");
+
+            if(currentPizza.getFlavors().get(currentFlavorNumber - 1).getType().equals("salgado"))
+                SceneNavigator.navigateTo("/views/Tela3-1.fxml", "/styles/Tela3.css");
+            else
+                SceneNavigator.navigateTo("/views/Tela3-2.fxml", "/styles/Tela3.css");
         }
     };
 
@@ -73,6 +76,7 @@ public abstract class ChooseFlavourController {
             if (currentOrder.getClient().isRegister()) {
                 SceneNavigator.navigateTo("/views/Tela5.fxml", "/styles/Tela5.css");
             } else {
+
                 SceneNavigator.navigateTo("/views/Tela4.fxml", "/styles/Tela4.css");
             }
         } else {
