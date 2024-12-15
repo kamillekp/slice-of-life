@@ -157,9 +157,6 @@ public class ChoosePizzaController {
                 RadioButton selectedPFButton = (RadioButton) pizzaFlavorButtons.getSelectedToggle();
                 RadioButton selectedPBButton = (RadioButton) pizzaBorderButtons.getSelectedToggle();
 
-                ScreenChoosePizzaState.setTgPizzaSizeButtons(selectedPSButton);
-                ScreenChoosePizzaState.setTgPizzaFlavorButtons(selectedPFButton);
-                ScreenChoosePizzaState.setTgPizzaBorderButtons(selectedPBButton);
 
                 String size = selectedPSButton.getText();
 

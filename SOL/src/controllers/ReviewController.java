@@ -1,7 +1,6 @@
 
 package controllers;
 
-
 import application.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,12 +46,12 @@ public class ReviewController {
 	private final SharedControl sharedControl = SharedControl.getInstance();
 	private final Order order = sharedControl.getOrder();
 
+
 	@FXML public void initialize() {
 		final double TABLES_VERTICAL_SPACING = 20;
 		final double TABLES_ROW_HEIGHT = 25;
 		final double TABLES_MIN_MARGIN_BOTTOM = 20;
 		final int TABLES_MARGIN_BOTTOM_BY_NUM_LINES = 10;
-
 
 		tablesVBox.setSpacing(TABLES_VERTICAL_SPACING);
 
@@ -94,7 +93,7 @@ public class ReviewController {
 			appendToTextFlow(" ".repeat(8) + "Total do pedido: " + "R$ " + String.format("%.2f", order.getPrice()) + "\n", false, 12, Pos.CENTER_LEFT);
 			appendToTextFlow(" ".repeat(8) + "Tipo: " + payment.getType() + "\n", false, 12, Pos.CENTER_LEFT);
 
-			if (Objects.equals(payment.getType(), "PIX")) {
+			if (Objects.equals(payment.getType(), "Pix")) {
 				appendToTextFlow(" ".repeat(8) + "Código:\nuumDgBX2bVG0MjImljO2GYmnbxIRcX0TX2cr8A93lKp392JG8M4MJyKpPpQsDfEh69NgH3Gfd21HNk", false, 12, Pos.CENTER_LEFT);
 			}
 
@@ -400,12 +399,13 @@ public class ReviewController {
 		SceneNavigator.navigateTo("/views/Tela6.fxml", "/styles/Tela6.css");
 	}
 
-	@FXML private void goToChoosePizzaPage() {
+	@FXML private void goCreateNewPizza() {
 		sharedControl.resetPizza();
 		sharedControl.resetCounter();
 
 		SceneNavigator.navigateTo("/views/Tela2.fxml", "/styles/Tela2.css");
 	}
+
 
 
 	public Button createButton(double height, String text, String styleClass) {

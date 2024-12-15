@@ -76,6 +76,7 @@ public abstract class ChooseFlavourController {
             if (currentOrder.getClient().isRegister()) {
                 SceneNavigator.navigateTo("/views/Tela5.fxml", "/styles/Tela5.css");
             } else {
+
                 SceneNavigator.navigateTo("/views/Tela4.fxml", "/styles/Tela4.css");
             }
         } else {

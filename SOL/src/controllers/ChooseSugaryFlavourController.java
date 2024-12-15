@@ -38,6 +38,8 @@ public class ChooseSugaryFlavourController extends ChooseFlavourController {
     public void initialize() {
         flavourNumberLabel.setText("ESCOLHA OS INGREDIENTES DO " + (sharedControl.getFlavorsCounter() + 1) + "º SABOR"); // O contador de sabores já selecionados começa em 0
 
+
+
         initializeToggleGroup(SUGARY_MENU_INGREDIENTS.getIngredientsByType("topping"), pizzaToppingGroup, toppingsGrid);
         initializeToggleGroup(SUGARY_MENU_INGREDIENTS.getIngredientsByType("fruit"), pizzaFruitGroup, fruitsGrid);
         initializeToggleGroup(SUGARY_MENU_INGREDIENTS.getIngredientsByType("condiment"), pizzaCondimentGroup, condimentsGrid);
