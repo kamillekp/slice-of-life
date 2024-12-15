@@ -78,6 +78,7 @@ public class ChooseSaltyFlavourController extends ChooseFlavourController {
         changeFlavourTypeButton.setOnAction(event -> goToSugaryFlavorsPage());
     }
 
+    @Override
     double initializeFlavorPrice() {
         int currentFlavorNumber = sharedControl.getFlavorsCounter();
         Flavour currentFlavour;
@@ -109,6 +110,7 @@ public class ChooseSaltyFlavourController extends ChooseFlavourController {
         return flavourPrice;
     }
 
+    @Override
     double getCurrentFlavourPrice() {
 
         ChangeableButton cheeseSelectedToggle = (ChangeableButton) pizzaCheeseGroup.getSelectedToggle();
@@ -124,7 +126,7 @@ public class ChooseSaltyFlavourController extends ChooseFlavourController {
         return cheesePrice + vegetablePrice + proteinPrice + greensPrice;
     }
 
-
+    @Override
     ArrayList<String> getIngredients() {
         ChangeableButton cheeseSelectedToggle = (ChangeableButton) pizzaCheeseGroup.getSelectedToggle();
         ChangeableButton vegetableSelectedToggle = (ChangeableButton) pizzaVegetableGroup.getSelectedToggle();

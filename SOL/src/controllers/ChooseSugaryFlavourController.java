@@ -59,6 +59,8 @@ public class ChooseSugaryFlavourController extends ChooseFlavourController {
                 goAheadButton.setDisable(true);
             else
                 goAheadButton.setDisable(false);
+
+            priceText.setText("TOTAL DO PEDIDO: R$ " + String.format("%.2f", currentOrder.getPrice() + currentFlavourPrice));
         };
 
         pizzaToppingGroup.selectedToggleProperty().addListener(updateTotalListener);
@@ -114,6 +116,7 @@ public class ChooseSugaryFlavourController extends ChooseFlavourController {
         return toppingPrice + fruitPrice + condimentPrice;
     }
 
+    @Override
     ArrayList<String> getIngredients() {
         ChangeableButton toppingSelectedToggle = (ChangeableButton) pizzaToppingGroup.getSelectedToggle();
         ChangeableButton fruitSelectedToggle = (ChangeableButton) pizzaFruitGroup.getSelectedToggle();
