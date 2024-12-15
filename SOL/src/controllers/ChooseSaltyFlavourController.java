@@ -48,6 +48,7 @@ public class ChooseSaltyFlavourController extends ChooseFlavourController {
 
         double previousFlavourPrice = initializeFlavorPrice();
 
+
         if (previousFlavourPrice == 0) // a pizza não existe
             goAheadButton.setDisable(true);
         else {
@@ -87,24 +88,29 @@ public class ChooseSaltyFlavourController extends ChooseFlavourController {
         if (currentFlavorNumber < currentPizza.getFlavors().size()) {
             currentFlavour = currentPizza.getFlavors().get(currentFlavorNumber);
 
-            for (String ingredient : currentFlavour.getIngredients()) {
+            if(currentFlavour.getType().equals(FLAVOUR_TYPE)) {
+                for (String ingredient : currentFlavour.getIngredients()) {
 
-                String ingredientType = SALTY_MENU_INGREDIENTS.findType(ingredient);
-                double priceOfCurrentIngredient = SALTY_MENU_INGREDIENTS.getPrice(ingredientType, ingredient);
+                    String ingredientType = SALTY_MENU_INGREDIENTS.findType(ingredient);
+                    double priceOfCurrentIngredient = SALTY_MENU_INGREDIENTS.getPrice(ingredientType, ingredient);
 
-                switch (ingredientType) {
-                    case "cheese" ->
-                            selectButtonByIngredient(pizzaCheeseGroup, ingredient + "\n" + "R$ " + String.format("%.2f", priceOfCurrentIngredient));
-                    case "vegetable" ->
-                            selectButtonByIngredient(pizzaVegetableGroup, ingredient + "\n" + "R$ " + String.format("%.2f", priceOfCurrentIngredient));
-                    case "protein" ->
-                            selectButtonByIngredient(pizzaProteinGroup, ingredient + "\n" + "R$ " + String.format("%.2f", priceOfCurrentIngredient));
-                    case "green leaf" ->
-                            selectButtonByIngredient(pizzaGreensGroup, ingredient + "\n" + "R$ " + String.format("%.2f", priceOfCurrentIngredient));
+                    switch (ingredientType) {
+                        case "cheese" ->
+                                selectButtonByIngredient(pizzaCheeseGroup, ingredient + "\n" + "R$ " + String.format("%.2f", priceOfCurrentIngredient));
+                        case "vegetable" ->
+                                selectButtonByIngredient(pizzaVegetableGroup, ingredient + "\n" + "R$ " + String.format("%.2f", priceOfCurrentIngredient));
+                        case "protein" ->
+                                selectButtonByIngredient(pizzaProteinGroup, ingredient + "\n" + "R$ " + String.format("%.2f", priceOfCurrentIngredient));
+                        case "green leaf" ->
+                                selectButtonByIngredient(pizzaGreensGroup, ingredient + "\n" + "R$ " + String.format("%.2f", priceOfCurrentIngredient));
+                    }
+
+                    flavourPrice += priceOfCurrentIngredient;
                 }
-
-                flavourPrice += priceOfCurrentIngredient;
             }
+
+            else
+                currentFlavour = new Flavour(FLAVOUR_TYPE);
         }
 
         return flavourPrice;

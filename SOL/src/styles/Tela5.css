@@ -4,7 +4,6 @@
 }
 
 
-
 .table-view .scroll-bar:vertical {
     -fx-opacity: 0;          /* Torna a barra de rolagem invisível */
     -fx-padding: 0;          /* Remove o espaçamento ao redor da barra */
@@ -102,6 +101,11 @@
     -fx-cursor: hand;
     -fx-scale-x: 1.03;
     -fx-scale-y: 1.03;
+}
+
+
+.editPaymentButton:hover{
+    -fx-cursor: hand;
 }
 
 

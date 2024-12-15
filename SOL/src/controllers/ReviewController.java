@@ -207,7 +207,7 @@ public class ReviewController {
 				data -> {
 					int index = table.getItems().indexOf(data.getValue());
 					int displayIndex = index + 1 + contNumFlavors;
-					return new SimpleStringProperty("Pizza " + displayIndex);
+					return new SimpleStringProperty("Sabor " + displayIndex);
 				}
 		);
 
@@ -277,7 +277,7 @@ public class ReviewController {
 			@Override
 			protected void updateItem(Void item, boolean empty) {
 				super.updateItem(item, empty);
-				setText(empty ? null : "Pizza " + (getIndex() + 1));
+				setText(empty ? null : "Sabor " + (getIndex() + 1));
 			}
 		});
 

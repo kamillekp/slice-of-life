@@ -47,7 +47,11 @@ public abstract class ChooseFlavourController {
             SceneNavigator.navigateTo("/views/Tela2.fxml", "/styles/Tela2.css");
         else {
             sharedControl.decrementFlavorsCounter();
-            SceneNavigator.navigateTo("/views/Tela3-1.fxml", "/styles/Tela3.css");
+
+            if(currentPizza.getFlavors().get(currentFlavorNumber - 1).getType().equals("salgado"))
+                SceneNavigator.navigateTo("/views/Tela3-1.fxml", "/styles/Tela3.css");
+            else
+                SceneNavigator.navigateTo("/views/Tela3-2.fxml", "/styles/Tela3.css");
         }
     };
 

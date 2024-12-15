@@ -34,7 +34,6 @@ public class ChooseSugaryFlavourController extends ChooseFlavourController {
 
 
 
-
     @Override
     public void initialize() {
         flavourNumberLabel.setText("ESCOLHA OS INGREDIENTES DO " + (sharedControl.getFlavorsCounter() + 1) + "º SABOR"); // O contador de sabores já selecionados começa em 0
@@ -45,6 +44,7 @@ public class ChooseSugaryFlavourController extends ChooseFlavourController {
 
         double previousFlavourPrice = initializeFlavorPrice();
 
+
         if (previousFlavourPrice == 0) // a pizza não existe
             goAheadButton.setDisable(true);
         else {
@@ -54,13 +54,20 @@ public class ChooseSugaryFlavourController extends ChooseFlavourController {
 
         ChangeListener<Object> updateTotalListener = (observable, oldValue, newValue) -> {
             double currentFlavourPrice = getCurrentFlavourPrice();
-            setCurrentPrice();
+
+            
             if (currentFlavourPrice == 0)
                 goAheadButton.setDisable(true);
             else
                 goAheadButton.setDisable(false);
 
+            if(currentPizza.getFlavors().size() > sharedControl.getFlavorsCounter()) {
+                System.out.println(currentPizza.getFlavors().get(sharedControl.getFlavorsCounter()).getIngredients());
+                System.out.println(currentFlavourPrice);
+            }
+
             priceText.setText("TOTAL DO PEDIDO: R$ " + String.format("%.2f", currentOrder.getPrice() + currentFlavourPrice));
+
         };
 
         pizzaToppingGroup.selectedToggleProperty().addListener(updateTotalListener);
@@ -72,6 +79,11 @@ public class ChooseSugaryFlavourController extends ChooseFlavourController {
         goBackButton.setOnAction(event -> goBack(FLAVOUR_TYPE));
         goAheadButton.setOnAction(event -> goAhead(FLAVOUR_TYPE));
         changeFlavourTypeButton.setOnAction(event -> goToSaltyFlavorsPage());
+
+        if(pizzaToppingGroup.getSelectedToggle() == null && currentPizza.getFlavors().size() > sharedControl.getFlavorsCounter()){
+            System.out.println(currentPizza.getFlavors().get(sharedControl.getFlavorsCounter()).getIngredients());
+            System.out.println(previousFlavourPrice);
+            }
     }
 
     @Override
@@ -83,19 +95,27 @@ public class ChooseSugaryFlavourController extends ChooseFlavourController {
         if (currentFlavorNumber < currentPizza.getFlavors().size()) {
             currentFlavour = currentPizza.getFlavors().get(currentFlavorNumber);
 
-            for (String ingredient : currentFlavour.getIngredients()) {
+            if(currentFlavour.getType().equals(FLAVOUR_TYPE)) {
+                for (String ingredient : currentFlavour.getIngredients()) {
 
-                String ingredientType = SUGARY_MENU_INGREDIENTS.findType(ingredient);
-                double priceOfCurrentIngredient = SUGARY_MENU_INGREDIENTS.getPrice(ingredientType, ingredient);
+                    String ingredientType = SUGARY_MENU_INGREDIENTS.findType(ingredient);
 
-                switch (ingredientType) {
-                    case "topping" -> selectButtonByIngredient(pizzaToppingGroup, ingredient);
-                    case "fruit" -> selectButtonByIngredient(pizzaFruitGroup, ingredient);
-                    case "condiment" -> selectButtonByIngredient(pizzaCondimentGroup, ingredient);
+
+                    double priceOfCurrentIngredient = SUGARY_MENU_INGREDIENTS.getPrice(ingredientType, ingredient);
+
+                    switch (ingredientType) {
+                        case "topping" -> selectButtonByIngredient(pizzaToppingGroup, ingredient + "\n" + "R$ " + String.format("%.2f", priceOfCurrentIngredient));
+                        case "fruit" -> selectButtonByIngredient(pizzaFruitGroup, ingredient + "\n" + "R$ " + String.format("%.2f", priceOfCurrentIngredient));
+                        case "condiment" -> selectButtonByIngredient(pizzaCondimentGroup, ingredient + "\n" + "R$ " + String.format("%.2f", priceOfCurrentIngredient));
+                    }
+
+                    flavourPrice += priceOfCurrentIngredient;
                 }
-
-                flavourPrice += priceOfCurrentIngredient;
             }
+
+            else
+                currentFlavour = new Flavour(FLAVOUR_TYPE);
+
         }
 
         return flavourPrice;
