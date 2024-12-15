@@ -110,8 +110,8 @@ public class ReviewController {
 		Label pizzaLabel = new Label("Pizza " + contNumPizzas + " - " + "R$ " + String.format("%.2f", currentPizzaPrice));
 		pizzaLabel.setStyle("-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 16px");
 
-		List<Flavour> savoryFlavours = pizza.getSaltyFlavour();
-		List<Flavour> sweetFlavours = pizza.getSugaryFlavour();
+		List<Flavour> savoryFlavours = pizza.getSaltyFlavours();
+		List<Flavour> sweetFlavours = pizza.getSugaryFlavours();
 
 		TableView<Flavour> tableSavoryFlavors = createSavoryFlavorsTable(savoryFlavours, 0, rowHeight, tableMarginBottonByLines, tableMinMarginBottom);
 		TableView<Flavour> tableSweetFlavors = createSweetFlavorsTable(sweetFlavours, savoryFlavours.size(), rowHeight, tableMarginBottonByLines, tableMinMarginBottom);

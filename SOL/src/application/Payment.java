@@ -30,9 +30,4 @@ public class Payment {
         this.card = card;
     }
 
-    public void print() {
-        System.out.println("Type: " + type);
-        if(card != null)
-            this.card.print();
-    }
 }

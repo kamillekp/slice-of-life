@@ -64,11 +64,4 @@ public class Address {
         this.complement = complement;
     }
 
-    public void print(){
-        System.out.println("City: " + city);
-        System.out.println("Street: " + street);
-        System.out.println("Number: " + number);
-        System.out.println("Zip Code: " + zipCode);
-        System.out.println("Complement: " + complement);
-    }
 }

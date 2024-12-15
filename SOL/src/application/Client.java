@@ -64,10 +64,4 @@ public class Client {
         this.register = !this.register;
     }
 
-    public void print(){
-        System.out.println("Name: " + this.name);
-        System.out.println("Surname: " + this.surname);
-        this.payment.print();
-        this.address.print();
-    }
 }
