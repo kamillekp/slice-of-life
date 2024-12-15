@@ -23,10 +23,6 @@ public class Payment {
         return card;
     }
 
-    public float getValue() {
-        return value;
-    }
-
     public void setType(String type) {
         this.type = type;
     }
@@ -35,12 +31,9 @@ public class Payment {
         this.card = card;
     }
 
-    public void setValue(float value) {
-        this.value = value;
-    }
-
     public void print() {
         System.out.println("Type: " + type);
-        this.card.print();
+        if(card != null)
+            this.card.print();
     }
 }

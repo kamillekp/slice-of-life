@@ -18,10 +18,6 @@ public class SceneNavigator {
         stage = primaryStage;
     }
 
-    public static Stage getStage() {
-    	return stage;
-    }
-
     // Carrega a nova cena
     public static void navigateTo(String fxmlFile, String cssFile) {
         try {

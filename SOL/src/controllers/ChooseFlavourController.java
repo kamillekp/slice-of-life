@@ -27,10 +27,12 @@ public abstract class ChooseFlavourController {
     @FXML
     Button goBackButton;
 
+    // Atributos e métodos "protegidos" para serem acessados pelas classes filhas
     final SharedControl sharedControl = SharedControl.getInstance();
     final Pizza currentPizza = sharedControl.getPizza();
     final Order currentOrder = sharedControl.getOrder();
 
+    // Excecção: Precisa ser pública para ser chamada pelo SceneNavigator
     public abstract void initialize();
 
     abstract double initializeFlavorPrice();

@@ -24,7 +24,7 @@ public class Address {
         this.complement = null;
     }
 
-    public String getcity() {
+    public String getCity() {
         return city;
     }
 

@@ -83,7 +83,7 @@ public class ReviewController {
 			appendToTextFlow( " ".repeat(4) + "Endereço\n", true, 14, Pos.CENTER_LEFT);
 
 			appendToTextFlow(" ".repeat(8) + "CEP: " + adress.getZipCode() + "\n", false, 12, Pos.CENTER_LEFT);
-			appendToTextFlow(" ".repeat(8) + "Rua/Avenida " + adress.getStreet() + ", " + adress.getcity() + "\n", false, 12, Pos.CENTER_LEFT);
+			appendToTextFlow(" ".repeat(8) + "Rua/Avenida " + adress.getStreet() + ", " + adress.getCity() + "\n", false, 12, Pos.CENTER_LEFT);
 			appendToTextFlow(" ".repeat(8) + "Número: " + adress.getNumber() + "\n", false, 12, Pos.CENTER_LEFT);
 			appendToTextFlow(" ".repeat(8) + "Complemento: " + adress.getComplement() + "\n", false, 12, Pos.CENTER_LEFT);
 
@@ -110,8 +110,8 @@ public class ReviewController {
 		Label pizzaLabel = new Label("Pizza " + contNumPizzas + " - " + "R$ " + String.format("%.2f", currentPizzaPrice));
 		pizzaLabel.setStyle("-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 16px");
 
-		List<Flavour> savoryFlavours = pizza.getSaboresSalgados();
-		List<Flavour> sweetFlavours = pizza.getSaboresDoces();
+		List<Flavour> savoryFlavours = pizza.getSaltyFlavour();
+		List<Flavour> sweetFlavours = pizza.getSugaryFlavour();
 
 		TableView<Flavour> tableSavoryFlavors = createSavoryFlavorsTable(savoryFlavours, 0, rowHeight, tableMarginBottonByLines, tableMinMarginBottom);
 		TableView<Flavour> tableSweetFlavors = createSweetFlavorsTable(sweetFlavours, savoryFlavours.size(), rowHeight, tableMarginBottonByLines, tableMinMarginBottom);

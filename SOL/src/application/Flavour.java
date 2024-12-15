@@ -11,11 +11,6 @@ public class Flavour {
     	this.type = type;
     }
 
-    public Flavour(String type){
-        this.ingredients = new ArrayList<>();
-        this.type = type;
-    }
-
     public String getType() {
     	return this.type;
     }

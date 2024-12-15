@@ -37,7 +37,7 @@ public class PaymentController {
 
 
             if(cityInput.getText().isEmpty() || streetInput.getText().isEmpty() || numberAddressInput.getText().isEmpty() || zipInput.getText().isEmpty()){
-                cityInput.setText(client.getAddress().getcity());
+                cityInput.setText(client.getAddress().getCity());
                 streetInput.setText(client.getAddress().getStreet());
                 numberAddressInput.setText(client.getAddress().getNumber());
                 zipInput.setText(client.getAddress().getZipCode());
