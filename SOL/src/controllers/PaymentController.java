@@ -18,14 +18,14 @@ public class PaymentController {
     @FXML private Label priceText;
 
     private final SharedControl sharedControl = SharedControl.getInstance();
-    private final Client client = sharedControl.getOrder().getClient();
-    private final Card card = client.getPayment().getCard();
-
     
     @FXML public void initialize() {
+        Client client = sharedControl.getOrder().getClient();
+
         priceText.setText("TOTAL DO PEDIDO: R$ " + String.format("%.2f", sharedControl.getOrder().getPrice()));
 
         if(client.isRegister()){
+            Card card = client.getPayment().getCard();
             String typePaymentText = client.getPayment().getType();
 
             for(Toggle toggle: typePaymentButtons.getToggles()){
@@ -66,7 +66,6 @@ public class PaymentController {
     }
 
     @FXML private void backToFlavorPage(){
-
         sharedControl.getOrder().getPizzas().removeLast();
         String lastPizzaFlavorType = sharedControl.getPizza().getFlavors().getLast().getType();
 
@@ -96,6 +95,8 @@ public class PaymentController {
     }
 
     @FXML private void goToReviewPage(){
+        Client client = sharedControl.getOrder().getClient();
+
         boolean somethingOnButton = typePaymentButtons.getSelectedToggle() != null;
 
         boolean cardInformationFilled = !nameInput.getText().isEmpty()
@@ -163,6 +164,7 @@ public class PaymentController {
             if(somethingOnButton){
                 RadioButton selectedPButton = (RadioButton) typePaymentButtons.getSelectedToggle();
                 String typePayment = selectedPButton.getText();
+                Card card = client.getPayment().getCard();
 
                 if(typePayment.equals("Cartão de crédito/débito")){
                     if(client.getPayment().getType().equals(typePayment)) {
