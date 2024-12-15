@@ -2,38 +2,45 @@ package application;
 
 public class Payment {
     private String type;
-    private boolean filled;     // verificar
     private Card card;
     private float value;
 
     public Payment(String type, Card card) {
         this.type = type;
-        this.filled = true;
         this.card = card;
     }
 
     public Payment(String type) {
         this.type = type;
-        this.filled = true;
-    }
-
-    public void changeFilled() {        // verificar
-        this.filled = !this.filled;
+        this.card = null;
     }
 
     public String getType() {
         return type;
     }
 
-    public boolean getFilled() {        // verificar
-        return filled;
-    }
-
     public Card getCard() {
         return card;
     }
-    
+
     public float getValue() {
-    	return this.value;
+        return value;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setCard(Card card) {
+        this.card = card;
+    }
+
+    public void setValue(float value) {
+        this.value = value;
+    }
+
+    public void print() {
+        System.out.println("Type: " + type);
+        this.card.print();
     }
 }

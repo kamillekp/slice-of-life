@@ -9,12 +9,28 @@ public class Client {
     private Payment payment;
 
     public Client() {
-		this.name = "";
-		this.surname = "";
+		this.name = null;
+		this.surname = null;
 		this.register = false;
-		this.address = null;
-		this.payment = null;
 	}
+
+    public void initAddress(String street, String number, String city, String zipCode, String complement){
+        if(complement != null){
+            this.address = new Address(street, number, city, zipCode, complement);
+        }
+        else{
+            this.address = new Address(street, number, city, zipCode);
+        }
+    }
+
+    public void initPayment(String type, Card card){
+        if(card != null){
+            this.payment = new Payment(type, card);
+        }
+        else{
+            this.payment = new Payment(type);
+        }
+    }
 
     public String getName() {
             return name;
@@ -44,16 +60,14 @@ public class Client {
         this.surname = surname;
     }
 
-    public void ChangeRegister(){
+    public void changeRegister(){
         this.register = !this.register;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void print(){
+        System.out.println("Name: " + this.name);
+        System.out.println("Surname: " + this.surname);
+        this.payment.print();
+        this.address.print();
     }
-
-    public void setPayment(Payment payment) {
-        this.payment = payment;
-    }
-
 }

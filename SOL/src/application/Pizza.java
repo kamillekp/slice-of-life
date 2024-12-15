@@ -7,13 +7,16 @@ public class Pizza {
     private boolean border;
     private int numFlavor;
     private String size;
-    private ArrayList<Flavor> flavors;
+    private boolean finished;
+    private ArrayList<Flavour> flavours;
+    private double price;
 
-    public Pizza(boolean border, int numFlavor, String size) {
-        this.border = border;
-        this.numFlavor = numFlavor;
-        this.size = size;
-        this.flavors = new ArrayList<>();
+    public Pizza() {
+        this.flavours = new ArrayList<>();
+        this.finished = false;
+        this.border = false;
+        this.price = 0;
+        this.numFlavor = 0;
     }
 
     public boolean isBorder() {
@@ -28,8 +31,12 @@ public class Pizza {
         return size;
     }
 
-    public ArrayList<Flavor> getFlavors() {
-        return flavors;
+    public boolean isFinished() {
+        return finished;
+    }
+
+    public ArrayList<Flavour> getFlavors() {
+        return flavours;
     }
 
     public void changeBorder() {
@@ -44,17 +51,26 @@ public class Pizza {
         this.size = size;
     }
 
-    public void addFlavor(Flavor flavor) {
-        this.flavors.add(flavor);
+    public void changeFinished() {
+        this.finished = !finished;
     }
+
+    public void addFlavor(Flavour flavour) {
+        this.flavours.add(flavour);
+    }
+
+    public double getPrice() {return this.price;}
+
+    public void setPrice(double price) {this.price = price;}
+
 
     public void setBorder(boolean b) {this.border = b;}
 
-    public List<Flavor> getSaboresDoces() {
+    public List<Flavour> getSaboresDoces() {
         return this.getFlavors().stream().filter(f -> f.getType().equals("doce")).toList();
     }
 
-    public List<Flavor> getSaboresSalgados() {
+    public List<Flavour> getSaboresSalgados() {
         return this.getFlavors().stream().filter(f -> f.getType().equals("salgado")).toList();
     }
 }

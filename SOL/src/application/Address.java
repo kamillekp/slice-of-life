@@ -21,6 +21,7 @@ public class Address {
         this.street = street;
         this.number = number;
         this.zipCode = zipCode;
+        this.complement = null;
     }
 
     public String getcity() {
@@ -42,4 +43,32 @@ public class Address {
     public String getComplement() {
         return complement;
     }
-} 
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public void setComplement(String complement) {
+        this.complement = complement;
+    }
+
+    public void print(){
+        System.out.println("City: " + city);
+        System.out.println("Street: " + street);
+        System.out.println("Number: " + number);
+        System.out.println("Zip Code: " + zipCode);
+        System.out.println("Complement: " + complement);
+    }
+}
