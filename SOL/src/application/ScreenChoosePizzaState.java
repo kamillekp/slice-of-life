@@ -3,6 +3,7 @@ package application;
 import javafx.scene.control.RadioButton;
 
 public class ScreenChoosePizzaState {
+    // O Toggle selecionado é um RadioButton
     private static RadioButton tgPizzaSizeButtons;
     private static RadioButton tgPizzaFlavorButtons;
     private static RadioButton tgPizzaBorderButtons;

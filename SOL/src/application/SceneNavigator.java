@@ -27,14 +27,11 @@ public class SceneNavigator {
     public static void navigateTo(String fxmlFile, String cssFile) {
         try {
             FXMLLoader loader = new FXMLLoader(SceneNavigator.class.getResource(fxmlFile));
-            System.out.print("Teste");
             Parent root = loader.load();
             Scene scene = new Scene(root);
             scene.getStylesheets().add(SceneNavigator.class.getResource(cssFile).toExternalForm());;
             stage.setScene(scene);
             stage.show();
-
-            System.out.printf("Navigated to %s\n", fxmlFile);
 
         } catch (IOException e) {
             Logger.getLogger(SceneNavigator.class.getName()).log(Level.SEVERE, null, e);
