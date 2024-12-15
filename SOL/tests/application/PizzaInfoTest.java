@@ -11,7 +11,7 @@ class PizzaInfoTest {
     @Test
     void getPropertiesForBorderSituation() {
         var pizzaInfo = new PizzaInfo();
-        var  result = pizzaInfo.getProperties("border");
+        var result = pizzaInfo.getProperties("border");
         assertEquals("Com Borda "+ 1.0  + "Sem Borda "+ 0.0,
         result[0].getOption() + " " + result[0].getPrice()  + result[1].getOption() + " " + result[1].getPrice());
         }
