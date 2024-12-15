@@ -29,7 +29,7 @@ public class SceneNavigator {
             FXMLLoader loader = new FXMLLoader(SceneNavigator.class.getResource(fxmlFile));
             Parent root = loader.load();
             Scene scene = new Scene(root);
-            scene.getStylesheets().add(SceneNavigator.class.getResource(cssFile).toExternalForm());;
+            scene.getStylesheets().add(Objects.requireNonNull(SceneNavigator.class.getResource(cssFile)).toExternalForm());;
             stage.setScene(scene);
             stage.show();
 
