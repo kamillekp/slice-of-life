@@ -27,10 +27,9 @@ public abstract class ChooseFlavourController {
     @FXML
     Button goBackButton;
 
-
-    static final SharedControl sharedControl = SharedControl.getInstance();
-    static final Pizza currentPizza = sharedControl.getPizza();
-    static final Order currentOrder = sharedControl.getOrder();
+    final SharedControl sharedControl = SharedControl.getInstance();
+    final Pizza currentPizza = sharedControl.getPizza();
+    final Order currentOrder = sharedControl.getOrder();
 
     public abstract void initialize();
 

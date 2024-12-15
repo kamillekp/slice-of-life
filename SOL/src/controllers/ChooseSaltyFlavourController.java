@@ -28,25 +28,23 @@ public class ChooseSaltyFlavourController extends ChooseFlavourController {
     @FXML
     private Label flavourNumberLabel;
 
-
-
-    private static final ToggleGroup pizzaCheeseGroup = new ToggleGroup();
-    private static final ToggleGroup pizzaVegetableGroup = new ToggleGroup();
-    private static final ToggleGroup pizzaProteinGroup = new ToggleGroup();
-    private static final ToggleGroup pizzaGreensGroup = new ToggleGroup();
-
-
     private static final String FLAVOUR_TYPE = "salgado";
-    private static final Salty SALTY_INGREDIENTS = new Salty();
+    private static final SaltyMenu SALTY_MENU_INGREDIENTS = new SaltyMenu();
+
+    private final ToggleGroup pizzaCheeseGroup = new ToggleGroup();
+    private final ToggleGroup pizzaVegetableGroup = new ToggleGroup();
+    private final ToggleGroup pizzaProteinGroup = new ToggleGroup();
+    private final ToggleGroup pizzaGreensGroup = new ToggleGroup();
+
 
     @Override
     public void initialize() {
         flavourNumberLabel.setText("ESCOLHA OS INGREDIENTES DO " + (sharedControl.getFlavorsCounter() + 1) + "º SABOR");
 
-        initializeToggleGroup(SALTY_INGREDIENTS.getIngredientsByType("cheese"), pizzaCheeseGroup, cheesesGrid);
-        initializeToggleGroup(SALTY_INGREDIENTS.getIngredientsByType("vegetable"), pizzaVegetableGroup, vegetablesGrid);
-        initializeToggleGroup(SALTY_INGREDIENTS.getIngredientsByType("protein"), pizzaProteinGroup, proteinsGrid);
-        initializeToggleGroup(SALTY_INGREDIENTS.getIngredientsByType("green leaf"), pizzaGreensGroup, greensGrid);
+        initializeToggleGroup(SALTY_MENU_INGREDIENTS.getIngredientsByType("cheese"), pizzaCheeseGroup, cheesesGrid);
+        initializeToggleGroup(SALTY_MENU_INGREDIENTS.getIngredientsByType("vegetable"), pizzaVegetableGroup, vegetablesGrid);
+        initializeToggleGroup(SALTY_MENU_INGREDIENTS.getIngredientsByType("protein"), pizzaProteinGroup, proteinsGrid);
+        initializeToggleGroup(SALTY_MENU_INGREDIENTS.getIngredientsByType("green leaf"), pizzaGreensGroup, greensGrid);
 
         double previousFlavourPrice = initializeFlavorPrice();
 
@@ -90,8 +88,8 @@ public class ChooseSaltyFlavourController extends ChooseFlavourController {
 
             for (String ingredient : currentFlavour.getIngredients()) {
 
-                String ingredientType = SALTY_INGREDIENTS.findType(ingredient);
-                double priceOfCurrentIngredient = SALTY_INGREDIENTS.getPrice(ingredientType, ingredient);
+                String ingredientType = SALTY_MENU_INGREDIENTS.findType(ingredient);
+                double priceOfCurrentIngredient = SALTY_MENU_INGREDIENTS.getPrice(ingredientType, ingredient);
 
                 switch (ingredientType) {
                     case "cheese" ->

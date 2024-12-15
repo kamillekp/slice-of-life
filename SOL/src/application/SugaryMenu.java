@@ -1,9 +1,7 @@
 package application;
 
 
-import java.util.ArrayList;
-
-public class Sugary extends Ingredients {
+public class SugaryMenu extends IngredientsMenu {
     private final Pair[] topping = {
             new Pair("Ao leite", 1),
             new Pair("Meio Amargo", 2),
