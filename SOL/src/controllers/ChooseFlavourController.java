@@ -137,7 +137,7 @@ public abstract class ChooseFlavourController {
 
     /* Setters */
 
-    private void setCurrentFlavor(String flavourType, int index) {
+    void setCurrentFlavor(String flavourType, int index) {
         ArrayList<String> ingredients = getIngredients();
 
         Flavour currentFlavour = new Flavour(flavourType, ingredients);
@@ -158,7 +158,6 @@ public abstract class ChooseFlavourController {
         currentOrder.setTotalPrice(previousTotalPrice + flavourPrice);
 
     }
-
 
     void goToSugaryFlavorsPage() {SceneNavigator.navigateTo("/views/Tela3-2.fxml", "/styles/Tela3.css");}
     void goToSaltyFlavorsPage()  {SceneNavigator.navigateTo("/views/Tela3-1.fxml", "/styles/Tela3.css");}

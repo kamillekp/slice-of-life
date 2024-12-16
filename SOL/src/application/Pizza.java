@@ -49,12 +49,12 @@ public class Pizza {
 
     public void setBorder(boolean b) {this.border = b;}
 
-    public List<Flavour> getSugaryFlavour() {
+    public List<Flavour> getSugaryFlavours() {
         return this.getFlavors().stream().filter(f -> f.getType().equals("doce")).toList();
     }
 
 
-    public List<Flavour> getSaltyFlavour() {
+    public List<Flavour> getSaltyFlavours() {
         return this.getFlavors().stream().filter(f -> f.getType().equals("salgado")).toList();
     }
 }
