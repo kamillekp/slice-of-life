@@ -18,7 +18,7 @@ class PaymentTest {
     }
 
     @Test
-    void printWithCardShouldWork() {
+    void printWithCardShouldWorkTest() {
         var card = new Card("Pedro","10/25","83923782","837");
         var payment = new Payment("Cartão de Crédito/Débito",card);
         payment.print();
@@ -29,7 +29,7 @@ class PaymentTest {
                 "CVV: 837" + System.lineSeparator(),outputStreamCaptor.toString());
     }
     @Test
-    void printWithoutCardShouldWork() {
+    void printWithoutCardShouldWorkTest() {
 
         var payment = new Payment("Cartão de Crédito/Débito");
         payment.print();

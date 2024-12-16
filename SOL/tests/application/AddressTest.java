@@ -18,7 +18,7 @@ class AddressTest {
     }
 
     @Test
-    void printWithoutComplement() {
+    void printWithoutComplementTest() {
         var address = new Address("R. Tal","186","Porto Alegre", "90043245");
         address.print();
         assertEquals("City: Porto Alegre" +System.lineSeparator() +
@@ -28,7 +28,7 @@ class AddressTest {
                 "Complement: null",outputStreamCaptor.toString().trim());
     }
     @Test
-    void printWithComplement() {
+    void printWithComplementTest() {
         var address = new Address("R. Tal","186","Porto Alegre", "90043245", "301");
         address.print();
         assertEquals("City: Porto Alegre" + System.lineSeparator() +

@@ -18,7 +18,7 @@ class CardTest {
     }
 
     @Test
-    void printShouldWork() {
+    void printShouldWorkTest() {
         var card = new Card("Pedro","10/25","83923782","837");
         card.print();
         assertEquals("Name: Pedro" + System.lineSeparator() +

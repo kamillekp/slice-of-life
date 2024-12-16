@@ -19,7 +19,7 @@ class ClientTest {
     }
 
     @Test
-    void printShouldWork() {
+    void printShouldWorkTest() {
         var client = new Client();
         var card = new Card("Pedro","10/25","83923782","837");
         client.setName("John Doe");
@@ -42,27 +42,27 @@ class ClientTest {
     }
 
     @Test
-    void adressShouldntHaveComplement() {
+    void addressShouldntHaveComplementTest() {
         var client = new Client();
         client.initAddress("R. Tal","186","Porto Alegre", "90043245", null);
         assertNull(client.getAddress().getComplement());
     }
     @Test
-    void adressShouldHaveComplement() {
+    void addressShouldHaveComplementTest() {
         var client = new Client();
         client.initAddress("R. Tal","186","Porto Alegre", "90043245", "323");
         assertNotNull(client.getAddress().getComplement());
     }
 
     @Test
-    void paymentShouldHaveCard() {
+    void paymentShouldHaveCardTest() {
         var client = new Client();
         var card = new Card("Pedro","10/25","83923782","837");
         client.initPayment("45344234", card);
         assertNotNull(client.getPayment().getCard());
     }
     @Test
-    void paymentShouldntHaveCard() {
+    void paymentShouldntHaveCardTest() {
         var client = new Client();
         var card = new Card("Pedro","10/25","83923782","837");
         client.initPayment("45344234",null);
