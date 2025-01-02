@@ -4,126 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6e12b2f-4b23-4acc-bfa6-15fd7020b2bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/.idea/libraries/lib.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/SOL.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/application/Address.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/application/Card.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/application/ChangeableButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/application/Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/application/Flavour.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/application/IngredientsMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/application/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/application/Order.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/application/Pair.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/application/Payment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/application/Pizza.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/application/PizzaInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/application/SaltyMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/application/SceneNavigator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/application/SharedControl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/application/SugaryMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/assets/image1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/assets/image2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/assets/image3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/controllers/ChooseFlavourController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/controllers/ChoosePizzaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/controllers/ChooseSaltyFlavourController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/controllers/ChooseSugaryFlavourController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/controllers/FinalController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/controllers/InitialController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/controllers/PaymentController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/controllers/ReviewController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/styles/Tela1.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/styles/Tela2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/styles/Tela3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/styles/Tela4.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/styles/Tela5.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/styles/Tela6.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/views/Tela1.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/views/Tela2.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/views/Tela3-1.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/views/Tela3-2.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/views/Tela4.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/views/Tela5.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/src/views/Tela6.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/tests/application/AddressTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/tests/application/CardTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/tests/application/ClientTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/tests/application/PaymentTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/tests/application/PizzaInfoTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/tests/application/PizzaTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/tests/application/SaltyMenuTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOL/tests/application/SugaryMenuTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/Diagrama-de-Classes.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/INF01120_grupo1_Etapa0.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/INF01120_grupo1_Etapa1.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/INF01120_grupo1_Etapa2_Relatorio.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/INF01120_grupo1_Etapa2_Slides.pdf.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/application.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/application/Address.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/application/Card.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/application/ChangeableButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/application/Client.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/application/Flavour.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/application/IngredientsMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/application/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/application/Order.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/application/Pair.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/application/Payment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/application/Pizza.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/application/PizzaInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/application/SaltyMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/application/SceneNavigator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/application/SharedControl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/application/SugaryMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/assets/image1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/assets/image2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/assets/image3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/ChooseFlavourController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/ChoosePizzaController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/ChooseSaltyFlavourController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/ChooseSugaryFlavourController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/FinalController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/InitialController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/PaymentController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/ReviewController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/ReviewController$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/ReviewController$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/ReviewController$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/ReviewController$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/controllers/ReviewController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/styles/Tela1.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/styles/Tela2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/styles/Tela3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/styles/Tela4.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/styles/Tela5.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/styles/Tela6.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/views/Tela1.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/views/Tela2.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/views/Tela3-1.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/views/Tela3-2.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/views/Tela4.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/views/Tela5.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SOL/views/Tela6.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/slice-of-life.iml" beforeDir="false" />
-    </list>
+    <list default="true" id="b6e12b2f-4b23-4acc-bfa6-15fd7020b2bf" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -183,7 +64,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1735845008577</updated>
-      <workItem from="1735845010125" duration="657000" />
+      <workItem from="1735845010125" duration="889000" />
     </task>
     <servers />
   </component>
