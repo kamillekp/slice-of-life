@@ -11,3 +11,30 @@ Já as controllers são responsáveis por controlar quais métodos de quais clas
 
 As classes Sugary, Salty e PizzaInfo usam como base a classe Pair, que recebe uma opção e um preço, servindo para que, ao querer mudar as opções ofertadas, não seja necessário alterar toda a interface, apenas os vetores que guardam as opções.
 
+## Organização para a etapa 3:
+
+Foi implementado um pipeline CI/CD utilizando o GitHub Actions. A build, a análise e o empacotamento do código são realizados automaticamente a cada push na branch main ou pull request dela. O processo de build do projeto é feito de forma automatizada através do Maven, garantindo que todas as dependências sejam resolvidas e que o projeto seja compilado corretamente antes de ser empacotado.
+
+## Como rodar a aplicação?
+**1)** Antes de rodar a aplicação, certifique-se de ter os seguintes requisitos instalados:
+
+[Java JDK 23](https://www.oracle.com/java/technologies/downloads/)
+[Maven](https://maven.apache.org/download.cgi)
+
+Depois de clonar o repositório, tendo os requisitos instalados e estando no diretório do projeto, execute o seguinte comando para instalar as dependências do projeto e compilá-lo:
+`mvn clean install -U`
+
+O projeto será compilado, todos os testes e a análise do código já serão executados
+
+A partir desse momento já é possível rodar a aplicação com o comando:
+`mvn javafx:run`
+
+**2)** Alternativamente, é possível executar o arquivo "slice-of-life-1.0-SNAPSHOT.one-jar.jar" localizado no diretório "target" com o seguinte comando:
+
+`java -jar target/slice-of-life-1.0-SNAPSHOT.one-jar.jar`
+
+É possível ainda empacotar a aplicação para criar seu próprio jar. Para isso é necessário ter o Maven e o JDK 23, então usar o seguinte comando:
+`mvn clean package`
+
+Isso vai gerar novamente o arquivo "slice-of-life-1.0-SNAPSHOT.one-jar.jar" na pasta "target", que pode ser executado com:
+`java -jar target/slice-of-life-1.0-SNAPSHOT.one-jar.jar`
