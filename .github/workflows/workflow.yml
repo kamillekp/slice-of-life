@@ -1,0 +1,56 @@
+name: JavaFX CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup JDK 23
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '23' # Projeto usa Java 23 no Maven Compiler Plugin
+
+      - name: Check Java version
+        run: java -version
+
+      - name: Check Maven version
+        run: mvn -version
+
+      - name: Get Maven dependencies and Build
+        run: mvn clean install -U
+
+      - name: Package with Maven
+        run: mvn clean package
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup JDK 23
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '23' # Projeto usa Java 23 no Maven Compiler Plugin
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: javafx-application
+          path: target/*.jar

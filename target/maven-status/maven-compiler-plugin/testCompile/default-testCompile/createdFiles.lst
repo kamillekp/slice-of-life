@@ -1,0 +1,8 @@
+application\PaymentTest.class
+application\CardTest.class
+application\AddressTest.class
+application\PizzaTest.class
+application\SugaryMenuTest.class
+application\SaltyMenuTest.class
+application\ClientTest.class
+application\PizzaInfoTest.class
