@@ -19,14 +19,17 @@ Foi implementado um pipeline CI/CD utilizando o GitHub Actions. A build, a anál
 **1)** Antes de rodar a aplicação, certifique-se de ter os seguintes requisitos instalados:
 
 [Java JDK 23](https://www.oracle.com/java/technologies/downloads/)
+
 [Maven](https://maven.apache.org/download.cgi)
 
 Depois de clonar o repositório, tendo os requisitos instalados e estando no diretório do projeto, execute o seguinte comando para instalar as dependências do projeto e compilá-lo:
+
 `mvn clean install -U`
 
 O projeto será compilado, todos os testes e a análise do código já serão executados
 
 A partir desse momento já é possível rodar a aplicação com o comando:
+
 `mvn javafx:run`
 
 **2)** Alternativamente, é possível executar o arquivo "slice-of-life-1.0-SNAPSHOT.one-jar.jar" localizado no diretório "target" com o seguinte comando:
@@ -34,7 +37,9 @@ A partir desse momento já é possível rodar a aplicação com o comando:
 `java -jar target/slice-of-life-1.0-SNAPSHOT.one-jar.jar`
 
 É possível ainda empacotar a aplicação para criar seu próprio jar. Para isso é necessário ter o Maven e o JDK 23, então usar o seguinte comando:
+
 `mvn clean package`
 
 Isso vai gerar novamente o arquivo "slice-of-life-1.0-SNAPSHOT.one-jar.jar" na pasta "target", que pode ser executado com:
+
 `java -jar target/slice-of-life-1.0-SNAPSHOT.one-jar.jar`
