@@ -143,10 +143,9 @@ public final class Pizza {
     public List<Flavour> getSaltyFlavours() {
         return this.getFlavors().stream().filter(f -> f.getType().equals("salgado")).toList();
     }
-    
-    public void print_num_flavours(){
+
+    /** Imprime o número de sabores na pizza. */
+    public void printNumFlavours() {
         System.out.println(this.numFlavor);
-
-
     }
 }
