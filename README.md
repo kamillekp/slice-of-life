@@ -16,7 +16,7 @@ As classes Sugary, Salty e PizzaInfo usam como base a classe Pair, que recebe um
 Foi implementado um pipeline CI/CD utilizando o GitHub Actions. A build, a análise e o empacotamento do código são realizados automaticamente a cada push na branch main ou pull request dela. O processo de build do projeto é feito de forma automatizada através do Maven, garantindo que todas as dependências sejam resolvidas e que o projeto seja compilado corretamente antes de ser empacotado.
 
 ## Como rodar a aplicação?
-**1)** Antes de rodar a aplicação, certifique-se de ter os seguintes requisitos instalados:
+**Alternativa 1)** Antes de rodar a aplicação, certifique-se de ter os seguintes requisitos instalados:
 
 [Java JDK 23](https://www.oracle.com/java/technologies/downloads/)
 
@@ -32,7 +32,11 @@ A partir desse momento já é possível rodar a aplicação com o comando:
 
 `mvn javafx:run`
 
-**2)** Alternativamente, é possível empacotar a aplicação para criar seu próprio jar. Para isso é necessário ter o Maven e o JDK 23, então usar o seguinte comando:
+**Alternativa 2)** Alternativamente, é possível clonar o repositório e executar diretamente o executável "slice-of-life-1.0-SNAPSHOT.one-jar.jar" localizado na pasta "target" com o comando:
+
+`java -jar target/slice-of-life-1.0-SNAPSHOT.one-jar.jar`
+
+**Alternativa 3)** É possível empacotar a criação para criar seu próprio .jar. Para isso é necessário ter o Maven e o JDK 23, então usar o seguinte comando:
 
 `mvn clean package`
 
@@ -40,6 +44,6 @@ Isso vai gerar novamente o arquivo "slice-of-life-1.0-SNAPSHOT.one-jar.jar" na p
 
 `java -jar target/slice-of-life-1.0-SNAPSHOT.one-jar.jar`
 
-**3)** Se quiser apenas o executável .jar, é possível baixá-lo na aba "Actions" do repositório. Nela, será possível ver todos os workflows executados. Clique no último que foi completado com sucesso (marcado com ✔). Na parte de Artifacts, baixe o arquivo "javafx-application". Descompacte o arquivo e execute:
+**Alternativa 4)** Se quiser apenas o executável .jar, é possível baixá-lo na aba "Actions" do repositório. Nela, será possível ver todos os workflows executados. Clique no último que foi completado com sucesso (marcado com ✔). Na parte de Artifacts, baixe o arquivo "javafx-application". Descompacte o arquivo e execute:
 
 `java -jar slice-of-life-1.0-SNAPSHOT.one-jar.jar`
