@@ -83,6 +83,7 @@ jobs:
   deploy:
     needs: package
     runs-on: ubuntu-latest
+
     if: github.ref == 'refs/heads/main'
 
 
@@ -100,4 +101,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: javafx-application
-          path: target/slice-of-life-1.0-SNAPSHOT.one-jar.jar
+          path: target/*.jar
