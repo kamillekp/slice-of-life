@@ -5,7 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6e12b2f-4b23-4acc-bfa6-15fd7020b2bf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/Pizza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/workflow.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/workflow.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application/Pizza.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application/Pizza.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/slice-of-life-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/slice-of-life-1.0-SNAPSHOT.one-jar.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-application.CardTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-application.CardTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-application.PizzaInfoTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-application.PizzaInfoTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-application.PizzaTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-application.PizzaTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-application.SaltyMenuTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-application.SaltyMenuTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-application.SugaryMenuTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-application.SugaryMenuTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/application.CardTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/application.CardTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/application.PizzaInfoTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/application.PizzaInfoTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/application.PizzaTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/application.PizzaTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/application.SaltyMenuTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/application.SaltyMenuTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/application.SugaryMenuTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/application.SugaryMenuTest.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +83,8 @@
       <option name="presentableId" value="Default" />
       <updated>1735845008577</updated>
       <workItem from="1735845010125" duration="889000" />
-      <workItem from="1735845919880" duration="881000" />
+      <workItem from="1735845919880" duration="1492000" />
+      <workItem from="1736001833559" duration="1441000" />
     </task>
     <servers />
   </component>

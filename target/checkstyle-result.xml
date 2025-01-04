@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="9.3">
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\application\Address.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\application\Card.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\application\ChangeableButton.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\application\Client.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\application\Flavour.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\application\IngredientsMenu.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\application\Main.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\application\Order.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\application\package-info.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\application\Pair.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\application\Payment.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\application\Pizza.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\application\PizzaInfo.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\application\SaltyMenu.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\application\SceneNavigator.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\application\SharedControl.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\application\SugaryMenu.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\controllers\ChooseFlavourController.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\controllers\ChoosePizzaController.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\controllers\ChooseSaltyFlavourController.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\controllers\ChooseSugaryFlavourController.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\controllers\FinalController.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\controllers\InitialController.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\controllers\package-info.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\controllers\PaymentController.java">
+</file>
+<file name="C:\Users\Eduardo\Documents\GitHub\slice-of-life\src\main\java\controllers\ReviewController.java">
+</file>
+</checkstyle>
