@@ -59,10 +59,9 @@ jobs:
       - name: Run Checkstyle
         run: mvn checkstyle:check
 
-  package_and_deploy:
-    needs: checkstyle
+  package:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    needs: checkstyle
 
     steps:
       - name: Checkout repository
@@ -74,11 +73,28 @@ jobs:
           distribution: 'temurin'
           java-version: '23' # Projeto usa Java 23 no Maven Compiler Plugin
 
-      - name: Install all dependencies
+      - name: Get Maven dependencies and Build
         run: mvn clean install -U
 
-      - name: Package project
-        run: mvn clean package -DskipTests
+      - name: Package with Maven
+        run: mvn clean package
+
+
+  deploy:
+    needs: package
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup JDK 23
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '23' # Projeto usa Java 23 no Maven Compiler Plugin
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
