@@ -1,0 +1,114 @@
+.table-view {
+   -fx-background-color: #E0E0E0;
+   -fx-border-color: transparent;
+}
+
+
+.table-view .scroll-bar:vertical {
+    -fx-opacity: 0;          /* Torna a barra de rolagem invisível */
+    -fx-padding: 0;          /* Remove o espaçamento ao redor da barra */
+    -fx-background-color: transparent; /* Remove qualquer fundo */
+    -fx-border-color: transparent;     /* Remove qualquer borda */
+    -fx-min-width: 0;
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+    -fx-max-height: 0;
+}
+
+.table-view .scroll-bar:horizontal{
+    -fx-opacity: 0;          /* Torna a barra de rolagem invisível */
+    -fx-padding: 0;          /* Remove o espaçamento ao redor da barra */
+    -fx-background-color: transparent; /* Remove qualquer fundo */
+    -fx-border-color: transparent;     /* Remove qualquer borda */
+    -fx-min-width: 0;
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+    -fx-max-height: 0;
+}
+
+.table-column{
+	-fx-background-color: #E0E0E0;
+	-fx-border-color: transparent;
+	-fx-alignment: CENTER;
+    -fx-text-fill: black;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #000000; /* Texto preto */
+}
+
+
+
+
+#orderTable .column-header-background{
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+    -fx-max-height: 0;
+}
+
+
+.changePageButton{
+    -fx-font-size: 20px;
+	-fx-background-color:  #388E3C;
+}
+
+.changePageButton:hover{
+    -fx-background-color: #2E7D32;
+    -fx-cursor: hand;
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+#button_extra_pizza{
+    -fx-font-size: 30px;
+}
+
+#button_extra_pizza:hover{
+    -fx-cursor: hand;
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.removeButton {
+    -fx-background-color: #C62828;
+    -fx-text-fill: white;
+    -fx-padding: 0;
+    -fx-min-width: 20px;
+}
+
+.removeButton:hover{
+    -fx-background-color: #c0392b;
+    -fx-cursor: hand;
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+
+.editButton {
+    -fx-background-color:  #388E3C;
+    -fx-text-fill: white;
+}
+
+.editButton:hover{
+    -fx-background-color: #2E7D32;
+    -fx-cursor: hand;
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+
+.editPaymentButton:hover{
+    -fx-cursor: hand;
+}
+
+
+
+
+
