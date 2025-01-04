@@ -81,4 +81,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: javafx-application
-          path: target/slice-of-life-1.0-SNAPSHOT.jar
+          path: target/slice-of-life-1.0-SNAPSHOT.one-jar.jar
