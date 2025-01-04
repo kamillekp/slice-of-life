@@ -74,6 +74,9 @@ jobs:
           distribution: 'temurin'
           java-version: '23' # Projeto usa Java 23 no Maven Compiler Plugin
 
+      - name: Install all dependencies
+        run: mvn clean install -U
+
       - name: Package project
         run: mvn clean package -DskipTests
 
