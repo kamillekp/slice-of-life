@@ -57,7 +57,7 @@ jobs:
           java-version: '23'
 
       - name: Run Checkstyle
-        run: mvn checkstyle:checkstyle
+        run: mvn checkstyle:check
 
   package_and_deploy:
     needs: checkstyle
@@ -81,4 +81,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: javafx-application
-          path: target/*.jar
+          path: target/slice-of-life-1.0-SNAPSHOT.jar
