@@ -12,8 +12,6 @@ public class Card {
     private String number;
     /** cvv do cartão. */
     private String cvv;
-    /** a */
-    public String a;
     /**
      * Construtor para inicializar o cartão com nome, validade, número e CVV.
      *
@@ -87,12 +85,5 @@ public class Card {
      */
     public void printName() {
         System.out.println("Titular: " + name);
-    }
-
-    public void print_cvv() {
-        switch(cvv){
-            case "A":
-                System.out.println("CVV: " + cvv);
-        }
     }
 }
