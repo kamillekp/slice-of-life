@@ -463,7 +463,7 @@ public class ReviewController {
 					sharedControl.setPizza(pizza);
 					sharedControl.setEditingAddedPizza(true);
 
-					SceneNavigator.navigateTo("/views/tela2.fxml", "/styles/tela2.css");
+					SceneNavigator.navigateTo("/views/Tela2.fxml", "/styles/Tela2.css");
 				});
 
 
