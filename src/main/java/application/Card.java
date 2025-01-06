@@ -76,11 +76,11 @@ public class Card {
     public void print() {
         System.out.println("Name: " + name);
         System.out.println("Validity: " + validity);
-        System.out.println("Number: " + validity);
+        System.out.println("Number: " + number);
         System.out.println("CVV: " + cvv);
     }
 
-    
+
     public void print_validity() {
         System.out.println("Validity: " + validity);
     }
