@@ -76,11 +76,9 @@ public class Card {
     public void print() {
         System.out.println("Name: " + name);
         System.out.println("Validity: " + validity);
-        System.out.println("Number: " + number);
+        System.out.println("Number: " + validity);
         System.out.println("CVV: " + cvv);
     }
-
-    a
 
     /**
      * Exibe o nome do titular do cartão.
